@@ -78,7 +78,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/11/26/first/">first</a>
+      <a class="article-title" href="/2020/11/26/first/">最长字串</a>
     </h1>
   
 
@@ -86,7 +86,34 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="wo-cao"><a href="#wo-cao" class="headerlink" title="wo cao"></a>wo cao</h2><pre><code>wo caso d</code></pre>
+        <h3 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h3><ul>
+<li><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/">给定一个字符串，请你找出其中不含有重复字符的 <strong>最长子串</strong> 的长度</a></p>
+<p><strong>输入实例</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入: s &#x3D; &quot;abcabcbb&quot;</span><br><span class="line">输出: 3 </span><br><span class="line">解释: 因为无重复字符的最长子串是 &quot;abc&quot;，所以其长度 3</span><br></pre></td></tr></table></figure>
+
+<p><strong>思路</strong></p>
+<p>​    采用滑动窗口的思想，设置两个指针，一个指针<strong>i</strong>指向左边，一个指针<strong>rk</strong> 指向右边，此时最长的字符字串为<strong>s[i]s[i+1]…s[rk]</strong></p>
+<p>，此时长度为<strong>rk-i+1</strong>。具体思路如下所示:</p>
+<ol>
+<li><p>abcabcbb,首先i指针指向第一个字符，可以得到最长的无重复字符字串为(abc)abcbb, ()表示最长的无重复字符字串。</p>
+</li>
+<li><p>abcabcbb a(bca)bcbb</p>
+</li>
+<li><p>abcabcbb,ab(cab)cbb</p>
+</li>
+<li><p>abcabcbb,abc(abc)bb</p>
+</li>
+<li><p>abcabcbb,abca(bc)bb</p>
+</li>
+<li><p>abcabcbb,abcab(cb)b</p>
+</li>
+<li><p>abcabcbb,abcabcb(b)</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">lengthOfLongestSubstring</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">set</span>&lt;<span class="keyword">char</span>&gt; check;</span><br><span class="line">        <span class="keyword">int</span> res = <span class="number">0</span> ;</span><br><span class="line">        <span class="keyword">int</span> rk = <span class="number">-1</span>, left = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; s.size(); i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (i != <span class="number">0</span>) &#123;</span><br><span class="line">                check.erase(s[i<span class="number">-1</span>]);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">while</span> (rk + <span class="number">1</span> &lt; s.size() &amp;&amp; check.count(s[rk + <span class="number">1</span>]) == <span class="number">0</span>)&#123;</span><br><span class="line">                check.insert(s[rk + <span class="number">1</span>]);</span><br><span class="line">                ++rk;</span><br><span class="line">            &#125;</span><br><span class="line">            res = max(res, rk - i + <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+</li>
+</ul>
 
       
     </div>
@@ -94,6 +121,8 @@
       <a data-url="http://example.com/2020/11/26/first/" data-id="ckhylmkja0000osu5grqd9c6m" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li></ul>
+
     </footer>
   </div>
   
@@ -160,9 +189,23 @@
 
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li></ul>
+    </div>
+  </div>
+
 
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/leetcode/" style="font-size: 10px;">leetcode</a>
+    </div>
+  </div>
+
   
     
   <div class="widget-wrap">
@@ -181,7 +224,7 @@
       <ul>
         
           <li>
-            <a href="/2020/11/26/first/">first</a>
+            <a href="/2020/11/26/first/">最长字串</a>
           </li>
         
           <li>
