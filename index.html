@@ -86,23 +86,27 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="记录一下linux常用操作"><a href="#记录一下linux常用操作" class="headerlink" title="记录一下linux常用操作"></a>记录一下linux常用操作</h1><h2 id="centos-8-上的换源"><a href="#centos-8-上的换源" class="headerlink" title="centos 8 上的换源"></a>centos 8 上的换源</h2><pre><code> 1 使用命令cd /etc/yum.repos.d, 进入源文件所在目录.
+        <h1 id="记录一下linux常用操作">记录一下linux常用操作</h1>
+<h2 id="centos-8-上的换源">centos 8 上的换源</h2>
+<pre><code> 1 使用命令cd /etc/yum.repos.d, 进入源文件所在目录.
  2 然后将之前的源文件备份一下，cp CentOS-Base.repo CentOS-Base.repo.back
  3 再使用wget下载源文件，wget -O CentOS-Base.repo https://mirrors.aliyun.com/repo/Centos-8.repo
  4 yum makecache
- 5 yum update
-</code></pre><h2 id="记录常见错误，以及解决方法"><a href="#记录常见错误，以及解决方法" class="headerlink" title="记录常见错误，以及解决方法"></a>记录常见错误，以及解决方法</h2><h3 id="常见错误1，xxx不在sudoers文件中"><a href="#常见错误1，xxx不在sudoers文件中" class="headerlink" title="常见错误1，xxx不在sudoers文件中"></a>常见错误1，xxx不在sudoers文件中</h3><pre><code>例如在shell终端输入sudo yum install vim， 此时报错字样为：henry is not in the sudoers file.  This incident will be reported.
+ 5 yum update</code></pre>
+<h2 id="记录常见错误以及解决方法">记录常见错误，以及解决方法</h2>
+<h3 id="常见错误1xxx不在sudoers文件中">常见错误1，xxx不在sudoers文件中</h3>
+<pre><code>例如在shell终端输入sudo yum install vim， 此时报错字样为：henry is not in the sudoers file.  This incident will be reported.
 解决办法：
 1.首先进入root用户下，在shell终端输入su，然后输入用户密码。
 2.添加sudo文件的写权限,命令是:chmod u+w /etc/sudoers
 3.编辑sudoers文件，命令vim /etc/sudoers
 4.找到这行 root ALL=(ALL) ALL,在他下面添加xxx ALL=(ALL) ALL (这里的xxx是你的用户名)
-完成！
-</code></pre>
+完成！</code></pre>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/12/01/centos/" data-id="cki5r5tys0000mku52zogh7x9" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/12/01/centos/" data-id="cki5x49oi0001gku5ens70yw4" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li></ul>
@@ -152,7 +156,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/12/01/binarySearch/" data-id="cki5q1cw3000088u5e7rccvga" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/12/01/binarySearch/" data-id="cki5x49oe0000gku55zchawg2" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li></ul>
@@ -207,7 +211,7 @@ D = [ 0, 2]
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/11/29/fourSumCount/" data-id="cki2vgsxs0000mku53x74c3i3" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/11/29/fourSumCount/" data-id="cki5x49ox000bgku57ngxdrhq" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li></ul>
@@ -241,68 +245,43 @@ D = [ 0, 2]
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Chapter-2"><a href="#Chapter-2" class="headerlink" title="Chapter 2"></a>Chapter 2</h1><h2 id="convex-set"><a href="#convex-set" class="headerlink" title="convex set"></a>convex set</h2><h3 id="2-1-Affine-and-convex-set"><a href="#2-1-Affine-and-convex-set" class="headerlink" title="2.1 Affine and convex set"></a>2.1 Affine and convex set</h3><h4 id="2-1-1-Lines-and-line-segment"><a href="#2-1-1-Lines-and-line-segment" class="headerlink" title="2.1.1 Lines and line segment"></a>2.1.1 Lines and line segment</h4><h4 id="2-1-2-Affine-sets"><a href="#2-1-2-Affine-sets" class="headerlink" title="2.1.2 Affine sets"></a>2.1.2 Affine sets</h4><p>​    A set $C \in R^n$ is <strong>affine</strong> if the line through any two distinct points in C lies in C. We refer to a point of the form<br>$ \theta_1x_1+\dots+\theta_k x_k$, where $\theta_1+\dots+\theta_k=1 $, as an affine combination of points $x_1,\dots,x_k$. If C is an affine set, $x_1,\dots,x_k \in C$ and$\theta_1+\dots+\theta_k=1$,then the point $\theta_1x_1+\dots+\theta_k x_k$ also belongs to C.</p>
-<p>​    The set of all affine combinations of points in some $C\subseteq R^n$ is called the <strong>affine hull（仿射包）</strong>of C, and denoted <strong>aff</strong> C:</p>
-<script type="math/tex; mode=display">
-aff\quad C = \{\theta_1x_1+\dots+\theta_k x_k | x_1, \dots,x_k \in C, \theta_1+\dots+\theta_k=1\}</script><p>The affine hull is the smallest affine set that contains C.</p>
-<h4 id="2-1-3-Affine-dimension-and-relative-interior"><a href="#2-1-3-Affine-dimension-and-relative-interior" class="headerlink" title="2.1.3 Affine dimension and relative interior"></a>2.1.3 Affine dimension and relative interior</h4><p>​    The <strong>affine dimension</strong> of a set C as the dimension of its affine hull.</p>
-<p>​    The <strong>relative interior</strong> of a set C is denoted <strong>relint C</strong>,as its interior relative to <strong>aff C</strong>:</p>
-<script type="math/tex; mode=display">
-relint \quad C=\{x\in C|B(x,r) \cap aff \quad C \subseteq C \quad for \quad some \quad r>0\}</script><p>where $B(r,x)={ y| ||y-x|| \le r}$.</p>
-<p>​    The <strong>relative boundary</strong> of a set C as cl C \ relint C, where cl C is the closure of C.</p>
-<h4 id="2-1-4-Convex-set"><a href="#2-1-4-Convex-set" class="headerlink" title="2.1.4 Convex set"></a>2.1.4 Convex set</h4><p>​    A set C is convex if the line segment between any two point in C lies in C. i.e., if any $x_1,x_2 \in C$ and any $\theta \in [0,1]$, we have  $\theta x_1+(1-\theta)x_2 \in C$.</p>
-<p>​    We call a point of the from $\theta_1x_1+\dots+\theta_k x_k$, where $\theta_1+\dots+\theta_k=1$ and $\theta_i \ge 0, i=1,\dots,k$, a convex combination of the points  $x_1,\dots,x_k$.</p>
-<p>​    The convex hull of a set C,denoted <strong>conv C</strong>, is the set of all convex combinations  of points in C：</p>
-<script type="math/tex; mode=display">
-convC=\{\theta_1x_1+\dots+\theta_k x_k | x_1, \dots,x_k \in C, \theta_1+\dots+\theta_k=1, \theta_i \ge 0, i=1,\dots,k\}</script><h4 id="2-1-5-Cones"><a href="#2-1-5-Cones" class="headerlink" title="2.1.5 Cones"></a>2.1.5 Cones</h4><p>​    A set C is called a cone, if for every $x \in C$  and $\theta \ge 0$,we have $\theta x \in C$. A set C is convex cone if it is convex and a cone.</p>
-<h3 id="2-2"><a href="#2-2" class="headerlink" title="2.2"></a>2.2</h3><h4 id="2-2-1-Hyperplanes-and-halfspaces"><a href="#2-2-1-Hyperplanes-and-halfspaces" class="headerlink" title="2.2.1 Hyperplanes and halfspaces"></a>2.2.1 Hyperplanes and halfspaces</h4><p>​    A hyperplane is a set of the form ${x|a^Tx=b}$, where $a\in R^n,a\ne 0$ and $b\in R$. It also has the form ${x|a^T(x-x_0)=0}$, where $x_0$is any point in the hyperplane(any point satisfies $a^Tb=0$).</p>
-<h4 id="2-2-2-Euclidean-balls-and-ellipsoids"><a href="#2-2-2-Euclidean-balls-and-ellipsoids" class="headerlink" title="2.2.2 Euclidean balls and ellipsoids"></a>2.2.2 Euclidean balls and ellipsoids</h4><p>​    A ball in $R^n$ has the form $B(x_c,r)={x| \quad\left|x-x_c\right|_2\le r  }={x| (x-x_c)^T(x-x_c) \le r^2}$</p>
-<h4 id="2-2-3-Norm-balls-and-norm-cones"><a href="#2-2-3-Norm-balls-and-norm-cones" class="headerlink" title="2.2.3 Norm balls and norm cones"></a>2.2.3 Norm balls and norm cones</h4><p>​    A norm ball associated with the norm $\left |·\right |$ is the set ${x | \left|x-x_c\right| \le r}$.</p>
-<p>​    A norm cones associated with the norm  $\left |·\right |$ is the set ${(x,t) | \left|x\right| \le t}$.</p>
+        <h1 id="chapter-2">Chapter 2</h1>
+<h2 id="convex-set">convex set</h2>
+<h3 id="affine-and-convex-set">2.1 Affine and convex set</h3>
+<h4 id="lines-and-line-segment">2.1.1 Lines and line segment</h4>
+<h4 id="affine-sets">2.1.2 Affine sets</h4>
+<p>​ A set <span class="math inline">\(C \in R^n\)</span> is <strong>affine</strong> if the line through any two distinct points in C lies in C. We refer to a point of the form $ _1x_1++_k x_k$, where $_1++_k=1 $, as an affine combination of points <span class="math inline">\(x_1,\dots,x_k\)</span>. If C is an affine set, <span class="math inline">\(x_1,\dots,x_k \in C\)</span> and<span class="math inline">\(\theta_1+\dots+\theta_k=1\)</span>,then the point <span class="math inline">\(\theta_1x_1+\dots+\theta_k x_k\)</span> also belongs to C.</p>
+<p>​ The set of all affine combinations of points in some <span class="math inline">\(C\subseteq R^n\)</span> is called the <strong>affine hull（仿射包）</strong>of C, and denoted <strong>aff</strong> C: <span class="math display">\[
+aff\quad C = \{\theta_1x_1+\dots+\theta_k x_k | x_1, \dots,x_k \in C, \theta_1+\dots+\theta_k=1\}
+\]</span> The affine hull is the smallest affine set that contains C.</p>
+<h4 id="affine-dimension-and-relative-interior">2.1.3 Affine dimension and relative interior</h4>
+<p>​ The <strong>affine dimension</strong> of a set C as the dimension of its affine hull.</p>
+<p>​ The <strong>relative interior</strong> of a set C is denoted <strong>relint C</strong>,as its interior relative to <strong>aff C</strong>: <span class="math display">\[
+relint \quad C=\{x\in C|B(x,r) \cap aff \quad C \subseteq C \quad for \quad some \quad r&gt;0\}
+\]</span> where <span class="math inline">\(B(r,x)=\{ y| ||y-x|| \le r\}\)</span>.</p>
+<p>​ The <strong>relative boundary</strong> of a set C as cl C  relint C, where cl C is the closure of C.</p>
+<h4 id="convex-set-1">2.1.4 Convex set</h4>
+<p>​ A set C is convex if the line segment between any two point in C lies in C. i.e., if any <span class="math inline">\(x_1,x_2 \in C\)</span> and any <span class="math inline">\(\theta \in [0,1]\)</span>, we have <span class="math inline">\(\theta x_1+(1-\theta)x_2 \in C\)</span>.</p>
+<p>​ We call a point of the from <span class="math inline">\(\theta_1x_1+\dots+\theta_k x_k\)</span>, where <span class="math inline">\(\theta_1+\dots+\theta_k=1\)</span> and <span class="math inline">\(\theta_i \ge 0, i=1,\dots,k\)</span>, a convex combination of the points <span class="math inline">\(x_1,\dots,x_k\)</span>.</p>
+<p>​ The convex hull of a set C,denoted <strong>conv C</strong>, is the set of all convex combinations of points in C：</p>
+<p><span class="math display">\[
+convC=\{\theta_1x_1+\dots+\theta_k x_k | x_1, \dots,x_k \in C, \theta_1+\dots+\theta_k=1, \theta_i \ge 0, i=1,\dots,k\}
+\]</span></p>
+<h4 id="cones">2.1.5 Cones</h4>
+<p>​ A set C is called a cone, if for every <span class="math inline">\(x \in C\)</span> and <span class="math inline">\(\theta \ge 0\)</span>,we have <span class="math inline">\(\theta x \in C\)</span>. A set C is convex cone if it is convex and a cone.</p>
+<h3 id="section">2.2</h3>
+<h4 id="hyperplanes-and-halfspaces">2.2.1 Hyperplanes and halfspaces</h4>
+<p>​ A hyperplane is a set of the form <span class="math inline">\(\{x|a^Tx=b\}\)</span>, where <span class="math inline">\(a\in R^n,a\ne 0\)</span> and <span class="math inline">\(b\in R\)</span>. It also has the form <span class="math inline">\(\{x|a^T(x-x_0)=0\}\)</span>, where <span class="math inline">\(x_0\)</span>is any point in the hyperplane(any point satisfies <span class="math inline">\(a^Tb=0\)</span>).</p>
+<h4 id="euclidean-balls-and-ellipsoids">2.2.2 Euclidean balls and ellipsoids</h4>
+<p>​ A ball in <span class="math inline">\(R^n\)</span> has the form <span class="math inline">\(B(x_c,r)=\{x| \quad\left\|x-x_c\right\|_2\le r \}=\{x| (x-x_c)^T(x-x_c) \le r^2\}\)</span></p>
+<h4 id="norm-balls-and-norm-cones">2.2.3 Norm balls and norm cones</h4>
+<p>​ A norm ball associated with the norm <span class="math inline">\(\left \|·\right \|\)</span> is the set <span class="math inline">\(\{x | \left\|x-x_c\right\| \le r\}\)</span>.</p>
+<p>​ A norm cones associated with the norm <span class="math inline">\(\left \|·\right \|\)</span> is the set <span class="math inline">\(\{(x,t) | \left\|x\right\| \le t\}\)</span>.</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/11/27/convex-opt/" data-id="cki00f9eu0001igu51scw01f4" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/math/" rel="tag">math</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Householder" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/11/27/Householder/" class="article-date">
-  <time datetime="2020-11-27T08:15:50.000Z" itemprop="datePublished">2020-11-27</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/11/27/Householder/">Householder</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="householder分解">Householder分解</h2>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2020/11/27/Householder/" data-id="cki2uklr40000mcu5d2l8520w" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/11/27/convex-opt/" data-id="cki5x49ol0003gku5e750h8xf" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/math/" rel="tag">math</a></li></ul>
@@ -336,37 +315,30 @@ convC=\{\theta_1x_1+\dots+\theta_k x_k | x_1, \dots,x_k \in C, \theta_1+\dots+\t
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h3><ul>
+        <h3 id="字符串">字符串</h3>
+<ul>
 <li><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/">给定一个字符串，请你找出其中不含有重复字符的 <strong>最长子串</strong> 的长度</a></p>
 <p><strong>输入实例</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入: s &#x3D; &quot;abcabcbb&quot;</span><br><span class="line">输出: 3 </span><br><span class="line">解释: 因为无重复字符的最长子串是 &quot;abc&quot;，所以其长度 3</span><br></pre></td></tr></table></figure>
-</li>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入: s &#x3D; &quot;abcabcbb&quot;</span><br><span class="line">输出: 3 </span><br><span class="line">解释: 因为无重复字符的最长子串是 &quot;abc&quot;，所以其长度 3</span><br></pre></td></tr></table></figure></li>
 </ul>
 <p><strong>思路</strong></p>
-<p>​    采用滑动窗口的思想，设置两个指针，一个指针<strong>i</strong>指向左边，一个指针<strong>rk</strong> 指向右边，此时最长的字符字串为<strong>s[i]s[i+1]…s[rk]</strong></p>
+<p>​ 采用滑动窗口的思想，设置两个指针，一个指针<strong>i</strong>指向左边，一个指针<strong>rk</strong> 指向右边，此时最长的字符字串为<strong>s[i]s[i+1]...s[rk]</strong></p>
 <p>，此时长度为<strong>rk-i+1</strong>。具体思路如下所示:</p>
-<ol>
-<li><p>abcabcbb,首先i指针指向第一个字符，可以得到最长的无重复字符字串为(abc)abcbb, ()表示最长的无重复字符字串。</p>
-</li>
-<li><p>abcabcbb a(bca)bcbb</p>
-</li>
-<li><p>abcabcbb,ab(cab)cbb</p>
-</li>
-<li><p>abcabcbb,abc(abc)bb</p>
-</li>
-<li><p>abcabcbb,abca(bc)bb</p>
-</li>
-<li><p>abcabcbb,abcab(cb)b</p>
-</li>
+<ol type="1">
+<li><p>abcabcbb,首先i指针指向第一个字符，可以得到最长的无重复字符字串为(abc)abcbb, ()表示最长的无重复字符字串。</p></li>
+<li><p>abcabcbb a(bca)bcbb</p></li>
+<li><p>abcabcbb,ab(cab)cbb</p></li>
+<li><p>abcabcbb,abc(abc)bb</p></li>
+<li><p>abcabcbb,abca(bc)bb</p></li>
+<li><p>abcabcbb,abcab(cb)b</p></li>
 <li><p>abcabcbb,abcabcb(b)</p>
-  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">lengthOfLongestSubstring</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">set</span>&lt;<span class="keyword">char</span>&gt; check;</span><br><span class="line">        <span class="keyword">int</span> res = <span class="number">0</span> ;</span><br><span class="line">        <span class="keyword">int</span> rk = <span class="number">-1</span>, left = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; s.size(); i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (i != <span class="number">0</span>) &#123;</span><br><span class="line">                check.erase(s[i<span class="number">-1</span>]);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">while</span> (rk + <span class="number">1</span> &lt; s.size() &amp;&amp; check.count(s[rk + <span class="number">1</span>]) == <span class="number">0</span>)&#123;</span><br><span class="line">                check.insert(s[rk + <span class="number">1</span>]);</span><br><span class="line">                ++rk;</span><br><span class="line">            &#125;</span><br><span class="line">            res = max(res, rk - i + <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-</li>
+<p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">lengthOfLongestSubstring</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">set</span>&lt;<span class="keyword">char</span>&gt; check;</span><br><span class="line">        <span class="keyword">int</span> res = <span class="number">0</span> ;</span><br><span class="line">        <span class="keyword">int</span> rk = <span class="number">-1</span>, left = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; s.size(); i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (i != <span class="number">0</span>) &#123;</span><br><span class="line">                check.erase(s[i<span class="number">-1</span>]);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">while</span> (rk + <span class="number">1</span> &lt; s.size() &amp;&amp; check.count(s[rk + <span class="number">1</span>]) == <span class="number">0</span>)&#123;</span><br><span class="line">                check.insert(s[rk + <span class="number">1</span>]);</span><br><span class="line">                ++rk;</span><br><span class="line">            &#125;</span><br><span class="line">            res = max(res, rk - i + <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p></li>
 </ol>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/11/26/first/" data-id="ckhylmkja0000osu5grqd9c6m" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/11/26/first/" data-id="cki5x49on0004gku53u5mck00" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li></ul>
@@ -401,7 +373,7 @@ convC=\{\theta_1x_1+\dots+\theta_k x_k | x_1, \dots,x_k \in C, \theta_1+\dots+\t
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/leetcode/" style="font-size: 20px;">leetcode</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/math/" style="font-size: 15px;">math</a>
+      <a href="/tags/leetcode/" style="font-size: 20px;">leetcode</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/math/" style="font-size: 10px;">math</a>
     </div>
   </div>
 
@@ -439,7 +411,7 @@ convC=\{\theta_1x_1+\dots+\theta_k x_k | x_1, \dots,x_k \in C, \theta_1+\dots+\t
           </li>
         
           <li>
-            <a href="/2020/11/27/Householder/">Householder</a>
+            <a href="/2020/11/26/first/">最长字串</a>
           </li>
         
       </ul>

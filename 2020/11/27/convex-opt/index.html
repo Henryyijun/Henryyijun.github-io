@@ -7,15 +7,15 @@
   
   <title>convex-optimization | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Chapter 2convex set2.1 Affine and convex set2.1.1 Lines and line segment2.1.2 Affine sets​    A set $C \in R^n$ is affine if the line through any two distinct points in C lies in C. We refer to a poin">
+  <meta name="description" content="Chapter 2 convex set 2.1 Affine and convex set 2.1.1 Lines and line segment 2.1.2 Affine sets ​ A set \(C \in R^n\) is affine if the line through any two distinct points in C lies in C. We refer">
 <meta property="og:type" content="article">
 <meta property="og:title" content="convex-optimization">
 <meta property="og:url" content="http://example.com/2020/11/27/convex-opt/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Chapter 2convex set2.1 Affine and convex set2.1.1 Lines and line segment2.1.2 Affine sets​    A set $C \in R^n$ is affine if the line through any two distinct points in C lies in C. We refer to a poin">
+<meta property="og:description" content="Chapter 2 convex set 2.1 Affine and convex set 2.1.1 Lines and line segment 2.1.2 Affine sets ​ A set \(C \in R^n\) is affine if the line through any two distinct points in C lies in C. We refer">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-11-27T08:19:45.000Z">
-<meta property="article:modified_time" content="2020-11-27T08:40:43.484Z">
+<meta property="article:modified_time" content="2020-11-27T08:44:02.861Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="math">
 <meta name="twitter:card" content="summary">
@@ -89,29 +89,43 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Chapter-2"><a href="#Chapter-2" class="headerlink" title="Chapter 2"></a>Chapter 2</h1><h2 id="convex-set"><a href="#convex-set" class="headerlink" title="convex set"></a>convex set</h2><h3 id="2-1-Affine-and-convex-set"><a href="#2-1-Affine-and-convex-set" class="headerlink" title="2.1 Affine and convex set"></a>2.1 Affine and convex set</h3><h4 id="2-1-1-Lines-and-line-segment"><a href="#2-1-1-Lines-and-line-segment" class="headerlink" title="2.1.1 Lines and line segment"></a>2.1.1 Lines and line segment</h4><h4 id="2-1-2-Affine-sets"><a href="#2-1-2-Affine-sets" class="headerlink" title="2.1.2 Affine sets"></a>2.1.2 Affine sets</h4><p>​    A set $C \in R^n$ is <strong>affine</strong> if the line through any two distinct points in C lies in C. We refer to a point of the form<br>$ \theta_1x_1+\dots+\theta_k x_k$, where $\theta_1+\dots+\theta_k=1 $, as an affine combination of points $x_1,\dots,x_k$. If C is an affine set, $x_1,\dots,x_k \in C$ and$\theta_1+\dots+\theta_k=1$,then the point $\theta_1x_1+\dots+\theta_k x_k$ also belongs to C.</p>
-<p>​    The set of all affine combinations of points in some $C\subseteq R^n$ is called the <strong>affine hull（仿射包）</strong>of C, and denoted <strong>aff</strong> C:</p>
-<script type="math/tex; mode=display">
-aff\quad C = \{\theta_1x_1+\dots+\theta_k x_k | x_1, \dots,x_k \in C, \theta_1+\dots+\theta_k=1\}</script><p>The affine hull is the smallest affine set that contains C.</p>
-<h4 id="2-1-3-Affine-dimension-and-relative-interior"><a href="#2-1-3-Affine-dimension-and-relative-interior" class="headerlink" title="2.1.3 Affine dimension and relative interior"></a>2.1.3 Affine dimension and relative interior</h4><p>​    The <strong>affine dimension</strong> of a set C as the dimension of its affine hull.</p>
-<p>​    The <strong>relative interior</strong> of a set C is denoted <strong>relint C</strong>,as its interior relative to <strong>aff C</strong>:</p>
-<script type="math/tex; mode=display">
-relint \quad C=\{x\in C|B(x,r) \cap aff \quad C \subseteq C \quad for \quad some \quad r>0\}</script><p>where $B(r,x)={ y| ||y-x|| \le r}$.</p>
-<p>​    The <strong>relative boundary</strong> of a set C as cl C \ relint C, where cl C is the closure of C.</p>
-<h4 id="2-1-4-Convex-set"><a href="#2-1-4-Convex-set" class="headerlink" title="2.1.4 Convex set"></a>2.1.4 Convex set</h4><p>​    A set C is convex if the line segment between any two point in C lies in C. i.e., if any $x_1,x_2 \in C$ and any $\theta \in [0,1]$, we have  $\theta x_1+(1-\theta)x_2 \in C$.</p>
-<p>​    We call a point of the from $\theta_1x_1+\dots+\theta_k x_k$, where $\theta_1+\dots+\theta_k=1$ and $\theta_i \ge 0, i=1,\dots,k$, a convex combination of the points  $x_1,\dots,x_k$.</p>
-<p>​    The convex hull of a set C,denoted <strong>conv C</strong>, is the set of all convex combinations  of points in C：</p>
-<script type="math/tex; mode=display">
-convC=\{\theta_1x_1+\dots+\theta_k x_k | x_1, \dots,x_k \in C, \theta_1+\dots+\theta_k=1, \theta_i \ge 0, i=1,\dots,k\}</script><h4 id="2-1-5-Cones"><a href="#2-1-5-Cones" class="headerlink" title="2.1.5 Cones"></a>2.1.5 Cones</h4><p>​    A set C is called a cone, if for every $x \in C$  and $\theta \ge 0$,we have $\theta x \in C$. A set C is convex cone if it is convex and a cone.</p>
-<h3 id="2-2"><a href="#2-2" class="headerlink" title="2.2"></a>2.2</h3><h4 id="2-2-1-Hyperplanes-and-halfspaces"><a href="#2-2-1-Hyperplanes-and-halfspaces" class="headerlink" title="2.2.1 Hyperplanes and halfspaces"></a>2.2.1 Hyperplanes and halfspaces</h4><p>​    A hyperplane is a set of the form ${x|a^Tx=b}$, where $a\in R^n,a\ne 0$ and $b\in R$. It also has the form ${x|a^T(x-x_0)=0}$, where $x_0$is any point in the hyperplane(any point satisfies $a^Tb=0$).</p>
-<h4 id="2-2-2-Euclidean-balls-and-ellipsoids"><a href="#2-2-2-Euclidean-balls-and-ellipsoids" class="headerlink" title="2.2.2 Euclidean balls and ellipsoids"></a>2.2.2 Euclidean balls and ellipsoids</h4><p>​    A ball in $R^n$ has the form $B(x_c,r)={x| \quad\left|x-x_c\right|_2\le r  }={x| (x-x_c)^T(x-x_c) \le r^2}$</p>
-<h4 id="2-2-3-Norm-balls-and-norm-cones"><a href="#2-2-3-Norm-balls-and-norm-cones" class="headerlink" title="2.2.3 Norm balls and norm cones"></a>2.2.3 Norm balls and norm cones</h4><p>​    A norm ball associated with the norm $\left |·\right |$ is the set ${x | \left|x-x_c\right| \le r}$.</p>
-<p>​    A norm cones associated with the norm  $\left |·\right |$ is the set ${(x,t) | \left|x\right| \le t}$.</p>
+        <h1 id="chapter-2">Chapter 2</h1>
+<h2 id="convex-set">convex set</h2>
+<h3 id="affine-and-convex-set">2.1 Affine and convex set</h3>
+<h4 id="lines-and-line-segment">2.1.1 Lines and line segment</h4>
+<h4 id="affine-sets">2.1.2 Affine sets</h4>
+<p>​ A set <span class="math inline">\(C \in R^n\)</span> is <strong>affine</strong> if the line through any two distinct points in C lies in C. We refer to a point of the form $ _1x_1++_k x_k$, where $_1++_k=1 $, as an affine combination of points <span class="math inline">\(x_1,\dots,x_k\)</span>. If C is an affine set, <span class="math inline">\(x_1,\dots,x_k \in C\)</span> and<span class="math inline">\(\theta_1+\dots+\theta_k=1\)</span>,then the point <span class="math inline">\(\theta_1x_1+\dots+\theta_k x_k\)</span> also belongs to C.</p>
+<p>​ The set of all affine combinations of points in some <span class="math inline">\(C\subseteq R^n\)</span> is called the <strong>affine hull（仿射包）</strong>of C, and denoted <strong>aff</strong> C: <span class="math display">\[
+aff\quad C = \{\theta_1x_1+\dots+\theta_k x_k | x_1, \dots,x_k \in C, \theta_1+\dots+\theta_k=1\}
+\]</span> The affine hull is the smallest affine set that contains C.</p>
+<h4 id="affine-dimension-and-relative-interior">2.1.3 Affine dimension and relative interior</h4>
+<p>​ The <strong>affine dimension</strong> of a set C as the dimension of its affine hull.</p>
+<p>​ The <strong>relative interior</strong> of a set C is denoted <strong>relint C</strong>,as its interior relative to <strong>aff C</strong>: <span class="math display">\[
+relint \quad C=\{x\in C|B(x,r) \cap aff \quad C \subseteq C \quad for \quad some \quad r&gt;0\}
+\]</span> where <span class="math inline">\(B(r,x)=\{ y| ||y-x|| \le r\}\)</span>.</p>
+<p>​ The <strong>relative boundary</strong> of a set C as cl C  relint C, where cl C is the closure of C.</p>
+<h4 id="convex-set-1">2.1.4 Convex set</h4>
+<p>​ A set C is convex if the line segment between any two point in C lies in C. i.e., if any <span class="math inline">\(x_1,x_2 \in C\)</span> and any <span class="math inline">\(\theta \in [0,1]\)</span>, we have <span class="math inline">\(\theta x_1+(1-\theta)x_2 \in C\)</span>.</p>
+<p>​ We call a point of the from <span class="math inline">\(\theta_1x_1+\dots+\theta_k x_k\)</span>, where <span class="math inline">\(\theta_1+\dots+\theta_k=1\)</span> and <span class="math inline">\(\theta_i \ge 0, i=1,\dots,k\)</span>, a convex combination of the points <span class="math inline">\(x_1,\dots,x_k\)</span>.</p>
+<p>​ The convex hull of a set C,denoted <strong>conv C</strong>, is the set of all convex combinations of points in C：</p>
+<p><span class="math display">\[
+convC=\{\theta_1x_1+\dots+\theta_k x_k | x_1, \dots,x_k \in C, \theta_1+\dots+\theta_k=1, \theta_i \ge 0, i=1,\dots,k\}
+\]</span></p>
+<h4 id="cones">2.1.5 Cones</h4>
+<p>​ A set C is called a cone, if for every <span class="math inline">\(x \in C\)</span> and <span class="math inline">\(\theta \ge 0\)</span>,we have <span class="math inline">\(\theta x \in C\)</span>. A set C is convex cone if it is convex and a cone.</p>
+<h3 id="section">2.2</h3>
+<h4 id="hyperplanes-and-halfspaces">2.2.1 Hyperplanes and halfspaces</h4>
+<p>​ A hyperplane is a set of the form <span class="math inline">\(\{x|a^Tx=b\}\)</span>, where <span class="math inline">\(a\in R^n,a\ne 0\)</span> and <span class="math inline">\(b\in R\)</span>. It also has the form <span class="math inline">\(\{x|a^T(x-x_0)=0\}\)</span>, where <span class="math inline">\(x_0\)</span>is any point in the hyperplane(any point satisfies <span class="math inline">\(a^Tb=0\)</span>).</p>
+<h4 id="euclidean-balls-and-ellipsoids">2.2.2 Euclidean balls and ellipsoids</h4>
+<p>​ A ball in <span class="math inline">\(R^n\)</span> has the form <span class="math inline">\(B(x_c,r)=\{x| \quad\left\|x-x_c\right\|_2\le r \}=\{x| (x-x_c)^T(x-x_c) \le r^2\}\)</span></p>
+<h4 id="norm-balls-and-norm-cones">2.2.3 Norm balls and norm cones</h4>
+<p>​ A norm ball associated with the norm <span class="math inline">\(\left \|·\right \|\)</span> is the set <span class="math inline">\(\{x | \left\|x-x_c\right\| \le r\}\)</span>.</p>
+<p>​ A norm cones associated with the norm <span class="math inline">\(\left \|·\right \|\)</span> is the set <span class="math inline">\(\{(x,t) | \left\|x\right\| \le t\}\)</span>.</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/11/27/convex-opt/" data-id="cki00f9eu0001igu51scw01f4" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/11/27/convex-opt/" data-id="cki5x49ol0003gku5e750h8xf" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/math/" rel="tag">math</a></li></ul>
@@ -132,9 +146,9 @@ convC=\{\theta_1x_1+\dots+\theta_k x_k | x_1, \dots,x_k \in C, \theta_1+\dots+\t
     </a>
   
   
-    <a href="/2020/11/27/Householder/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2020/11/26/first/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Householder</div>
+      <div class="article-nav-title">最长字串</div>
     </a>
   
 </nav>
@@ -163,7 +177,7 @@ convC=\{\theta_1x_1+\dots+\theta_k x_k | x_1, \dots,x_k \in C, \theta_1+\dots+\t
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/leetcode/" style="font-size: 20px;">leetcode</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/math/" style="font-size: 15px;">math</a>
+      <a href="/tags/leetcode/" style="font-size: 20px;">leetcode</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/math/" style="font-size: 10px;">math</a>
     </div>
   </div>
 
@@ -201,7 +215,7 @@ convC=\{\theta_1x_1+\dots+\theta_k x_k | x_1, \dots,x_k \in C, \theta_1+\dots+\t
           </li>
         
           <li>
-            <a href="/2020/11/27/Householder/">Householder</a>
+            <a href="/2020/11/26/first/">最长字串</a>
           </li>
         
       </ul>
