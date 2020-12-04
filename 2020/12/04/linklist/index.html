@@ -5,14 +5,19 @@
   
 
   
-  <title>Archives: 2020/11 | HAHA</title>
+  <title>linklist | HAHA</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="HAHA">
-<meta property="og:url" content="http://example.com/archives/2020/11/index.html">
+  <meta name="description" content="Leetcode 关于链表的题  输入一个链表，输出该链表中倒数第k个节点。为了符合大多数人的习惯，本题从1开始计数，即链表的尾节点是倒数第1个节点。例如，一个链表有6个节点，从头节点开始，它们的值依次是1、2、3、4、5、6。这个链表的倒数第3个节点是值为4的节点。剑指 Offer 22. 链表中倒数第k个节点 首先让fast指针先走k步，然后slow指针和fast一起走，直到fast指针">
+<meta property="og:type" content="article">
+<meta property="og:title" content="linklist">
+<meta property="og:url" content="http://example.com/2020/12/04/linklist/index.html">
 <meta property="og:site_name" content="HAHA">
+<meta property="og:description" content="Leetcode 关于链表的题  输入一个链表，输出该链表中倒数第k个节点。为了符合大多数人的习惯，本题从1开始计数，即链表的尾节点是倒数第1个节点。例如，一个链表有6个节点，从头节点开始，它们的值依次是1、2、3、4、5、6。这个链表的倒数第3个节点是值为4的节点。剑指 Offer 22. 链表中倒数第k个节点 首先让fast指针先走k步，然后slow指针和fast一起走，直到fast指针">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-12-04T12:17:30.000Z">
+<meta property="article:modified_time" content="2020-12-04T12:21:36.029Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="leetcode">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="HAHA" type="application/atom+xml">
@@ -62,78 +67,58 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2020/11/29/fourSumCount/" class="archive-article-date">
-  <time datetime="2020-11-29T08:34:13.000Z" itemprop="datePublished">Nov 29</time>
+        <section id="main"><article id="post-linklist" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/12/04/linklist/" class="article-date">
+  <time datetime="2020-12-04T12:17:30.000Z" itemprop="datePublished">2020-12-04</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/11/29/fourSumCount/">fourSumCount</a>
+    <h1 class="article-title" itemprop="name">
+      linklist
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2020/11/27/convex-opt/" class="archive-article-date">
-  <time datetime="2020-11-27T08:19:45.000Z" itemprop="datePublished">Nov 27</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/11/27/convex-opt/">convex-optimization</a>
-    </h1>
-  
+        <h1 id="leetcode-关于链表的题">Leetcode 关于链表的题</h1>
+<ol type="1">
+<li><p>输入一个链表，输出该链表中倒数第k个节点。为了符合大多数人的习惯，本题从1开始计数，即链表的尾节点是倒数第1个节点。例如，一个链表有6个节点，从头节点开始，它们的值依次是1、2、3、4、5、6。这个链表的倒数第3个节点是值为4的节点。<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/lian-biao-zhong-dao-shu-di-kge-jie-dian-lcof/">剑指 Offer 22. 链表中倒数第k个节点</a></p>
+<p><figure class="highlight plain"><figcaption><span>首先让fast指针先走k步，然后slow指针和fast一起走，直到fast指针指向最后一个元素，此时slow指向倒数第k个结点。</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&#96;&#96;&#96;c++</span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    ListNode* getKthFromEnd(ListNode* head, int k) &#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        ListNode* slow &#x3D; head;</span><br><span class="line">        ListNode* fast &#x3D; head;</span><br><span class="line">        for (int i &#x3D; 0; i &lt; k &amp;&amp; fast; i++, fast &#x3D; fast-&gt;next);</span><br><span class="line"></span><br><span class="line">        while (slow &amp;&amp; fast) &#123;</span><br><span class="line">            slow &#x3D; slow-&gt;next;</span><br><span class="line">            fast &#x3D; fast-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        return slow;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p></li>
+</ol>
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2020/11/26/first/" class="archive-article-date">
-  <time datetime="2020-11-26T08:44:22.000Z" itemprop="datePublished">Nov 26</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/11/26/first/">最长字串</a>
-    </h1>
-  
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/12/04/linklist/" data-id="ckia8mrcs000068u5bmsx0mlh" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li></ul>
 
-    </header>
+    </footer>
   </div>
-</article>
+  
+    
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2020/12/02/reverseLinkList/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">reverseLinkList</div>
+    </a>
   
+</nav>
 
+  
+</article>
 
 </section>
         
