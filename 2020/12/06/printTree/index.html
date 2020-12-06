@@ -5,17 +5,17 @@
   
 
   
-  <title>fourSumCount | HAHA</title>
+  <title>printTree | HAHA</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="四数之和 给定四个包含整数的数组列表 A , B , C , D ,计算有多少个元组 (i, j, k, l) ，使得 A[i] + B[j] + C[k] + D[l] &#x3D; 0。 输入: A &#x3D; [ 1, 2] B &#x3D; [-2,-1] C &#x3D; [-1, 2] D &#x3D; [ 0, 2]  输出: 2  解释: 两个元组如下: 1. (0, 0, 0, 1) -&gt; A[">
+  <meta name="description" content="从上到下打印二叉树 从上到下按层打印二叉树，同一层的节点按从左到右的顺序打印，每一层打印到一行。 BFS，层次遍历，利用index记录每一层的个数 123456789101112131415161718192021222324252627class Solution &amp;#123;public:    vector&lt;vector&lt;int&gt;&gt; levelOrder(Tree">
 <meta property="og:type" content="article">
-<meta property="og:title" content="fourSumCount">
-<meta property="og:url" content="http://example.com/2020/11/29/fourSumCount/index.html">
+<meta property="og:title" content="printTree">
+<meta property="og:url" content="http://example.com/2020/12/06/printTree/index.html">
 <meta property="og:site_name" content="HAHA">
-<meta property="og:description" content="四数之和 给定四个包含整数的数组列表 A , B , C , D ,计算有多少个元组 (i, j, k, l) ，使得 A[i] + B[j] + C[k] + D[l] &#x3D; 0。 输入: A &#x3D; [ 1, 2] B &#x3D; [-2,-1] C &#x3D; [-1, 2] D &#x3D; [ 0, 2]  输出: 2  解释: 两个元组如下: 1. (0, 0, 0, 1) -&gt; A[">
+<meta property="og:description" content="从上到下打印二叉树 从上到下按层打印二叉树，同一层的节点按从左到右的顺序打印，每一层打印到一行。 BFS，层次遍历，利用index记录每一层的个数 123456789101112131415161718192021222324252627class Solution &amp;#123;public:    vector&lt;vector&lt;int&gt;&gt; levelOrder(Tree">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-11-29T08:34:13.000Z">
-<meta property="article:modified_time" content="2020-11-29T08:39:04.136Z">
+<meta property="article:published_time" content="2020-12-06T12:47:56.000Z">
+<meta property="article:modified_time" content="2020-12-06T12:49:02.188Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="leetcode">
 <meta name="twitter:card" content="summary">
@@ -67,10 +67,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-fourSumCount" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-printTree" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2020/11/29/fourSumCount/" class="article-date">
-  <time datetime="2020-11-29T08:34:13.000Z" itemprop="datePublished">2020-11-29</time>
+    <a href="/2020/12/06/printTree/" class="article-date">
+  <time datetime="2020-12-06T12:47:56.000Z" itemprop="datePublished">2020-12-06</time>
 </a>
     
   </div>
@@ -81,7 +81,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      fourSumCount
+      printTree
     </h1>
   
 
@@ -89,28 +89,14 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="四数之和"><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/4sum-ii/">四数之和</a></h2>
-<pre><code>给定四个包含整数的数组列表 A , B , C , D ,计算有多少个元组 (i, j, k, l) ，使得 A[i] + B[j] + C[k] + D[l] = 0。
-输入:
-A = [ 1, 2]
-B = [-2,-1]
-C = [-1, 2]
-D = [ 0, 2]
-
-输出:
-2
-
-解释:
-两个元组如下:
-1. (0, 0, 0, 1) -&gt; A[0] + B[0] + C[0] + D[1] = 1 + (-2) + (-1) + 2 = 0
-2. (1, 1, 0, 0) -&gt; A[1] + B[1] + C[0] + D[0] = 2 + (-1) + (-1) + 0 = 0</code></pre>
-<p><strong>思路</strong> 使用散列表，先将数组A和B中任意两个数之和放入哈希映射中，每一个键是A[i]+B[j],值是对应的次数。然后在数组C和D之间相对应的建，当遇到-(C[k]+D[l])，则答案加1</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">fourSumCount</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; A, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; B, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; C, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; D)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">map</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; count;</span><br><span class="line">        <span class="keyword">int</span> ret = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> &amp;u : A) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> &amp;v : B) &#123;</span><br><span class="line">                ++count[u+v];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> &amp;u : C) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> &amp;v : D) &#123;</span><br><span class="line">                <span class="keyword">if</span> (count.count(-u-v))</span><br><span class="line">                    ret += count[-(u+v)];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+        <h1 id="从上到下打印二叉树"><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/cong-shang-dao-xia-da-yin-er-cha-shu-ii-lcof/">从上到下打印二叉树</a></h1>
+<p>从上到下按层打印二叉树，同一层的节点按从左到右的顺序打印，每一层打印到一行。</p>
+<p><strong>BFS，层次遍历，利用index记录每一层的个数</strong> <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; <span class="title">levelOrder</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; ans;</span><br><span class="line">        <span class="built_in">queue</span>&lt;TreeNode*&gt; q;</span><br><span class="line">        <span class="keyword">if</span> (root) &#123;</span><br><span class="line">            q.push(root);</span><br><span class="line">            <span class="keyword">while</span> (!q.empty()) &#123;</span><br><span class="line">                <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; v&#123;&#125;;</span><br><span class="line">                <span class="keyword">int</span> level = q.size(); <span class="comment">//记录当前层的结点个数</span></span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; level; i++) &#123;</span><br><span class="line">                    TreeNode* tmp = q.front();</span><br><span class="line">                    q.pop();</span><br><span class="line">                    v.push_back(tmp-&gt;val);</span><br><span class="line">                    <span class="keyword">if</span> (tmp-&gt;left) &#123;</span><br><span class="line">                        q.push(tmp-&gt;left);</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">if</span> (tmp-&gt;right) &#123;</span><br><span class="line">                        q.push(tmp-&gt;right);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                ans.push_back(v);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/11/29/fourSumCount/" data-id="cki5x49ox000bgku57ngxdrhq" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/12/06/printTree/" data-id="ckid4h8t30000dgu5f4dj7jef" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li></ul>
@@ -121,19 +107,10 @@ D = [ 0, 2]
     
 <nav id="article-nav">
   
-    <a href="/2020/12/01/binarySearch/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          binarySearch
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/11/27/convex-opt/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2020/12/06/countOne/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">convex-optimization</div>
+      <div class="article-nav-title">countOne</div>
     </a>
   
 </nav>

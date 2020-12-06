@@ -64,6 +64,89 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-printTree" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/12/06/printTree/" class="article-date">
+  <time datetime="2020-12-06T12:47:56.000Z" itemprop="datePublished">2020-12-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/12/06/printTree/">printTree</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="从上到下打印二叉树"><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/cong-shang-dao-xia-da-yin-er-cha-shu-ii-lcof/">从上到下打印二叉树</a></h1>
+<p>从上到下按层打印二叉树，同一层的节点按从左到右的顺序打印，每一层打印到一行。</p>
+<p><strong>BFS，层次遍历，利用index记录每一层的个数</strong> <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; <span class="title">levelOrder</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; ans;</span><br><span class="line">        <span class="built_in">queue</span>&lt;TreeNode*&gt; q;</span><br><span class="line">        <span class="keyword">if</span> (root) &#123;</span><br><span class="line">            q.push(root);</span><br><span class="line">            <span class="keyword">while</span> (!q.empty()) &#123;</span><br><span class="line">                <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; v&#123;&#125;;</span><br><span class="line">                <span class="keyword">int</span> level = q.size(); <span class="comment">//记录当前层的结点个数</span></span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; level; i++) &#123;</span><br><span class="line">                    TreeNode* tmp = q.front();</span><br><span class="line">                    q.pop();</span><br><span class="line">                    v.push_back(tmp-&gt;val);</span><br><span class="line">                    <span class="keyword">if</span> (tmp-&gt;left) &#123;</span><br><span class="line">                        q.push(tmp-&gt;left);</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">if</span> (tmp-&gt;right) &#123;</span><br><span class="line">                        q.push(tmp-&gt;right);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                ans.push_back(v);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/12/06/printTree/" data-id="ckid4h8t30000dgu5f4dj7jef" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-countOne" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/12/06/countOne/" class="article-date">
+  <time datetime="2020-12-06T12:36:56.000Z" itemprop="datePublished">2020-12-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/12/06/countOne/">countOne</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="二进制中1的个数"><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/er-jin-zhi-zhong-1de-ge-shu-lcof/">二进制中1的个数</a></h1>
+<p>请实现一个函数，输入一个整数（以二进制串形式），输出该数二进制表示中 1 的个数。例如，把 9 表示成二进制是 1001，有 2 位是 1。因此，如果输入 9，则该函数输出 2。</p>
+<p><strong>思路</strong>:利用‘与’运行，因为0 &amp; 1 = 0； 1 &amp; 1 = 1。例如有数1101，然后用1101 &amp; 1 = 1，然后将1101右移一位得到0110，再与1进行‘与’运行，将结果全部相加就可以得到1的个数的和。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">hammingWeight</span><span class="params">(<span class="keyword">uint32_t</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (n) &#123;</span><br><span class="line">            res += (n &amp; <span class="number">1</span>);</span><br><span class="line">            n &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/12/06/countOne/" data-id="ckid45yht0000iku58nvo0gqa" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-linklist" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/12/04/linklist/" class="article-date">
@@ -495,6 +578,14 @@ convC=\{\theta_1x_1+\dots+\theta_k x_k | x_1, \dots,x_k \in C, \theta_1+\dots+\t
       <ul>
         
           <li>
+            <a href="/2020/12/06/printTree/">printTree</a>
+          </li>
+        
+          <li>
+            <a href="/2020/12/06/countOne/">countOne</a>
+          </li>
+        
+          <li>
             <a href="/2020/12/04/linklist/">linklist</a>
           </li>
         
@@ -504,14 +595,6 @@ convC=\{\theta_1x_1+\dots+\theta_k x_k | x_1, \dots,x_k \in C, \theta_1+\dots+\t
         
           <li>
             <a href="/2020/12/01/centos/">centos</a>
-          </li>
-        
-          <li>
-            <a href="/2020/12/01/binarySearch/">binarySearch</a>
-          </li>
-        
-          <li>
-            <a href="/2020/11/29/fourSumCount/">fourSumCount</a>
           </li>
         
       </ul>
