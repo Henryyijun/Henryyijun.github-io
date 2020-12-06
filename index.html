@@ -64,6 +64,53 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-subArraySum" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/12/06/subArraySum/" class="article-date">
+  <time datetime="2020-12-06T12:53:56.000Z" itemprop="datePublished">2020-12-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/12/06/subArraySum/">subArraySum</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="连续子数组的最大和"><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/lian-xu-zi-shu-zu-de-zui-da-he-lcof/">连续子数组的最大和</a></h1>
+<p>输入一个整型数组，数组中的一个或连续多个整数组成一个子数组。求所有子数组的和的最大值。</p>
+<p><strong>设dp[i]是数组中以第i个数结尾的和，则dp[i] 与dp[i-1]有关，若dp[i-1]小于0，则dp[i]=num[i]；否则dp[i]=dp[i-1]+num[i]，因此有动态方程：</strong></p>
+<p><span class="math display">\[
+dp[i] = num[i]+ max(dp[i],0)
+\]</span></p>
+<p><strong>然后求dp数组中的最大值，即可得到子数组的最大和</strong></p>
+<p><strong>然而我们需要的dp数组中的最大值，不需要其他值，因此dp数组中其他数是多余的，只需要一个变量即可，具体代码如下所示，此时时间复杂度为O(n),空间复杂度为O(1)。</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">maxSubArray</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> m = <span class="number">0xf0000000</span>;</span><br><span class="line">        <span class="keyword">int</span> ans = <span class="number">0xf0000000</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.size(); i++) &#123;</span><br><span class="line">            m = max(m, <span class="number">0</span>) + nums[i];</span><br><span class="line">            ans = max(ans, m);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/12/06/subArraySum/" data-id="ckid4urip00008ou598e91cwx" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-printTree" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/12/06/printTree/" class="article-date">
@@ -578,6 +625,10 @@ convC=\{\theta_1x_1+\dots+\theta_k x_k | x_1, \dots,x_k \in C, \theta_1+\dots+\t
       <ul>
         
           <li>
+            <a href="/2020/12/06/subArraySum/">subArraySum</a>
+          </li>
+        
+          <li>
             <a href="/2020/12/06/printTree/">printTree</a>
           </li>
         
@@ -591,10 +642,6 @@ convC=\{\theta_1x_1+\dots+\theta_k x_k | x_1, \dots,x_k \in C, \theta_1+\dots+\t
         
           <li>
             <a href="/2020/12/02/reverseLinkList/">reverseLinkList</a>
-          </li>
-        
-          <li>
-            <a href="/2020/12/01/centos/">centos</a>
           </li>
         
       </ul>
