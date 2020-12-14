@@ -4,32 +4,6 @@
   
   
   <entry>
-    <title></title>
-    <link href="/2020/12/14/mergeKLists/"/>
-    <url>/2020/12/14/mergeKLists/</url>
-    
-    <content type="html"><![CDATA[<h1 id="合并k个升序链表"><a href="https://leetcode-cn.com/problems/merge-k-sorted-lists/">合并K个升序链表</a></h1><pre><code>给你一个链表数组，每个链表都已经按升序排列。请你将所有链表合并到一个升序链表中，返回合并后的链表。输入：lists = [[1,4,5],[1,3,4],[2,6]]输出：[1,1,2,3,4,4,5,6]解释：链表数组如下：[1-&gt;4-&gt;5,1-&gt;3-&gt;4,2-&gt;6]将它们合并到一个有序链表中得到。1-&gt;1-&gt;2-&gt;3-&gt;4-&gt;4-&gt;5-&gt;6</code></pre><h2 id="思路">思路</h2><pre><code>使用分治法思想，假设有l1,l2,l3,l4四个链表，首先l1和l2合并成为l12, l3和l4合并成l34，然后l12和l34合并成l。具体的代码如下所示：</code></pre><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span><br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function">ListNode* <span class="hljs-title">mergeKLists</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;ListNode*&gt;&amp; lists)</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> merge(lists, <span class="hljs-number">0</span>, lists.size() - <span class="hljs-number">1</span>);<br>    &#125;<br><br>    <span class="hljs-function">ListNode* <span class="hljs-title">merge</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;ListNode*&gt;&amp; lists, <span class="hljs-keyword">int</span> l, <span class="hljs-keyword">int</span> r)</span> </span>&#123;<br>        <span class="hljs-keyword">if</span> (l == r) &#123;<br>            <span class="hljs-keyword">return</span> lists[l];<br>        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (l &gt; r) &#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">NULL</span>;<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            <span class="hljs-keyword">int</span> mid = (l + r) / <span class="hljs-number">2</span>;<br>            <span class="hljs-keyword">return</span> mergeTwoLists(merge(lists, l, mid), merge(lists, mid + <span class="hljs-number">1</span>, r));<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-function">ListNode* <span class="hljs-title">mergeTwoLists</span><span class="hljs-params">(ListNode* l1, ListNode* l2)</span> </span>&#123;<br>        ListNode* head = <span class="hljs-keyword">new</span> ListNode(<span class="hljs-number">0</span>);<br>        ListNode* tail = head;<br>        <span class="hljs-keyword">while</span> (l1 &amp;&amp; l2) &#123;<br>            <span class="hljs-keyword">if</span> (l1-&gt;val &lt;= l2-&gt;val) &#123;<br>                tail-&gt;next = l1;<br>                l1 = l1-&gt;next;<br>            &#125; <span class="hljs-keyword">else</span> &#123;<br>                tail-&gt;next = l2;<br>                l2 = l2-&gt;next;<br>            &#125;<br>            tail = tail-&gt;next;<br>        &#125;<br>        <br>        tail-&gt;next = (l1 == <span class="hljs-literal">NULL</span> ? l2 : l1);<br>        <span class="hljs-keyword">return</span> head-&gt;next;<br>    &#125;<br>&#125;;<br><br></code></pre></td></tr></table></figure>]]></content>
-    
-    
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title></title>
-    <link href="/2020/12/14/unorder_map/"/>
-    <url>/2020/12/14/unorder_map/</url>
-    
-    <content type="html"><![CDATA[<h1 id="unorder_map">unorder_map</h1><p>unordered_map，它是一个关联容器，内部采用的是hash表结构，拥有快速检索的功能。</p>]]></content>
-    
-    
-    
-  </entry>
-  
-  
-  
-  <entry>
     <title>c++ 11 新标准</title>
     <link href="/2020/12/14/c++11/"/>
     <url>/2020/12/14/c++11/</url>
@@ -117,6 +91,44 @@
     <tags>
       
       <tag>leetcode</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>合并k个有序链表</title>
+    <link href="/2020/12/04/mergeKLists/"/>
+    <url>/2020/12/04/mergeKLists/</url>
+    
+    <content type="html"><![CDATA[<h1 id="合并k个升序链表"><a href="https://leetcode-cn.com/problems/merge-k-sorted-lists/">合并K个升序链表</a></h1><pre><code>给你一个链表数组，每个链表都已经按升序排列。请你将所有链表合并到一个升序链表中，返回合并后的链表。输入：lists = [[1,4,5],[1,3,4],[2,6]]输出：[1,1,2,3,4,4,5,6]解释：链表数组如下：[1-&gt;4-&gt;5,1-&gt;3-&gt;4,2-&gt;6]将它们合并到一个有序链表中得到。1-&gt;1-&gt;2-&gt;3-&gt;4-&gt;4-&gt;5-&gt;6</code></pre><h2 id="思路">思路</h2><pre><code>使用分治法思想，假设有l1,l2,l3,l4四个链表，首先l1和l2合并成为l12, l3和l4合并成l34，然后l12和l34合并成l。具体的代码如下所示：</code></pre><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span><br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function">ListNode* <span class="hljs-title">mergeKLists</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;ListNode*&gt;&amp; lists)</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> merge(lists, <span class="hljs-number">0</span>, lists.size() - <span class="hljs-number">1</span>);<br>    &#125;<br><br>    <span class="hljs-function">ListNode* <span class="hljs-title">merge</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;ListNode*&gt;&amp; lists, <span class="hljs-keyword">int</span> l, <span class="hljs-keyword">int</span> r)</span> </span>&#123;<br>        <span class="hljs-keyword">if</span> (l == r) &#123;<br>            <span class="hljs-keyword">return</span> lists[l];<br>        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (l &gt; r) &#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">NULL</span>;<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            <span class="hljs-keyword">int</span> mid = (l + r) / <span class="hljs-number">2</span>;<br>            <span class="hljs-keyword">return</span> mergeTwoLists(merge(lists, l, mid), merge(lists, mid + <span class="hljs-number">1</span>, r));<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-function">ListNode* <span class="hljs-title">mergeTwoLists</span><span class="hljs-params">(ListNode* l1, ListNode* l2)</span> </span>&#123;<br>        ListNode* head = <span class="hljs-keyword">new</span> ListNode(<span class="hljs-number">0</span>);<br>        ListNode* tail = head;<br>        <span class="hljs-keyword">while</span> (l1 &amp;&amp; l2) &#123;<br>            <span class="hljs-keyword">if</span> (l1-&gt;val &lt;= l2-&gt;val) &#123;<br>                tail-&gt;next = l1;<br>                l1 = l1-&gt;next;<br>            &#125; <span class="hljs-keyword">else</span> &#123;<br>                tail-&gt;next = l2;<br>                l2 = l2-&gt;next;<br>            &#125;<br>            tail = tail-&gt;next;<br>        &#125;<br>        <br>        tail-&gt;next = (l1 == <span class="hljs-literal">NULL</span> ? l2 : l1);<br>        <span class="hljs-keyword">return</span> head-&gt;next;<br>    &#125;<br>&#125;;<br><br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>leetcode</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>unorder_map</title>
+    <link href="/2020/12/04/unorder_map/"/>
+    <url>/2020/12/04/unorder_map/</url>
+    
+    <content type="html"><![CDATA[<h1 id="unorder_map">unorder_map</h1><p>unordered_map，它是一个关联容器，内部采用的是hash表结构，拥有快速检索的功能。</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>c++</tag>
       
     </tags>
     
