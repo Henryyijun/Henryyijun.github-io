@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>c++ 11 新标准</title>
+    <link href="/2020/12/14/c++11/"/>
+    <url>/2020/12/14/c++11/</url>
+    
+    <content type="html"><![CDATA[<h1 id="c11">C++11</h1><h2 id="新类型">1 新类型</h2><pre><code>1.1 c++11 新增了类型long long 和unsigned long long，支持64位整型。</code></pre><h2 id="初始化方式">2 初始化方式</h2><pre><code>2.1 初始化方式，使用初始化列表时，可以添加等号(=)，也可以不用： int x = &#123;5&#125;, double y&#123;5&#125;。初始化列表可用于new 表达式中， int *arr = new int[5]&#123;2 0 0 0 0&#125;。2.2 c++ 11 提供了std::initializer_list,可以用于作构造函数的参数，如：vector&lt;int&gt; a1&#123;10&#125;;vector&lt;int&gt; a2&#123;10&#125;;</code></pre><h2 id="声明">3 声明</h2><pre><code>3.1 关键字auto，用于实现自动类型推断，要求进行显示初始化，例如：auto m = 112; // type intauto pt = &amp;m; // pt is type int*3.2 关键字decltype,将变量的类型声明为表达式指定的类型。下面的语句含义是：让y的类型与x的相同，x是一个表达式。decltype(x) y例如：double x; int n;decltype(x*n) q; //将q的里欸选哪个声明为与x*n相同,double3.3 返回类型后置</code></pre>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>C++</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>commonNode</title>
     <link href="/2020/12/12/commonNode/"/>
     <url>/2020/12/12/commonNode/</url>
