@@ -229,20 +229,20 @@
             <div class="markdown-body">
               <h1 id="记录一下linux常用操作">记录一下linux常用操作</h1>
 <h2 id="centos-8-上的换源">centos 8 上的换源</h2>
-<div class="hljs code-wrapper"><pre><code> 1 使用命令cd /etc/yum.repos.d, 进入源文件所在目录.
+<pre><code> 1 使用命令cd /etc/yum.repos.d, 进入源文件所在目录.
  2 然后将之前的源文件备份一下，cp CentOS-Base.repo CentOS-Base.repo.back
  3 再使用wget下载源文件，wget -O CentOS-Base.repo https://mirrors.aliyun.com/repo/Centos-8.repo
  4 yum makecache
- 5 yum update</code></pre></div>
+ 5 yum update</code></pre>
 <h2 id="记录常见错误以及解决方法">记录常见错误，以及解决方法</h2>
 <h3 id="常见错误1xxx不在sudoers文件中">常见错误1，xxx不在sudoers文件中</h3>
-<div class="hljs code-wrapper"><pre><code>例如在shell终端输入sudo yum install vim， 此时报错字样为：henry is not in the sudoers file.  This incident will be reported.
+<pre><code>例如在shell终端输入sudo yum install vim， 此时报错字样为：henry is not in the sudoers file.  This incident will be reported.
 解决办法：
 1.首先进入root用户下，在shell终端输入su，然后输入用户密码。
 2.添加sudo文件的写权限,命令是:chmod u+w /etc/sudoers
 3.编辑sudoers文件，命令vim /etc/sudoers
 4.找到这行 root ALL=(ALL) ALL,在他下面添加xxx ALL=(ALL) ALL (这里的xxx是你的用户名)
-完成！</code></pre></div>
+完成！</code></pre>
 
             </div>
             <hr>
