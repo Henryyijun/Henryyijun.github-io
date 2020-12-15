@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>字符串压缩</title>
+    <link href="/2020/12/15/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8E%8B%E7%BC%A9/"/>
+    <url>/2020/12/15/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8E%8B%E7%BC%A9/</url>
+    
+    <content type="html"><![CDATA[<h1 id="字符串压缩"><a href="https://leetcode-cn.com/problems/compress-string-lcci/">字符串压缩</a></h1><pre><code>字符串压缩。利用字符重复出现的次数，编写一种方法，实现基本的字符串压缩功能。比如，字符串aabcccccaaa会变为a2b1c5a3。若“压缩”后的字符串没有变短，则返回原先的字符串。你可以假设字符串中只包含大小写英文字母(a至z)。输入：&quot;aabcccccaaa&quot;输出：&quot;a2b1c5a3&quot;</code></pre><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span><br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-built_in">string</span> <span class="hljs-title">compressString</span><span class="hljs-params">(<span class="hljs-built_in">string</span> S)</span> </span>&#123;<br>        <span class="hljs-keyword">if</span> (S == <span class="hljs-string">&quot;&quot;</span>) <span class="hljs-keyword">return</span> S;<br>        <span class="hljs-built_in">string</span> result;<br>        <span class="hljs-keyword">int</span> count = <span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">char</span> c = S[<span class="hljs-number">0</span>];<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">size_t</span> i = <span class="hljs-number">1</span>; i &lt; S.size(); i++) &#123;<br>            <span class="hljs-keyword">if</span> (c == S[i]) &#123;<br>                count++;<br>            &#125; <span class="hljs-keyword">else</span> &#123;<br>                result.push_back(c);<br>                result += to_string(count);<br>                count = <span class="hljs-number">1</span>;<br>                c = S[i];<br>            &#125;<br>        &#125;<br>        result.push_back(c);<br>        result += to_string(count);<br>        <span class="hljs-keyword">return</span> result.size() &lt; S.size() ? result : S;<br>    &#125;<br>&#125;;<br><br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>leetcode</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>异位词分组</title>
     <link href="/2020/12/14/%E5%BC%82%E4%BD%8D%E8%AF%8D%E5%88%86%E7%BB%84/"/>
     <url>/2020/12/14/%E5%BC%82%E4%BD%8D%E8%AF%8D%E5%88%86%E7%BB%84/</url>
