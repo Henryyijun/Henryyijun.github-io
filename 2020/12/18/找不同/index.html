@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="Henry">
   <meta name="keywords" content="">
-  <title>字符串压缩 - HAHA</title>
+  <title>找不同 - HAHA</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -162,7 +162,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="字符串压缩">
+            <span class="h2" id="subtitle" title="找不同">
               
             </span>
 
@@ -172,8 +172,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2020-12-15 14:40" pubdate>
-        2020年12月15日 下午
+      <time datetime="2020-12-18 16:40" pubdate>
+        2020年12月18日 下午
       </time>
     </span>
   
@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      172 字
+      140 字
     </span>
   
 
@@ -224,14 +224,15 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">字符串压缩</h1>
+            <h1 style="display: none">找不同</h1>
             
             <div class="markdown-body">
-              <h1 id="字符串压缩"><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/compress-string-lcci/">字符串压缩</a></h1>
-<pre><code>字符串压缩。利用字符重复出现的次数，编写一种方法，实现基本的字符串压缩功能。比如，字符串aabcccccaaa会变为a2b1c5a3。若“压缩”后的字符串没有变短，则返回原先的字符串。你可以假设字符串中只包含大小写英文字母(a至z)。
-输入：&quot;aabcccccaaa&quot;
-输出：&quot;a2b1c5a3&quot;</code></pre>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span><br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-built_in">string</span> <span class="hljs-title">compressString</span><span class="hljs-params">(<span class="hljs-built_in">string</span> S)</span> </span>&#123;<br>        <span class="hljs-keyword">if</span> (S == <span class="hljs-string">&quot;&quot;</span>) <span class="hljs-keyword">return</span> S;<br>        <span class="hljs-built_in">string</span> result;<br>        <span class="hljs-keyword">int</span> count = <span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">char</span> c = S[<span class="hljs-number">0</span>];<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">size_t</span> i = <span class="hljs-number">1</span>; i &lt; S.size(); i++) &#123;<br>            <span class="hljs-keyword">if</span> (c == S[i]) &#123;<br>                count++;<br>            &#125; <span class="hljs-keyword">else</span> &#123;<br>                result.push_back(c);<br>                result += to_string(count);<br>                count = <span class="hljs-number">1</span>;<br>                c = S[i];<br>            &#125;<br>        &#125;<br>        result.push_back(c);<br>        result += to_string(count);<br>        <span class="hljs-keyword">return</span> result.size() &lt; S.size() ? result : S;<br>    &#125;<br>&#125;;<br><br></code></pre></td></tr></table></figure>
+              <h2 id="找不同"><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/find-the-difference/">找不同</a></h2>
+<figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs excel">给定两个字符串 s 和 <span class="hljs-built_in">t</span>，它们只包含小写字母。<br>字符串 <span class="hljs-built_in">t</span> 由字符串 s 随机重排，然后在随机位置添加一个字母。<br>请找出在 <span class="hljs-built_in">t</span> 中被添加的字母。<br></code></pre></td></tr></table></figure>
+<ul>
+<li>c++ <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span><br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-keyword">char</span> <span class="hljs-title">findTheDifference</span><span class="hljs-params">(<span class="hljs-built_in">string</span> s, <span class="hljs-built_in">string</span> t)</span> </span>&#123;<br>        <span class="hljs-keyword">int</span> sum = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">char</span>&amp; c : t) &#123;<br>            sum += c;<br>        &#125;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">char</span>&amp; c : s) &#123;<br>            sum -= c;<br>        &#125;<br><br>        <span class="hljs-keyword">return</span> sum;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure></li>
+<li>go <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">findTheDifference</span><span class="hljs-params">(s <span class="hljs-keyword">string</span>, t <span class="hljs-keyword">string</span>)</span> <span class="hljs-title">byte</span></span> &#123;<br><br>    <span class="hljs-keyword">var</span> res <span class="hljs-keyword">byte</span> = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">for</span> i := <span class="hljs-number">0</span>; i &lt; <span class="hljs-built_in">len</span>(t); i++ &#123;<br>        res += t[i];<br>    &#125;<br><br>    <span class="hljs-keyword">for</span> i := <span class="hljs-number">0</span>; i &lt; <span class="hljs-built_in">len</span>(s); i++ &#123;<br>        res -= s[i];<br>    &#125;<br>    <span class="hljs-keyword">return</span> res;<br>&#125;<br></code></pre></td></tr></table></figure></li>
+</ul>
 
             </div>
             <hr>
@@ -255,18 +256,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2020/12/18/%E6%89%BE%E4%B8%8D%E5%90%8C/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">找不同</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2020/12/14/%E5%BC%82%E4%BD%8D%E8%AF%8D%E5%88%86%E7%BB%84/">
-                        <span class="hidden-mobile">异位词分组</span>
+                      <a href="/2020/12/15/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8E%8B%E7%BC%A9/">
+                        <span class="hidden-mobile">字符串压缩</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -285,8 +280,8 @@
     <div id="disqus_thread"></div>
     <script type="text/javascript">
       var disqus_config = function() {
-        this.page.url = 'http://example.com/2020/12/15/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8E%8B%E7%BC%A9/';
-        this.page.identifier = '/2020/12/15/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8E%8B%E7%BC%A9/';
+        this.page.url = 'http://example.com/2020/12/18/%E6%89%BE%E4%B8%8D%E5%90%8C/';
+        this.page.identifier = '/2020/12/18/%E6%89%BE%E4%B8%8D%E5%90%8C/';
       };
       Fluid.utils.waitElementVisible('disqus_thread', function () {
         var d = document, s = d.createElement('script');
