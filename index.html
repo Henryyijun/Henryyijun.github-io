@@ -181,6 +181,51 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
+        <a href="/2020/12/20/%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E6%9F%A5%E6%89%BE/">二维数组查找</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/12/20/%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E6%9F%A5%E6%89%BE/">
+          
+          
+            
+          
+          二维数组中的查找
+在一个 n * m 的二维数组中，每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个高效的函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。
+
+思路：从左下角开始查找，当matrix[i][j] &gt; target，则向上查；当matrix[i][j] &lt; target，则向右查找。
+123456789101112
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-12-20 18:28" pubdate>
+              2020-12-20
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/leetcode/">leetcode</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
         <a href="/2020/12/18/%E6%89%BE%E4%B8%8D%E5%90%8C/">找不同</a>
       </h1>
 
@@ -566,49 +611,6 @@ BFS，层次遍历，利用index记录每一层的个数 12345678910111213141516
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
             <time datetime="2020-12-06 20:47" pubdate>
-              2020-12-06
-            </time>
-          </div>
-        
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/leetcode/">leetcode</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2020/12/06/countOne/">countOne</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2020/12/06/countOne/">
-          
-          
-            
-          
-          二进制中1的个数
-请实现一个函数，输入一个整数（以二进制串形式），输出该数二进制表示中 1 的个数。例如，把 9 表示成二进制是 1001，有 2 位是 1。因此，如果输入 9，则该函数输出 2。
-思路:利用‘与’运行，因为0 &amp; 1 = 0； 1 &amp; 1 = 1。例如有数1101，然后用1101 &amp; 1 = 1，然后将1101右移一位得到0110，再与1进行‘与’运行
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2020-12-06 20:36" pubdate>
               2020-12-06
             </time>
           </div>
