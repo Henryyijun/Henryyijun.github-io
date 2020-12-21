@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      332 字
+      747 字
     </span>
   
 
@@ -194,7 +194,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      4
+      10
        分钟
     </span>
   
@@ -270,6 +270,84 @@
     id3--&gt;id4
     id3--&gt;id5
 </code></pre>
+<ol start="3" type="1">
+<li>在递归过程中需要记录根节点在中序遍历中的下标，得到根结点下标后，就可以得到 左右子树的结点数量大小。 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-built_in">map</span>&lt;<span class="hljs-keyword">int</span>, <span class="hljs-keyword">int</span>&gt; m;<br><span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; inorder.size(); i++) &#123;<br>    m[inorder[i]] = i;<br>&#125;<br></code></pre></td></tr></table></figure></li>
+<li>计算左右子树的结点大小 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">int</span> left = index - is;<br><span class="hljs-keyword">int</span> right = ie - index;<br></code></pre></td></tr></table></figure></li>
+</ol>
+<table>
+<thead>
+<tr class="header">
+<th>符号</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>ps</td>
+<td>前序遍历左边界</td>
+</tr>
+<tr class="even">
+<td>pe</td>
+<td>前序遍历右边界</td>
+</tr>
+<tr class="odd">
+<td>is</td>
+<td>中序遍历左边界</td>
+</tr>
+<tr class="even">
+<td>ie</td>
+<td>中序遍历右边界</td>
+</tr>
+</tbody>
+</table>
+<p>5.当计算完左右子树的结点大小后，需要计算左右子树边界问题</p>
+<table>
+<thead>
+<tr class="header">
+<th>符号</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>index</td>
+<td>根节点下标</td>
+</tr>
+<tr class="even">
+<td>ps+1</td>
+<td>前序遍历左子树的左边界</td>
+</tr>
+<tr class="odd">
+<td>ps+left</td>
+<td>前序遍历左子树的右边界</td>
+</tr>
+<tr class="even">
+<td>is</td>
+<td>中序遍历左子树左边界</td>
+</tr>
+<tr class="odd">
+<td>index-1</td>
+<td>中序遍历左子树右边界</td>
+</tr>
+<tr class="even">
+<td>pe - right + 1</td>
+<td>前序遍历右子树的左边界</td>
+</tr>
+<tr class="odd">
+<td>pe</td>
+<td>前序遍历右子树的右边界</td>
+</tr>
+<tr class="even">
+<td>index + 1</td>
+<td>中序遍历右子树左边界</td>
+</tr>
+<tr class="odd">
+<td>ie</td>
+<td>中序遍历右子树右边界</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span><br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function">TreeNode* <span class="hljs-title">buildTree</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp; preorder, <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp; inorder)</span> </span>&#123;<br>        <span class="hljs-built_in">map</span>&lt;<span class="hljs-keyword">int</span>, <span class="hljs-keyword">int</span>&gt; m;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; inorder.size(); i++) &#123;<br>            m[inorder[i]] = i;<br>        &#125;<br>        TreeNode* root = build(preorder, <span class="hljs-number">0</span>, preorder.size() - <span class="hljs-number">1</span>, inorder, <span class="hljs-number">0</span>, inorder.size() - <span class="hljs-number">1</span>, m);<br>        <span class="hljs-keyword">return</span> root;<br>    &#125;<br><br>    <span class="hljs-function">TreeNode* <span class="hljs-title">build</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp; pre, <span class="hljs-keyword">int</span> ps, <span class="hljs-keyword">int</span> pe, <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp; inorder, <span class="hljs-keyword">int</span> is, <span class="hljs-keyword">int</span> ie, <span class="hljs-built_in">map</span>&lt;<span class="hljs-keyword">int</span>, <span class="hljs-keyword">int</span>&gt;&amp; m)</span> </span>&#123;<br>        <span class="hljs-keyword">if</span> (ps &gt; pe) &#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">NULL</span>;<br>        &#125; <br>        <span class="hljs-keyword">int</span> value = pre[ps];<br>        TreeNode* root = <span class="hljs-keyword">new</span> TreeNode(value);<br>        <span class="hljs-keyword">if</span> (ps == pe) &#123;<br>            <span class="hljs-keyword">return</span> root;<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            <span class="hljs-keyword">int</span> index = m[value];<br>            <span class="hljs-keyword">int</span> left = index - is;<br>            <span class="hljs-keyword">int</span> right = ie - index;<br>            root-&gt;left = build(pre, ps + <span class="hljs-number">1</span>, ps + left, inorder, is, index - <span class="hljs-number">1</span>, m);<br>            root-&gt;right = build(pre, pe - right + <span class="hljs-number">1</span>, pe, inorder, index + <span class="hljs-number">1</span>, ie, m);<br>            <span class="hljs-keyword">return</span> root;<br>        &#125;<br>        <br>    &#125;<br>&#125;;<br><br><br></code></pre></td></tr></table></figure>
 
             </div>
             <hr>
