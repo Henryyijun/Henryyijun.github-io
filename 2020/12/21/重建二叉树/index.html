@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      308 字
+      341 字
     </span>
   
 
@@ -194,7 +194,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      3
+      4
        分钟
     </span>
   
@@ -248,17 +248,16 @@
 <pre><code>因此只要将根节点找到，然后分别计算出左子树结点个数和右子树结点个数，然后分别递归即可。
 例如有二叉树的前序遍历和中序遍历如下所示：
 前序遍历 preorder = [3,9,20,15,7]
-中序遍历 inorder = [9,3,15,20,7]
-因此一开始可以得到根节点为3，左子树为[9]，右子树为[15,20,7],如下图所示，</code></pre>
-<p><pre><code class=" mermaid">    graph TD
+中序遍历 inorder = [9,3,15,20,7]</code></pre>
+<ol type="1">
+<li>因此一开始可以得到根节点为3，左子树为[9]，右子树为[15,20,7],如下图所示， <pre><code class=" mermaid">    graph TD
         id1((3))
         id2((9))
         id3((15,20,7))
         id1--&gt;id2
         id1--&gt;id3
-
 &#96;&#96;&#96; 
-
+2. 然后再递归右子树，得到根节点为20, 左孩子和有孩子分别为15和7，如下图所示
 &#96;&#96;&#96;mermaid
     graph TD
         id1((3))
@@ -270,7 +269,8 @@
         id1--&gt;id3
         id3--&gt;id4
         id3--&gt;id5
-</code></pre></p>
+</code></pre></li>
+</ol>
 
             </div>
             <hr>
