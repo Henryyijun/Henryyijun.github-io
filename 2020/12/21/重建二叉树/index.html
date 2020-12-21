@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      341 字
+      332 字
     </span>
   
 
@@ -250,27 +250,26 @@
 前序遍历 preorder = [3,9,20,15,7]
 中序遍历 inorder = [9,3,15,20,7]</code></pre>
 <ol type="1">
-<li>因此一开始可以得到根节点为3，左子树为[9]，右子树为[15,20,7],如下图所示， <pre><code class=" mermaid">    graph TD
-        id1((3))
-        id2((9))
-        id3((15,20,7))
-        id1--&gt;id2
-        id1--&gt;id3
-&#96;&#96;&#96; 
-2. 然后再递归右子树，得到根节点为20, 左孩子和有孩子分别为15和7，如下图所示
-&#96;&#96;&#96;mermaid
-    graph TD
-        id1((3))
-        id2((9))
-        id3((20))
-        id4((15))
-        id5((7))
-        id1--&gt;id2
-        id1--&gt;id3
-        id3--&gt;id4
-        id3--&gt;id5
-</code></pre></li>
+<li><p>因此一开始可以得到根节点为3，左子树为[9]，右子树为[15,20,7],如下图所示， <pre><code class=" mermaid">graph TD
+    id1((3))
+    id2((9))
+    id3((15,20,7))
+    id1--&gt;id2
+    id1--&gt;id3
+</code></pre></p></li>
+<li><p>然后再递归右子树，得到根节点为20, 左孩子和有孩子分别为15和7，如下图所示</p></li>
 </ol>
+<pre><code class=" mermaid">graph TD
+    id1((3))
+    id2((9))
+    id3((20))
+    id4((15))
+    id5((7))
+    id1--&gt;id2
+    id1--&gt;id3
+    id3--&gt;id4
+    id3--&gt;id5
+</code></pre>
 
             </div>
             <hr>
