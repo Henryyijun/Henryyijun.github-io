@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>go</title>
+    <link href="/2020/12/25/go/"/>
+    <url>/2020/12/25/go/</url>
+    
+    <content type="html"><![CDATA[<h1 id="go语言">Go语言</h1><h2 id="包">包</h2><pre><code>1. 每个 Go 程序都是由包构成的。程序从 main 包开始运行。本程序通过导入路径 &quot;fmt&quot; 来使用它</code></pre><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">package</span> main<br><span class="hljs-keyword">import</span> (<br><span class="hljs-string">&quot;fmt&quot;</span><br>)<br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> &#123;<br>fmt.Println(<span class="hljs-string">&quot;Hello&quot;</span>)<br>&#125;<br><br></code></pre></td></tr></table></figure><pre><code>2. 此代码用圆括号组合了导入，这是“分组”形式的导入语句。也可以编写多个导入语句，例如：</code></pre><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">import</span> <span class="hljs-string">&quot;fmt&quot;</span><br><span class="hljs-keyword">import</span> <span class="hljs-string">&quot;math&quot;</span><br></code></pre></td></tr></table></figure><h2 id="变量">变量</h2><pre><code>1. var 语句用于声明一个变量列表，跟函数的参数列表一样，类型在最后。2. 变量声明可以包含初始值，每个变量对应一个。</code></pre><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">package</span> main<br><span class="hljs-keyword">import</span> <span class="hljs-string">&quot;fmt&quot;</span><br><span class="hljs-keyword">var</span> c, python, java <span class="hljs-keyword">bool</span><br><span class="hljs-keyword">var</span> i, j <span class="hljs-keyword">int</span> = <span class="hljs-number">1</span>, <span class="hljs-number">2</span><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> &#123;<br><span class="hljs-keyword">var</span> i <span class="hljs-keyword">int</span><br>fmt.Println(i, c, python, java)<br>&#125;<br></code></pre></td></tr></table></figure><pre><code>3. 短变量声明：在函数中，简洁赋值语句 := 可在类型明确的地方代替 var 声明。函数外的每个语句都必须以关键字开始（var, func 等等），因此 := 结构不能在函数外使用。</code></pre><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">package</span> main<br><span class="hljs-keyword">import</span> <span class="hljs-string">&quot;fmt&quot;</span><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> &#123;<br><span class="hljs-keyword">var</span> i, j <span class="hljs-keyword">int</span> = <span class="hljs-number">1</span>, <span class="hljs-number">2</span><br>k := <span class="hljs-number">3</span><br>c, python, java := <span class="hljs-literal">true</span>, <span class="hljs-literal">false</span>, <span class="hljs-string">&quot;no!&quot;</span><br>fmt.Println(i, j, k, c, python, java)<br>&#125;<br></code></pre></td></tr></table></figure><pre><code>4. 基本类型：boolstringint  int8  int16  int32  int64uint uint8 uint16 uint32 uint64 uintptrbyte // uint8 的别名rune // int32 的别名    // 表示一个 Unicode 码点float32 float64complex64 complex1285. 常量：常量的声明与变量类似，只不过是使用 const 关键字。常量可以是字符、字符串、布尔值或数值。常量不能用 := 语法声明。</code></pre>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>golang</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>重建二叉树</title>
     <link href="/2020/12/21/%E9%87%8D%E5%BB%BA%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
     <url>/2020/12/21/%E9%87%8D%E5%BB%BA%E4%BA%8C%E5%8F%89%E6%A0%91/</url>

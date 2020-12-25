@@ -181,6 +181,53 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
+        <a href="/2020/12/06/subArraySum/">subArraySum</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/12/06/subArraySum/">
+          
+          
+            
+          
+          连续子数组的最大和
+输入一个整型数组，数组中的一个或连续多个整数组成一个子数组。求所有子数组的和的最大值。
+设dp[i]是数组中以第i个数结尾的和，则dp[i] 与dp[i-1]有关，若dp[i-1]小于0，则dp[i]=num[i]；否则dp[i]=dp[i-1]+num[i]，因此有动态方程：
+\[
+dp[i] = num[i]+ max(dp[i],0)
+\]
+然后求dp数组中的
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-12-06 20:53" pubdate>
+              2020-12-06
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/leetcode/">leetcode</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
         <a href="/2020/12/06/printTree/">printTree</a>
       </h1>
 
