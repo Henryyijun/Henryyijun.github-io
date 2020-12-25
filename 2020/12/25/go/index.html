@@ -194,7 +194,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      18
+      19
        分钟
     </span>
   
@@ -308,6 +308,12 @@ func FunName(arg1 Type1, arg2 Type2, ...) Type &#123;&#125;,例如以下的add�
 <pre><code>1. for 循环的 range 形式可遍历切片或映射。 当使用 for 循环遍历切片时，每次迭代都会返回两个值。第一个值为当前元素的下标，第二个值为该下标所对应元素的一份副本。</code></pre>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">package</span> main<br><br><span class="hljs-keyword">import</span> <span class="hljs-string">&quot;fmt&quot;</span><br><br><span class="hljs-keyword">var</span> pow = []<span class="hljs-keyword">int</span>&#123;<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">4</span>, <span class="hljs-number">8</span>, <span class="hljs-number">16</span>, <span class="hljs-number">32</span>, <span class="hljs-number">64</span>, <span class="hljs-number">128</span>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> &#123;<br>	<span class="hljs-keyword">for</span> i, v := <span class="hljs-keyword">range</span> pow &#123;<br>		fmt.Printf(<span class="hljs-string">&quot;2**%d = %d\n&quot;</span>, i, v)<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 <pre><code>2. 可以将下标或值赋予 _ 来忽略它。</code></pre>
+<h2 id="map">map</h2>
+<pre><code>1. map的声明为：</code></pre>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">var</span> m <span class="hljs-keyword">map</span>[Type1]Type2 <span class="hljs-comment">// 将类型Type1 映射到Type2中</span><br></code></pre></td></tr></table></figure>
+<pre><code>2. make 函数会返回给定类型的映射，并将其初始化备用。</code></pre>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> &#123;<br>	m = <span class="hljs-built_in">make</span>(<span class="hljs-keyword">map</span>[<span class="hljs-keyword">string</span>]<span class="hljs-keyword">int</span>)<br>	m[<span class="hljs-string">&quot;Bell Labs&quot;</span>] = <span class="hljs-number">1</span><br>	fmt.Println(m[<span class="hljs-string">&quot;Bell Labs&quot;</span>])<br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="方法">方法</h2>
 
             </div>
             <hr>
