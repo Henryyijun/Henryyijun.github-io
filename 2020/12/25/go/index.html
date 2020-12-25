@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      362 字
+      730 字
     </span>
   
 
@@ -194,7 +194,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      4
+      10
        分钟
     </span>
   
@@ -251,6 +251,28 @@ float32 float64
 complex64 complex128
 
 5. 常量：常量的声明与变量类似，只不过是使用 const 关键字。常量可以是字符、字符串、布尔值或数值。常量不能用 := 语法声明。</code></pre>
+<h2 id="流程控制语句">流程控制语句</h2>
+<h3 id="for"><strong>for</strong></h3>
+<pre><code>1. Go 只有一种循环结构：for 循环。
+2. 基本的 for 循环由三部分组成，它们用分号隔开：
+    初始化语句：在第一次迭代前执行
+    条件表达式：在每次迭代前求值
+    后置语句：在每次迭代的结尾执行</code></pre>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">package</span> main<br><br><span class="hljs-keyword">import</span> <span class="hljs-string">&quot;fmt&quot;</span><br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> &#123;<br>	sum := <span class="hljs-number">0</span><br>	<span class="hljs-keyword">for</span> i := <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">10</span>; i++ &#123;<br>		sum += i<br>	&#125;<br>	fmt.Println(sum)<br>&#125;<br></code></pre></td></tr></table></figure>
+<pre><code>3. 去掉分号的for循环就成了while循环(go语言中没有while循环)</code></pre>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">package</span> main<br><br><span class="hljs-keyword">import</span> <span class="hljs-string">&quot;fmt&quot;</span><br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> &#123;<br>	sum := <span class="hljs-number">1</span><br>	<span class="hljs-keyword">for</span> sum &lt; <span class="hljs-number">1000</span> &#123;<br>		sum += sum<br>	&#125;<br>	fmt.Println(sum)<br>&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="if"><strong>if</strong></h3>
+<pre><code>同 for 一样， if 语句可以在条件表达式前执行一个简单的语句。该语句声明的变量作用域仅在 if 之内。</code></pre>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">package</span> main<br><br><span class="hljs-keyword">import</span> (<br>	<span class="hljs-string">&quot;fmt&quot;</span><br>	<span class="hljs-string">&quot;math&quot;</span><br>)<br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">pow</span><span class="hljs-params">(x, n, lim <span class="hljs-keyword">float64</span>)</span> <span class="hljs-title">float64</span></span> &#123;<br>	<span class="hljs-keyword">if</span> v := math.Pow(x, n); v &lt; lim &#123;<br>		<span class="hljs-keyword">return</span> v<br>	&#125;<br>	<span class="hljs-keyword">return</span> lim<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> &#123;<br>	fmt.Println(<br>		pow(<span class="hljs-number">3</span>, <span class="hljs-number">2</span>, <span class="hljs-number">10</span>),<br>		pow(<span class="hljs-number">3</span>, <span class="hljs-number">3</span>, <span class="hljs-number">20</span>),<br>	)<br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="函数">函数</h2>
+<pre><code>1. 函数可以没有参数或接受多个参数。其声明格式为：
+func FunName(arg1 Type1, arg2 Type2, ...) Type &#123;&#125;,例如以下的add函数</code></pre>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">add</span><span class="hljs-params">(x <span class="hljs-keyword">int</span>, y <span class="hljs-keyword">int</span>)</span> <span class="hljs-title">int</span></span> &#123;<br>	<span class="hljs-keyword">return</span> x + y<br>&#125;<br></code></pre></td></tr></table></figure>
+<pre><code>2. 当连续两个或多个函数的已命名形参类型相同时，除最后一个类型以外，其它都可以省略。
+即 x int, y int 可以写成x, y int 
+
+3. 函数可以返回任意数量的返回值。</code></pre>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">Swap</span><span class="hljs-params">(x, y <span class="hljs-keyword">int</span>)</span> <span class="hljs-params">(<span class="hljs-keyword">int</span>, <span class="hljs-keyword">int</span>)</span></span> &#123;<br>    <span class="hljs-keyword">return</span> y, x<br>&#125;<br></code></pre></td></tr></table></figure>
 
             </div>
             <hr>
