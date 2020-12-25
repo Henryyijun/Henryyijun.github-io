@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.4k 字
+      1.5k 字
     </span>
   
 
@@ -194,7 +194,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      19
+      20
        分钟
     </span>
   
@@ -314,6 +314,8 @@ func FunName(arg1 Type1, arg2 Type2, ...) Type &#123;&#125;,例如以下的add�
 <pre><code>2. make 函数会返回给定类型的映射，并将其初始化备用。</code></pre>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> &#123;<br>	m = <span class="hljs-built_in">make</span>(<span class="hljs-keyword">map</span>[<span class="hljs-keyword">string</span>]<span class="hljs-keyword">int</span>)<br>	m[<span class="hljs-string">&quot;Bell Labs&quot;</span>] = <span class="hljs-number">1</span><br>	fmt.Println(m[<span class="hljs-string">&quot;Bell Labs&quot;</span>])<br>&#125;<br></code></pre></td></tr></table></figure>
 <h2 id="方法">方法</h2>
+<pre><code>1. 方法就是一类带特殊的 接收者 参数的函数。方法接收者在它自己的参数列表内，位于 func 关键字和方法名之间。例如函数add：</code></pre>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">package</span> main<br><br><span class="hljs-keyword">import</span> (<br>	<span class="hljs-string">&quot;fmt&quot;</span><br>	<span class="hljs-string">&quot;math&quot;</span><br>)<br><br><span class="hljs-keyword">type</span> Vertex <span class="hljs-keyword">struct</span> &#123;<br>	X, Y <span class="hljs-keyword">float64</span><br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-params">(v Vertex)</span> <span class="hljs-title">add</span><span class="hljs-params">()</span> <span class="hljs-title">float64</span></span> &#123;<br>	<span class="hljs-keyword">return</span> v.X + v.Y<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> &#123;<br>	v := Vertex&#123;<span class="hljs-number">3</span>, <span class="hljs-number">4</span>&#125;<br>	fmt.Println(v.Abs())<br>&#125;<br></code></pre></td></tr></table></figure>
 
             </div>
             <hr>
