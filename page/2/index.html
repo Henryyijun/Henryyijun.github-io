@@ -181,6 +181,48 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
+        <a href="/2020/12/12/commonNode/">commonNode</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/12/12/commonNode/">
+          
+          
+            
+          
+          输入两个链表，找出它们的第一个公共节点。
+ 思路：首先算出链表A和链表B各自的长度，然后作差求得两者长度之差，假设差为k，让长的链表先走k步，然后两个链表同时走，直到遇到公共节点。 123456789101112131415161718192021222324252627282930313233343536class Solution &#123;public:    ListNode *get
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-12-12 13:35" pubdate>
+              2020-12-12
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/leetcode/">leetcode</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
         <a href="/2020/12/06/subArraySum/">subArraySum</a>
       </h1>
 
@@ -190,10 +232,13 @@
           
             
           
-          连续子数组的最大和输入一个整型数组，数组中的一个或连续多个整数组成一个子数组。求所有子数组的和的最大值。
+          连续子数组的最大和
+输入一个整型数组，数组中的一个或连续多个整数组成一个子数组。求所有子数组的和的最大值。
 设dp[i]是数组中以第i个数结尾的和，则dp[i] 与dp[i-1]有关，若dp[i-1]小于0，则dp[i]=num[i]；否则dp[i]=dp[i-1]+num[i]，因此有动态方程：
-$$dp[i] = num[i]+ max(dp[i],0)$$
-然后求dp数组中的最大值，即可得到子
+\[
+dp[i] = num[i]+ max(dp[i],0)
+\]
+然后求dp数组中的
         </a>
       </p>
 
@@ -234,9 +279,9 @@ $$dp[i] = num[i]+ max(dp[i],0)$$
           
             
           
-          从上到下打印二叉树从上到下按层打印二叉树，同一层的节点按从左到右的顺序打印，每一层打印到一行。
-BFS，层次遍历，利用index记录每一层的个数
-123456789101112131415161718192021222324252627class Solution &#123;public:    vector&lt;vector&lt;int&gt;&gt; levelOrder(TreeNod
+          从上到下打印二叉树
+从上到下按层打印二叉树，同一层的节点按从左到右的顺序打印，每一层打印到一行。
+BFS，层次遍历，利用index记录每一层的个数 123456789101112131415161718192021222324252627class Solution &#123;public:    vector&lt;vector&lt;int&gt;&gt; levelOrder(Tree
         </a>
       </p>
 
@@ -277,8 +322,9 @@ BFS，层次遍历，利用index记录每一层的个数
           
             
           
-          二进制中1的个数请实现一个函数，输入一个整数（以二进制串形式），输出该数二进制表示中 1 的个数。例如，把 9 表示成二进制是 1001，有 2 位是 1。因此，如果输入 9，则该函数输出 2。
-思路:利用‘与’运行，因为0 &amp; 1 = 0； 1 &amp; 1 = 1。例如有数1101，然后用1101 &amp; 1 = 1，然后将1101右移一位得到0110，再与1进行‘与’运行，将结
+          二进制中1的个数
+请实现一个函数，输入一个整数（以二进制串形式），输出该数二进制表示中 1 的个数。例如，把 9 表示成二进制是 1001，有 2 位是 1。因此，如果输入 9，则该函数输出 2。
+思路:利用‘与’运行，因为0 &amp; 1 = 0； 1 &amp; 1 = 1。例如有数1101，然后用1101 &amp; 1 = 1，然后将1101右移一位得到0110，再与1进行‘与’运行
         </a>
       </p>
 
@@ -320,9 +366,10 @@ BFS，层次遍历，利用index记录每一层的个数
             
           
           Leetcode 关于链表的题
+
 输入一个链表，输出该链表中倒数第k个节点。为了符合大多数人的习惯，本题从1开始计数，即链表的尾节点是倒数第1个节点。例如，一个链表有6个节点，从头节点开始，它们的值依次是1、2、3、4、5、6。这个链表的倒数第3个节点是值为4的节点。剑指 Offer 22. 链表中倒数第k个节点
 
-思路:设置双指针，slow和fast, 首先让fast指针先走k步，然后slow指针
+思路:设置双指针，slow和fast, 首先让fast指针先走k步，然后s
         </a>
       </p>
 
@@ -366,10 +413,9 @@ BFS，层次遍历，利用index记录每一层的个数
           输入一个链表的头节点，从尾到头反过来返回每个节点的值（用数组返回）。
 输入：head = [1,3,2]
 输出：[2,3,1]
-思路：首先将链表进行原地逆转。例如有链表：dummy-&gt;1-&gt;3-&gt;2; 首先设置两个临时变量pre, p分别指向值为1的节点和值为3的节点。然后进行循环，修改指针：
+思路：首先将链表进行原地逆转。 例如有链表：dummy-&gt;1-&gt;3-&gt;2; 首先设置两个临时变量pre, p分别指向值为1的节点和值为3的节点。然后进行循环，修改指针：
 第一次循环：
-pre-&gt;next = p-&gt;next,即1-&gt;2,
-
+pre-&gt;next = p-&gt;next,即1-&
         </a>
       </p>
 
@@ -410,9 +456,11 @@ pre-&gt;next = p-&gt;next,即1-&gt;2,
           
             
           
-          记录一下linux常用操作centos 8 上的换源 1 使用命令cd /etc/yum.repos.d, 进入源文件所在目录.
+          记录一下linux常用操作
+centos 8 上的换源
+ 1 使用命令cd /etc/yum.repos.d, 进入源文件所在目录.
  2 然后将之前的源文件备份一下，cp CentOS-Base.repo CentOS-Base.repo.back
- 3 再使用wget下载源文件，wget -O CentOS-Base.repo https://mirrors.aliyun.com/repo/Cen
+ 3 再使用wget下载源文件，wget -O CentOS-Base.repo https://mirrors.aliyun.com/re
         </a>
       </p>
 
@@ -453,8 +501,9 @@ pre-&gt;next = p-&gt;next,即1-&gt;2,
           
             
           
-          二分查找1. 在有序数组nums中查找值为target的下标，查找失败返回-1
-12345678910111213141516int binarySearch(vector&lt;int&gt;&amp; nums, int target) &#123;    int left = 0;    int right = nums.size() - 1;    while (left &lt; rig
+          二分查找
+1. 在有序数组nums中查找值为target的下标，查找失败返回-1
+12345678910111213141516int binarySearch(vector&lt;int&gt;&amp; nums, int target) &#123;    int left = 0;    int right = nums.size() - 1;    while (left &lt; 
         </a>
       </p>
 
@@ -495,7 +544,8 @@ pre-&gt;next = p-&gt;next,即1-&gt;2,
           
             
           
-          四数之和给定四个包含整数的数组列表 A , B , C , D ,计算有多少个元组 (i, j, k, l) ，使得 A[i] + B[j] + C[k] + D[l] = 0。
+          四数之和
+给定四个包含整数的数组列表 A , B , C , D ,计算有多少个元组 (i, j, k, l) ，使得 A[i] + B[j] + C[k] + D[l] = 0。
 输入:
 A = [ 1, 2]
 B = [-2,-1]
@@ -507,7 +557,7 @@ D = [ 0, 2]
 
 解释:
 两个元组如下:
-1. (0, 0, 0, 1) -&gt; A[0] + B[0] + C[
+1. (0, 0, 0, 1) -&gt; A[
         </a>
       </p>
 
@@ -548,7 +598,12 @@ D = [ 0, 2]
           
             
           
-          Chapter 2convex set2.1 Affine and convex set2.1.1 Lines and line segment2.1.2 Affine sets​    A set $C \in R^n$ is affine if the line through any two distinct points in C lies in C. We refer to a poin
+          Chapter 2
+convex set
+2.1 Affine and convex set
+2.1.1 Lines and line segment
+2.1.2 Affine sets
+​ A set \(C \in R^n\) is affine if the line through any two distinct points in C lies in C. We refer 
         </a>
       </p>
 
@@ -574,61 +629,11 @@ D = [ 0, 2]
     </article>
   </div>
 
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2020/11/26/first/">最长字串</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2020/11/26/first/">
-          
-          
-            
-          
-          字符串
-给定一个字符串，请你找出其中不含有重复字符的 最长子串 的长度
-输入实例
-123输入: s = &quot;abcabcbb&quot;输出: 3 解释: 因为无重复字符的最长子串是 &quot;abc&quot;，所以其长度 3
-
-
-
-思路
-​    采用滑动窗口的思想，设置两个指针，一个指针i指向左边，一个指针rk 指向右边，此时最长的字符字串为s[i]s[i+1]…s[rk]
-，此时
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2020-11-26 16:44" pubdate>
-              2020-11-26
-            </time>
-          </div>
-        
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/leetcode/">leetcode</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
 
 
   <nav aria-label="navigation">
     <span class="pagination" id="pagination">
-      <a class="extend prev" rel="prev" href="/"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+      <a class="extend prev" rel="prev" href="/"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="iconfont icon-arrowright"></i></a>
     </span>
   </nav>
   

@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      483 字
+      484 字
     </span>
   
 
@@ -227,13 +227,17 @@
             <h1 style="display: none">c++ 11 新标准</h1>
             
             <div class="markdown-body">
-              <h1 id="C-11"><a href="#C-11" class="headerlink" title="C++11"></a>C++11</h1><h2 id="1-新类型"><a href="#1-新类型" class="headerlink" title="1 新类型"></a>1 新类型</h2><pre><code>1.1 c++11 新增了类型long long 和unsigned long long，支持64位整型。</code></pre>
-<h2 id="2-初始化方式"><a href="#2-初始化方式" class="headerlink" title="2 初始化方式"></a>2 初始化方式</h2><pre><code>2.1 初始化方式，使用初始化列表时，可以添加等号(=)，也可以不用： int x = &#123;5&#125;, double y&#123;5&#125;。初始化列表可用于new 表达式中， int *arr = new int[5]&#123;2 0 0 0 0&#125;。
+              <h1 id="c11">C++11</h1>
+<h2 id="新类型">1 新类型</h2>
+<pre><code>1.1 c++11 新增了类型long long 和unsigned long long，支持64位整型。</code></pre>
+<h2 id="初始化方式">2 初始化方式</h2>
+<pre><code>2.1 初始化方式，使用初始化列表时，可以添加等号(=)，也可以不用： int x = &#123;5&#125;, double y&#123;5&#125;。初始化列表可用于new 表达式中， int *arr = new int[5]&#123;2 0 0 0 0&#125;。
 
 2.2 c++ 11 提供了std::initializer_list,可以用于作构造函数的参数，如：
 vector&lt;int&gt; a1&#123;10&#125;;
 vector&lt;int&gt; a2&#123;10&#125;;</code></pre>
-<h2 id="3-声明"><a href="#3-声明" class="headerlink" title="3 声明"></a>3 声明</h2><pre><code>3.1 关键字auto，用于实现自动类型推断，要求进行显示初始化，例如：
+<h2 id="声明">3 声明</h2>
+<pre><code>3.1 关键字auto，用于实现自动类型推断，要求进行显示初始化，例如：
 auto m = 112; // type int
 auto pt = &amp;m; // pt is type int*
 
@@ -255,7 +259,8 @@ auto eff(T t, U u) -&gt; decltype(T*U)&#123;&#125;
 3.4 模板别名: using =
 c++ 11提供了另一种新的创建别名的语法：
 using itType = std::vector&lt;std::string&gt;::iterator;</code></pre>
-<h2 id="4-Lambda-函数"><a href="#4-Lambda-函数" class="headerlink" title="4 Lambda 函数"></a>4 Lambda 函数</h2><pre><code>语法：
+<h2 id="lambda-函数">4 Lambda 函数</h2>
+<pre><code>语法：
 [capture list] (params list) mutable exception-&gt; return type &#123; function body &#125;
 capture list：用于捕获外部变量
 param list:参数列表
