@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1k 字
+      1.3k 字
     </span>
   
 
@@ -194,7 +194,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      12
+      16
        分钟
     </span>
   
@@ -275,11 +275,38 @@ argmin_{g_{ri}} \Vert AP_r^T-y_i^{AC} \Vert^2
 <p>   使用奇异值分解的方法分析校准矩阵A，奇异值分解的形式为： <span class="math display">\[
 A=U\Sigma V^H \quad (5)
 \]</span> 矩阵V的列是矩阵行空间的基，因此可以将矩阵V分成<span class="math inline">\(V_{\bot}\)</span>和<span class="math inline">\(V_{\Vert}\)</span>,分别span A的零空间和行空间。从Figure 2 中可以看出，对校准矩阵矩阵进行奇异值分解后，我们可以利用<span class="math inline">\(V_{\Vert}\)</span>的数据推出未采样的数据。</p>
-<p>   给定欠采样的k空间网格，重构x的每个k空间块必须满足两个约束 $$ \begin{aligned} V_{}V_{}^HR_rx &amp;= R_rx or V_{}^HR_rx = 0 &amp;(6a)\ P_rR_rx&amp;=P_rR_rx &amp;(6b)</p>
-<p>\end{aligned} $$</p>
+<p>   给定欠采样的k空间网格，重构x的每个k空间块必须满足两个约束: <span class="math display">\[
+\begin{aligned}
+V_{\Vert}V_{\Vert}^HR_rx &amp;= R_rx  \quad or \quad V_{\bot}^HR_rx = 0 \quad &amp;(6a)\\
+P_rR_rx&amp;=P_rR_rx \quad &amp;(6b)
+\end{aligned}
+\]</span> (6a)是与校准的一致性，(6b)是与数据采集的一致性。在最小二乘意义上解释(形式上超定的)零空间约束集产生了正规方程</p>
+<p><span class="math display">\[
+\sum_{r}R_r^HV_{\bot}V_{\bot}^HR_rx = 0 \quad (7)
+\]</span></p>
+<p>式子(7)进一步可以写成</p>
+<p><span class="math display">\[
+\sum_{r}R_r^H (I- V_{\Vert}V_{\Vert}^H) R_rx = 0 \quad (8)
+\]</span></p>
+<p><span class="math display">\[
+M^{-1}\sum_{r}R_r^H V_{\Vert}V_{\Vert}^H R_rx = 0 \quad (9)
+\]</span> 其中式子(9)中的M表示<span class="math inline">\(\sum_{r}R_r^HR_r\)</span>。以矩阵形式重写第一个约束，并合并第二个约束的所有相同的方程，得到 <span class="math display">\[
+\begin{aligned}
+\mathcal{W}x &amp;=x  \quad (10a)\\
+\mathcal{P}x &amp;= \mathcal{P}y \quad (10b)
+\end{aligned} 
+\]</span></p>
 <figure>
 <img src="https://i.loli.net/2021/03/08/aPNvjHZbIAgxSym.png" srcset="/img/loading.gif" alt="Figure 2" /><figcaption>Figure 2</figcaption>
 </figure>
+<h3 id="sensitivity-map-as-an-eigenvalue-problem">1.4 Sensitivity map as an eigenvalue problem</h3>
+<p>    假设x是W-I的零空间的解，则满足<span class="math inline">\(Wx=x\)</span>。如果我们用线圈灵敏度加权的原始图像的k空间表示x，得到 <span class="math display">\[
+x=FSm \quad (11)
+\]</span> 其中，<span class="math inline">\(S=[S_1,S_2,...,S_N]^T\)</span> 是堆叠线圈灵敏度的向量，则等式(10a)可以写为： <span class="math display">\[
+WFSm = FSm \quad (12)
+\]</span> 两边都进行傅里叶逆变换可以得到， <span class="math display">\[
+F^{-1}WFSm=Sm \quad (13)
+\]</span> 通过式子(13)可以看出，1是矩阵<span class="math inline">\(F^{-1}WF\)</span>的特征值，特征向量是<span class="math inline">\(Sm\)</span>.</p>
 
             </div>
             <hr>
