@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      876 字
+      1k 字
     </span>
   
 
@@ -194,7 +194,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      10
+      12
        分钟
     </span>
   
@@ -250,7 +250,7 @@ x_i(r)=(P_rR_ry)^Tg_{ri} \quad (2)
 <p>   为了得到GRAPPA kernel，使用校准矩阵改写式子(2),</p>
 <p><span class="math display">\[
 \begin{aligned}
-    x_i(r)&amp;=(P_rR_ry)^Tg_{ri} \\
+x_i(r)&amp;=(P_rR_ry)^Tg_{ri} \\
           &amp;=y^TR_r^TP_r^Tg_{ri}\\
           &amp;=(R_ry)^TP_r^Tg_{ri} \\
           &amp;=AP_r^Tg_{ri}
@@ -268,9 +268,17 @@ argmin_{g_{ri}} \Vert AP_r^T-y_i^{AC} \Vert^2
 &amp;=A(P_r^Tg_{ri} - e_i) \quad (4)
 \end{aligned}   
 \]</span> 从式子(4)中可以发现，<span class="math inline">\(P_r^Tg_{ri} - e_i\)</span>是矩阵A的零空间向量。零空间的存在意味着A中存在冗余，从而意味着k空间块之间的相关性，这可以用来合成丢失的样本。由于零空间的特殊性，因此我们可以直接分析零空间。</p>
-<h3 id="svd和零空间重建">1.3 SVD和零空间重建</h3>
 <figure>
 <img src="https://i.loli.net/2021/03/08/OaNkGrSzJKZADVb.png" srcset="/img/loading.gif" alt="Figure 1" /><figcaption>Figure 1</figcaption>
+</figure>
+<h3 id="svd和零空间重建">1.3 SVD和零空间重建</h3>
+<p>   使用奇异值分解的方法分析校准矩阵A，奇异值分解的形式为： <span class="math display">\[
+A=U\Sigma V^H \quad (5)
+\]</span> 矩阵V的列是矩阵行空间的基，因此可以将矩阵V分成<span class="math inline">\(V_{\bot}\)</span>和<span class="math inline">\(V_{\Vert}\)</span>,分别span A的零空间和行空间。从Figure 2 中可以看出，对校准矩阵矩阵进行奇异值分解后，我们可以利用<span class="math inline">\(V_{\Vert}\)</span>的数据推出未采样的数据。</p>
+<p>   给定欠采样的k空间网格，重构x的每个k空间块必须满足两个约束 $$ \begin{aligned} V_{}V_{}^HR_rx &amp;= R_rx or V_{}^HR_rx = 0 &amp;(6a)\ P_rR_rx&amp;=P_rR_rx &amp;(6b)</p>
+<p>\end{aligned} $$</p>
+<figure>
+<img src="https://i.loli.net/2021/03/08/aPNvjHZbIAgxSym.png" srcset="/img/loading.gif" alt="Figure 2" /><figcaption>Figure 2</figcaption>
 </figure>
 
             </div>
