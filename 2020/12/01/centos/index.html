@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      225 字
+      223 字
     </span>
   
 
@@ -227,16 +227,12 @@
             <h1 style="display: none">centos</h1>
             
             <div class="markdown-body">
-              <h1 id="记录一下linux常用操作">记录一下linux常用操作</h1>
-<h2 id="centos-8-上的换源">centos 8 上的换源</h2>
-<pre><code> 1 使用命令cd /etc/yum.repos.d, 进入源文件所在目录.
+              <h1 id="记录一下linux常用操作"><a href="#记录一下linux常用操作" class="headerlink" title="记录一下linux常用操作"></a>记录一下linux常用操作</h1><h2 id="centos-8-上的换源"><a href="#centos-8-上的换源" class="headerlink" title="centos 8 上的换源"></a>centos 8 上的换源</h2><pre><code> 1 使用命令cd /etc/yum.repos.d, 进入源文件所在目录.
  2 然后将之前的源文件备份一下，cp CentOS-Base.repo CentOS-Base.repo.back
  3 再使用wget下载源文件，wget -O CentOS-Base.repo https://mirrors.aliyun.com/repo/Centos-8.repo
  4 yum makecache
  5 yum update</code></pre>
-<h2 id="记录常见错误以及解决方法">记录常见错误，以及解决方法</h2>
-<h3 id="常见错误1xxx不在sudoers文件中">常见错误1，xxx不在sudoers文件中</h3>
-<pre><code>例如在shell终端输入sudo yum install vim， 此时报错字样为：henry is not in the sudoers file.  This incident will be reported.
+<h2 id="记录常见错误，以及解决方法"><a href="#记录常见错误，以及解决方法" class="headerlink" title="记录常见错误，以及解决方法"></a>记录常见错误，以及解决方法</h2><h3 id="常见错误1，xxx不在sudoers文件中"><a href="#常见错误1，xxx不在sudoers文件中" class="headerlink" title="常见错误1，xxx不在sudoers文件中"></a>常见错误1，xxx不在sudoers文件中</h3><pre><code>例如在shell终端输入sudo yum install vim， 此时报错字样为：henry is not in the sudoers file.  This incident will be reported.
 解决办法：
 1.首先进入root用户下，在shell终端输入su，然后输入用户密码。
 2.添加sudo文件的写权限,命令是:chmod u+w /etc/sudoers

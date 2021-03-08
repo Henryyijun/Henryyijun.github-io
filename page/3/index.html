@@ -190,11 +190,9 @@
           
             
           
-          记录一下linux常用操作
-centos 8 上的换源
- 1 使用命令cd /etc/yum.repos.d, 进入源文件所在目录.
+          记录一下linux常用操作centos 8 上的换源 1 使用命令cd /etc/yum.repos.d, 进入源文件所在目录.
  2 然后将之前的源文件备份一下，cp CentOS-Base.repo CentOS-Base.repo.back
- 3 再使用wget下载源文件，wget -O CentOS-Base.repo https://mirrors.aliyun.com/re
+ 3 再使用wget下载源文件，wget -O CentOS-Base.repo https://mirrors.aliyun.com/repo/Cen
         </a>
       </p>
 
@@ -235,9 +233,8 @@ centos 8 上的换源
           
             
           
-          二分查找
-1. 在有序数组nums中查找值为target的下标，查找失败返回-1
-12345678910111213141516int binarySearch(vector&lt;int&gt;&amp; nums, int target) &#123;    int left = 0;    int right = nums.size() - 1;    while (left &lt; 
+          二分查找1. 在有序数组nums中查找值为target的下标，查找失败返回-1
+12345678910111213141516int binarySearch(vector&lt;int&gt;&amp; nums, int target) &#123;    int left = 0;    int right = nums.size() - 1;    while (left &lt; rig
         </a>
       </p>
 
@@ -278,8 +275,7 @@ centos 8 上的换源
           
             
           
-          四数之和
-给定四个包含整数的数组列表 A , B , C , D ,计算有多少个元组 (i, j, k, l) ，使得 A[i] + B[j] + C[k] + D[l] = 0。
+          四数之和给定四个包含整数的数组列表 A , B , C , D ,计算有多少个元组 (i, j, k, l) ，使得 A[i] + B[j] + C[k] + D[l] = 0。
 输入:
 A = [ 1, 2]
 B = [-2,-1]
@@ -291,7 +287,7 @@ D = [ 0, 2]
 
 解释:
 两个元组如下:
-1. (0, 0, 0, 1) -&gt; A[
+1. (0, 0, 0, 1) -&gt; A[0] + B[0] + C[
         </a>
       </p>
 
@@ -332,12 +328,7 @@ D = [ 0, 2]
           
             
           
-          Chapter 2
-convex set
-2.1 Affine and convex set
-2.1.1 Lines and line segment
-2.1.2 Affine sets
-​ A set \(C \in R^n\) is affine if the line through any two distinct points in C lies in C. We refer 
+          Chapter 2convex set2.1 Affine and convex set2.1.1 Lines and line segment2.1.2 Affine sets​    A set $C \in R^n$ is affine if the line through any two distinct points in C lies in C. We refer to a poin
         </a>
       </p>
 
@@ -379,13 +370,15 @@ convex set
             
           
           字符串
-
 给定一个字符串，请你找出其中不含有重复字符的 最长子串 的长度
 输入实例
 123输入: s = &quot;abcabcbb&quot;输出: 3 解释: 因为无重复字符的最长子串是 &quot;abc&quot;，所以其长度 3
 
+
+
 思路
-​ 采用滑动窗口的思想，设置两个指针，一个指针i指向左边，一个指针rk 指向右边，此时最长的字符字串为s[i]s[i+1]...s[rk
+​    采用滑动窗口的思想，设置两个指针，一个指针i指向左边，一个指针rk 指向右边，此时最长的字符字串为s[i]s[i+1]…s[rk]
+，此时
         </a>
       </p>
 

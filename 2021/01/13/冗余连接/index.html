@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      518 字
+      519 字
     </span>
   
 
@@ -227,8 +227,7 @@
             <h1 style="display: none">冗余连接</h1>
             
             <div class="markdown-body">
-              <h2 id="冗余连接"><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/redundant-connection/">冗余连接</a></h2>
-<pre><code>在本问题中, 树指的是一个连通且无环的无向图。
+              <h2 id="冗余连接"><a href="#冗余连接" class="headerlink" title="冗余连接"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/redundant-connection/">冗余连接</a></h2><pre><code>在本问题中, 树指的是一个连通且无环的无向图。
 
 输入一个图，该图由一个有着N个节点 (节点值不重复1, 2, ..., N) 的树及一条附加的边构成。附加的边的两个顶点包含在1到N中间，这条附加的边不属于树中已存在的边。
 
@@ -253,12 +252,12 @@ id2---id3
 思路：利用并查集的思想，并查集是一个不相交的集合，一般可以用于连通片的计算等。
 最经常用的地方就是在克鲁斯卡尔生成树算法中。
 并查集可以用数组的形式进行实现，例如有一个图[[1,2], [2,3], [3,4], [1,4], [1,5]]。</code></pre>
-<ol type="1">
+<ol>
 <li>并查集一开始初始化为如下表所示：</li>
 </ol>
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th>index</th>
 <th>1</th>
 <th>2</th>
@@ -267,8 +266,7 @@ id2---id3
 <th>5</th>
 </tr>
 </thead>
-<tbody>
-<tr class="odd">
+<tbody><tr>
 <td>father</td>
 <td>1</td>
 <td>2</td>
@@ -276,14 +274,13 @@ id2---id3
 <td>4</td>
 <td>5</td>
 </tr>
-</tbody>
-</table>
-<ol start="2" type="1">
+</tbody></table>
+<ol start="2">
 <li>然后逐渐添加边，</li>
 </ol>
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th>index</th>
 <th>1</th>
 <th>2</th>
@@ -292,8 +289,7 @@ id2---id3
 <th>5</th>
 </tr>
 </thead>
-<tbody>
-<tr class="odd">
+<tbody><tr>
 <td>father</td>
 <td>1</td>
 <td>1</td>
@@ -301,11 +297,16 @@ id2---id3
 <td>1</td>
 <td>1</td>
 </tr>
-</tbody>
-</table>
-<ol start="3" type="1">
-<li>代码如下所示 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span><br><span class="hljs-keyword">public</span>:<br><br>    <span class="hljs-function"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-title">findRedundantConnection</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&gt;&amp; edges)</span> </span>&#123;<br>        <span class="hljs-function"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-title">father</span><span class="hljs-params">(edges.size() + <span class="hljs-number">1</span>)</span></span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> i = <span class="hljs-number">0</span>; i &lt; father.size(); i++) &#123;<br>            father[i] = i;<br>        &#125;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">const</span> <span class="hljs-keyword">auto</span>&amp; edge : edges) &#123;<br>            <span class="hljs-keyword">if</span> (find(father, edge[<span class="hljs-number">0</span>]) != find(father, edge[<span class="hljs-number">1</span>])) &#123;<br>                Union(father, edge[<span class="hljs-number">0</span>], edge[<span class="hljs-number">1</span>]);<br>            &#125; <span class="hljs-keyword">else</span> &#123;<br>                <span class="hljs-keyword">return</span> edge;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&#123;&#125;;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Union</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp; father, <span class="hljs-keyword">int</span> a, <span class="hljs-keyword">int</span> b)</span> </span>&#123;<br>        father[find(father, a)] = father[find(father, b)];<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">int</span>  <span class="hljs-title">find</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp; father, <span class="hljs-keyword">int</span> a)</span> </span>&#123;<br>        <span class="hljs-keyword">while</span> (a != father[a]) &#123;<br>            a = father[a];<br>        &#125;<br>        <span class="hljs-keyword">return</span> a;<br>    &#125;<br><br>&#125;;<br></code></pre></td></tr></table></figure></li>
-</ol>
+<tr>
+<td>3. 代码如下所示</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span><br><span class="hljs-keyword">public</span>:<br><br>    <span class="hljs-function"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-title">findRedundantConnection</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&gt;&amp; edges)</span> </span>&#123;<br>        <span class="hljs-function"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-title">father</span><span class="hljs-params">(edges.size() + <span class="hljs-number">1</span>)</span></span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> i = <span class="hljs-number">0</span>; i &lt; father.size(); i++) &#123;<br>            father[i] = i;<br>        &#125;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">const</span> <span class="hljs-keyword">auto</span>&amp; edge : edges) &#123;<br>            <span class="hljs-keyword">if</span> (find(father, edge[<span class="hljs-number">0</span>]) != find(father, edge[<span class="hljs-number">1</span>])) &#123;<br>                Union(father, edge[<span class="hljs-number">0</span>], edge[<span class="hljs-number">1</span>]);<br>            &#125; <span class="hljs-keyword">else</span> &#123;<br>                <span class="hljs-keyword">return</span> edge;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&#123;&#125;;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Union</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp; father, <span class="hljs-keyword">int</span> a, <span class="hljs-keyword">int</span> b)</span> </span>&#123;<br>        father[find(father, a)] = father[find(father, b)];<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">int</span>  <span class="hljs-title">find</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp; father, <span class="hljs-keyword">int</span> a)</span> </span>&#123;<br>        <span class="hljs-keyword">while</span> (a != father[a]) &#123;<br>            a = father[a];<br>        &#125;<br>        <span class="hljs-keyword">return</span> a;<br>    &#125;<br><br>&#125;;<br></code></pre></td></tr></table></figure>
 
             </div>
             <hr>
