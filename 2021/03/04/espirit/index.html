@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.3k 字
+      1.8k 字
     </span>
   
 
@@ -194,7 +194,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      16
+      22
        分钟
     </span>
   
@@ -306,7 +306,21 @@ x=FSm \quad (11)
 WFSm = FSm \quad (12)
 \]</span> 两边都进行傅里叶逆变换可以得到， <span class="math display">\[
 F^{-1}WFSm=Sm \quad (13)
-\]</span> 通过式子(13)可以看出，1是矩阵<span class="math inline">\(F^{-1}WF\)</span>的特征值，特征向量是<span class="math inline">\(Sm\)</span>.</p>
+\]</span> 通过式子(13)可以看出，1是矩阵<span class="math inline">\(F^{-1}WF\)</span>的特征值，特征向量是<span class="math inline">\(Sm\)</span>.因为算子W是半正定矩阵值卷积，所以它在图像域中解耦成点态半正定矩阵运算: <span class="math display">\[
+F^{-1}\mathcal{W}F|_q=\mathcal{G_q} \quad (14)
+\]</span> 算子W的特征值分解被简化为求解图像空间中<span class="math inline">\(G_q\)</span>每个位置q的特征值分解。计算<span class="math inline">\(G_q\)</span>的过程如Figure 4所示。定义在位置q上的敏感度<span class="math inline">\(\vec{s}(q)=[s_1(q),...,s_N(q)]^T\)</span>,则等式(13)可以推出： <span class="math display">\[
+\mathcal{G_q}\vec{s}(q)m(q)=\vec{s_r}m(q) \quad (15)
+\]</span> 假设<span class="math inline">\(m(q)\)</span>不等于0，则可以得到： <span class="math display">\[
+\mathcal{G_q}\vec{s}(q)=\vec{s_q} \quad (15)
+\]</span> 因此，显式灵敏度图可以通过所有Gq的特征值分解找到，只选择对应于特征值&quot; =1 &quot;的特征向量 <img src="https://i.loli.net/2021/03/08/uXNIlDFy2h6kYe3.png" srcset="/img/loading.gif" alt="Figure 4" /></p>
+<h3 id="espirit-implementation-using-soft-sense">1.5 ESPIRiT : Implementation Using Soft SENSE</h3>
+<p>  在计算一组灵敏度后，可以执行标准的SENSE重建。在某些情况下，采集中的误差会导致出现特征值为“=1”的多个特征向量或小于1的附加特征值，这表明信号分量不能用严格的SENSE模式来解释。这推动了重建过程的扩展:不是使用一组单一的灵敏度图，而是使用等式(1)扩展到“软”SENSE重建，其使用基于多个图像分量<span class="math inline">\(m^j\)</span>和多组映射<span class="math inline">\(S^j\)</span>的信号的松弛模型:</p>
+<p><span class="math display">\[
+y_i=\mathcal{P} \mathcal{F}\sum_{j=1}^{M}S_i^jm^j \quad (16)
+\]</span> 如上所述，重建图像的求解为一个优化问题，并且使用正则化方法，具体的形式如下所示：</p>
+<p><span class="math display">\[
+J(m^1,...,m^M)=\sum_{i=1}^{N}\Vert y_i-\mathcal{P} \mathcal{F}\sum_{j=1}^{M}S_i^jm^j \Vert^2_2 + \alpha\sum_{j=1}^{M}\mathcal{Qm^j}  \quad (17)
+\]</span></p>
 
             </div>
             <hr>
