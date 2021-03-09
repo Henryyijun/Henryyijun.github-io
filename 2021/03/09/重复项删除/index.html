@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="Henry">
   <meta name="keywords" content="">
-  <title>俄罗斯套娃 - HAHA</title>
+  <title>重复项删除 - HAHA</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -162,7 +162,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="俄罗斯套娃">
+            <span class="h2" id="subtitle" title="重复项删除">
               
             </span>
 
@@ -172,8 +172,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-03-08 10:34" pubdate>
-        2021年3月8日 上午
+      <time datetime="2021-03-09 10:00" pubdate>
+        2021年3月9日 上午
       </time>
     </span>
   
@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      518 字
+      291 字
     </span>
   
 
@@ -194,7 +194,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      7
+      4
        分钟
     </span>
   
@@ -224,24 +224,14 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">俄罗斯套娃</h1>
+            <h1 style="display: none">重复项删除</h1>
             
             <div class="markdown-body">
-              <h1 id="俄罗斯套娃"><a href="#俄罗斯套娃" class="headerlink" title="俄罗斯套娃"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/russian-doll-envelopes/">俄罗斯套娃</a></h1><p>给你一个二维整数数组 envelopes ，其中 envelopes[i] = [wi, hi] ，表示第 i 个信封的宽度和高度。<br>当另一个信封的宽度和高度都比这个信封大的时候，这个信封就可以放进另一个信封里，如同俄罗斯套娃一样。<br>请计算 最多能有多少个 信封能组成一组“俄罗斯套娃”信封（即可以把一个信封放到另一个信封里面）。</p>
-<p>思路：首先对信封的宽度进行排序，然后求高度的最长递增子序列。求解子序列问题是一个动态规划问题，假设有序列为：<br>num=[2 1 3 5 4 7]。使用dp数组进行记录，dp[i]的值表示以num[i]作为结尾的递增子序列的长度。一开始，dp全部初始化为1， 然后更新dp的动态方程为:<br>$$<br>dp[i] = max_{0&lt;j&lt;i}(dp[i], dp[j] + 1);<br>$$</p>
-<p>1 dp数组初始化<br>|num|2|1|3|5|4|7|<br>|–|–|–|–|–|–|–|<br>|dp|1|1|1|1|1|1|</p>
-<p>2 更新dp[1]<br>因为num[1] &gt; num[0]不成立，所以dp[1] = 1。<br>|num|2|1|3|5|4|7|<br>|–|–|–|–|–|–|–|<br>|dp|1|1|1|1|1|1|</p>
-<p>3 更新dp[2]<br>因为num[2] &gt; num[0]成立，所以dp[2] = dp[0]+1;<br>因为num[2] &gt; num[1]成立，所以dp[2] = dp[1]+1;<br>最后dp[2] = ，max(dp[1]+1,dp[0]+1);所以dp[2]=2。<br>|num|2|1|3|5|4|7|<br>|–|–|–|–|–|–|–|<br>|dp|1|1|2|1|1|1|</p>
-<p>3 依次类推更新其他值<br>|num|2|1|3|5|4|7|<br>|–|–|–|–|–|–|–|<br>|dp|1|1|2|3|3|4|</p>
-<ol start="4">
-<li><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span><br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">maxEnvelopes</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&gt;&amp; envelopes)</span> </span>&#123;<br>        sort(envelopes.begin(), envelopes.end(), [](<span class="hljs-keyword">const</span> <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp; a, <span class="hljs-keyword">const</span> <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp; b) -&gt; <span class="hljs-keyword">bool</span> &#123;<br>            <span class="hljs-keyword">return</span> a[<span class="hljs-number">0</span>] &lt; b[<span class="hljs-number">0</span>];<br>        &#125;); <span class="hljs-comment">//首先进行排序</span><br>        <span class="hljs-function"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-title">dp</span><span class="hljs-params">(envelopes.size(), <span class="hljs-number">1</span>)</span></span>;<br>        dp[<span class="hljs-number">0</span>] = <span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; envelopes.size(); i++) &#123;<br>            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt; i; j++) &#123;<br>                <span class="hljs-keyword">if</span> (envelopes[i][<span class="hljs-number">1</span>] &gt; envelopes[j][<span class="hljs-number">1</span>] &amp;&amp; envelopes[i][<span class="hljs-number">0</span>] &gt; envelopes[j][<span class="hljs-number">0</span>]) &#123;<br>                    dp[i] = max(dp[i], dp[j] + <span class="hljs-number">1</span>); <span class="hljs-comment">//对高度求最长递增子序列</span><br>                &#125;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> *max_element(dp.begin(), dp.end());<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
-
-
-
-
-
-</li>
-</ol>
+              <h1 id="删除字符串中的所有相邻重复项"><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/remove-all-adjacent-duplicates-in-string/">删除字符串中的所有相邻重复项</a></h1>
+<p>给出由小写字母组成的字符串 S，重复项删除操作会选择两个相邻且相同的字母，并删除它们。在 S 上反复执行重复项删除操作，直到无法继续删除。在完成所有重复项删除操作后返回最终的字符串。</p>
+<p>思路：使用栈保存非重复项，便利字符串，当遇到的字符和栈顶元素相同时，则让栈顶元素退栈，否则入栈，最终将得到的栈转化为字符串。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span><br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-built_in">string</span> <span class="hljs-title">removeDuplicates</span><span class="hljs-params">(<span class="hljs-built_in">string</span> S)</span> </span>&#123;<br>        <span class="hljs-built_in">string</span> res;<br>        <span class="hljs-built_in">stack</span>&lt;<span class="hljs-keyword">char</span>&gt; s;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">char</span>&amp; ch : S) &#123;<br>            <span class="hljs-keyword">if</span> (s.empty()) &#123;<br>                s.push(ch);<br>            &#125; <span class="hljs-keyword">else</span> &#123;<br>                <span class="hljs-keyword">if</span> (ch == s.top()) &#123;<br>                    s.pop();<br>                &#125; <span class="hljs-keyword">else</span> &#123;<br>                    s.push(ch);<br>                &#125;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">while</span> (!s.empty()) &#123;<br>            res.push_back(s.top());<br>            s.pop();<br>        &#125;<br>        reverse(res.begin(), res.end());<br>        <span class="hljs-keyword">return</span> res;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
+<p>c++string本身提供了类似栈的操作，因为我们不需要开多一个额外的栈进行辅助。 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span><br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-built_in">string</span> <span class="hljs-title">removeDuplicates</span><span class="hljs-params">(<span class="hljs-built_in">string</span> S)</span> </span>&#123;<br>        <span class="hljs-built_in">string</span> res;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">char</span>&amp; ch : S) &#123;<br>            <span class="hljs-keyword">if</span> (!res.empty() &amp;&amp; ch == res.back()) &#123;<br>                res.pop_back();<br>            &#125; <span class="hljs-keyword">else</span>&#123;<br>                res.push_back(ch);<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> res;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure></p>
 
             </div>
             <hr>
@@ -265,18 +255,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/03/09/%E9%87%8D%E5%A4%8D%E9%A1%B9%E5%88%A0%E9%99%A4/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">重复项删除</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/03/04/espirit/">
-                        <span class="hidden-mobile">espirit</span>
+                      <a href="/2021/03/08/%E4%BF%84%E7%BD%97%E6%96%AF%E5%A5%97%E5%A8%83/">
+                        <span class="hidden-mobile">俄罗斯套娃</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -295,8 +279,8 @@
     <div id="disqus_thread"></div>
     <script type="text/javascript">
       var disqus_config = function() {
-        this.page.url = 'http://example.com/2021/03/08/%E4%BF%84%E7%BD%97%E6%96%AF%E5%A5%97%E5%A8%83/';
-        this.page.identifier = '/2021/03/08/%E4%BF%84%E7%BD%97%E6%96%AF%E5%A5%97%E5%A8%83/';
+        this.page.url = 'http://example.com/2021/03/09/%E9%87%8D%E5%A4%8D%E9%A1%B9%E5%88%A0%E9%99%A4/';
+        this.page.identifier = '/2021/03/09/%E9%87%8D%E5%A4%8D%E9%A1%B9%E5%88%A0%E9%99%A4/';
       };
       Fluid.utils.waitElementVisible('disqus_thread', function () {
         var d = document, s = d.createElement('script');

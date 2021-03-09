@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>重复项删除</title>
+    <link href="/2021/03/09/%E9%87%8D%E5%A4%8D%E9%A1%B9%E5%88%A0%E9%99%A4/"/>
+    <url>/2021/03/09/%E9%87%8D%E5%A4%8D%E9%A1%B9%E5%88%A0%E9%99%A4/</url>
+    
+    <content type="html"><![CDATA[<h1 id="删除字符串中的所有相邻重复项"><a href="https://leetcode-cn.com/problems/remove-all-adjacent-duplicates-in-string/">删除字符串中的所有相邻重复项</a></h1><p>给出由小写字母组成的字符串 S，重复项删除操作会选择两个相邻且相同的字母，并删除它们。在 S 上反复执行重复项删除操作，直到无法继续删除。在完成所有重复项删除操作后返回最终的字符串。</p><p>思路：使用栈保存非重复项，便利字符串，当遇到的字符和栈顶元素相同时，则让栈顶元素退栈，否则入栈，最终将得到的栈转化为字符串。</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span><br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-built_in">string</span> <span class="hljs-title">removeDuplicates</span><span class="hljs-params">(<span class="hljs-built_in">string</span> S)</span> </span>&#123;<br>        <span class="hljs-built_in">string</span> res;<br>        <span class="hljs-built_in">stack</span>&lt;<span class="hljs-keyword">char</span>&gt; s;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">char</span>&amp; ch : S) &#123;<br>            <span class="hljs-keyword">if</span> (s.empty()) &#123;<br>                s.push(ch);<br>            &#125; <span class="hljs-keyword">else</span> &#123;<br>                <span class="hljs-keyword">if</span> (ch == s.top()) &#123;<br>                    s.pop();<br>                &#125; <span class="hljs-keyword">else</span> &#123;<br>                    s.push(ch);<br>                &#125;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">while</span> (!s.empty()) &#123;<br>            res.push_back(s.top());<br>            s.pop();<br>        &#125;<br>        reverse(res.begin(), res.end());<br>        <span class="hljs-keyword">return</span> res;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure><p>c++string本身提供了类似栈的操作，因为我们不需要开多一个额外的栈进行辅助。 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span><br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-built_in">string</span> <span class="hljs-title">removeDuplicates</span><span class="hljs-params">(<span class="hljs-built_in">string</span> S)</span> </span>&#123;<br>        <span class="hljs-built_in">string</span> res;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">char</span>&amp; ch : S) &#123;<br>            <span class="hljs-keyword">if</span> (!res.empty() &amp;&amp; ch == res.back()) &#123;<br>                res.pop_back();<br>            &#125; <span class="hljs-keyword">else</span>&#123;<br>                res.push_back(ch);<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> res;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure></p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>leetcode</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>俄罗斯套娃</title>
     <link href="/2021/03/08/%E4%BF%84%E7%BD%97%E6%96%AF%E5%A5%97%E5%A8%83/"/>
     <url>/2021/03/08/%E4%BF%84%E7%BD%97%E6%96%AF%E5%A5%97%E5%A8%83/</url>
