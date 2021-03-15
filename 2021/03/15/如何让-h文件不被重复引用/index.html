@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="Henry">
   <meta name="keywords" content="">
-  <title>重复项删除 - HAHA</title>
+  <title>如何让.h文件不被重复引用 - HAHA</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -162,7 +162,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="重复项删除">
+            <span class="h2" id="subtitle" title="如何让.h文件不被重复引用">
               
             </span>
 
@@ -172,8 +172,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-03-09 10:00" pubdate>
-        2021年3月9日 上午
+      <time datetime="2021-03-15 11:10" pubdate>
+        2021年3月15日 上午
       </time>
     </span>
   
@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      291 字
+      823 字
     </span>
   
 
@@ -194,7 +194,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      4
+      9
        分钟
     </span>
   
@@ -224,14 +224,35 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">重复项删除</h1>
+            <h1 style="display: none">如何让.h文件不被重复引用</h1>
             
             <div class="markdown-body">
-              <h1 id="删除字符串中的所有相邻重复项"><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/remove-all-adjacent-duplicates-in-string/">删除字符串中的所有相邻重复项</a></h1>
-<p>给出由小写字母组成的字符串 S，重复项删除操作会选择两个相邻且相同的字母，并删除它们。在 S 上反复执行重复项删除操作，直到无法继续删除。在完成所有重复项删除操作后返回最终的字符串。</p>
-<p>思路：使用栈保存非重复项，便利字符串，当遇到的字符和栈顶元素相同时，则让栈顶元素退栈，否则入栈，最终将得到的栈转化为字符串。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span><br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-built_in">string</span> <span class="hljs-title">removeDuplicates</span><span class="hljs-params">(<span class="hljs-built_in">string</span> S)</span> </span>&#123;<br>        <span class="hljs-built_in">string</span> res;<br>        <span class="hljs-built_in">stack</span>&lt;<span class="hljs-keyword">char</span>&gt; s;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">char</span>&amp; ch : S) &#123;<br>            <span class="hljs-keyword">if</span> (s.empty()) &#123;<br>                s.push(ch);<br>            &#125; <span class="hljs-keyword">else</span> &#123;<br>                <span class="hljs-keyword">if</span> (ch == s.top()) &#123;<br>                    s.pop();<br>                &#125; <span class="hljs-keyword">else</span> &#123;<br>                    s.push(ch);<br>                &#125;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">while</span> (!s.empty()) &#123;<br>            res.push_back(s.top());<br>            s.pop();<br>        &#125;<br>        reverse(res.begin(), res.end());<br>        <span class="hljs-keyword">return</span> res;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
-<p>c++string本身提供了类似栈的操作，因为我们不需要开多一个额外的栈进行辅助。 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span><br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-built_in">string</span> <span class="hljs-title">removeDuplicates</span><span class="hljs-params">(<span class="hljs-built_in">string</span> S)</span> </span>&#123;<br>        <span class="hljs-built_in">string</span> res;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">char</span>&amp; ch : S) &#123;<br>            <span class="hljs-keyword">if</span> (!res.empty() &amp;&amp; ch == res.back()) &#123;<br>                res.pop_back();<br>            &#125; <span class="hljs-keyword">else</span>&#123;<br>                res.push_back(ch);<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> res;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure></p>
+              <h1 id="如何让.h文件不被重复引用">如何让.h文件不被重复引用</h1>
+<p>为了避免让.h文件不被重复引用，有三种方式可以实现该操作，主要为：</p>
+<ol type="1">
+<li>使用宏定义</li>
+<li>使用<code>#pragma once</code>语句</li>
+<li>使用<code>_Pragma</code>操作符</li>
+</ol>
+<p>例如有如下所示的 <code>C++</code> 项目，其内部含有 <code>A.h</code> 和 <code>B.h</code> 这 2 个头文件以及 <code>main.cpp</code> 源文件，其各自包含的代码为：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-comment">// A.h</span><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">A</span> &#123;</span><br>    <br>&#125;;<br><br><br><span class="hljs-comment">// B.h</span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&quot;A.h&quot;</span></span><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">B</span> &#123;</span><br>    <br>&#125;;<br><br><br><span class="hljs-comment">//main.cpp</span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&quot;A.h&quot;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&quot;B.h&quot;</span></span><br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>运行此项目后可以发现，编译器报 (VS studio 2019)<code>“A&quot; : &quot;class” 类型重定义</code> 错误。这是因为在 <code>B.h</code> 文件中已经 <code>include</code> 了一次 <code>A.h</code>，而在 <code>main.cpp</code>主程序又同时 <code>#include</code> 了 <code>A.h</code> 和 <code>B.h</code>，即 <code>A</code> 类的定义被引入了 2 次，<code>C++</code>不允许同一个类被重复定义。</p>
+<p>因此我们此时可以使用之前提到的三种方法处理这种情况，避免头文件的重复引入。</p>
+<ul>
+<li><p>使用宏定义避免</p>
+<p>在实际的<code>C++</code>开发中，可以使用如下的宏定义形式进行避免头文件重复引入：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-meta">#<span class="hljs-meta-keyword">ifndef</span> _NAME_H</span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> _NAME_H</span><br><span class="hljs-comment">// 头文件内容</span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span><br></code></pre></td></tr></table></figure>
+<p>其中，_NAME_H 是宏的名称。需要注意的是，这里设置的宏名必须是独一无二的，不要和项目中其他宏的名称相同。当程序中第一次 <code>#include</code> 该文件时，由于 <code>_NAME_H</code> 尚未定义，所以会定义 <code>_NAME_H</code> 并执行 “头文件内容” 部分的代码；当发生多次 <code>#include</code> 时，因为前面已经定义了 <code>_NAME_H</code>，所以不会再重复执行 “头文件内容” 部分的代码。</p>
+<p>因此，我们对之前的两个类文件进行修改，添加宏定义语句，代码如下所示：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-comment">// A.h</span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">ifndef</span> _A_H</span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> _A_H</span><br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">A</span> &#123;</span><br>&#125;;<br><br><span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span><br><br><br><span class="hljs-comment">// B.h</span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">ifndef</span> _B_H</span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> _B_H</span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&quot;A.h&quot;</span></span><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">B</span> &#123;</span><br>&#125;;<br><br><span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span><br><br><br><span class="hljs-comment">//main.cpp</span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&quot;A.h&quot;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&quot;B.h&quot;</span></span><br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>虽然该项目 <code>main.cpp</code> 文件中仍 <code>#include</code> 了 2 次 <code>A.h</code>，但鉴于 <code>_A_H</code> 宏只能定义一次，所以 <code>A</code> 类也仅会定义一次。再次执行该项目会发现，其可以正常执行。</p></li>
+<li><p>使用<code>#pragma once</code>语句</p>
+<p>除了前面第一种最常用的方式之外，还可以使用 <code>#pragma one</code> 指令，将其附加到指定文件的最开头位置，则该文件就只会被 <code>#include</code> 一次。和 <code>ifndef</code> 相比，<code>#pragma once</code> 不涉及宏定义，当编译器遇到它时就会立刻知道当前文件只引入一次，所以效率很高。但值得一提的是，并不是每个版本的编译器都能识别 <code>#pragma once</code> 指令，一些较老版本的编译器就不支持该指令（执行时会发出警告，但编译会继续进行），即 <code>#pragma once</code> 指令的兼容性不是很好。</p></li>
+<li><p>使用<code>_Pragma</code>操作符</p>
+<p><code>C99</code> 标准中新增加了一个和 <code>#pragma</code> 指令类似的 <code>_Pragma</code> 操作符，其可以看做是 <code>#pragma</code> 的增强版，不仅可以实现 <code>#pragma</code> 所有的功能，更重要的是，<code>_Pragma</code> 还能和宏搭配使用。</p>
+<p>当处理头文件重复引入问题时，可以将如下语句添加到相应文件的开头：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs C++">_Pragma(<span class="hljs-string">&quot;once&quot;</span>)<br></code></pre></td></tr></table></figure></li>
+</ul>
 
             </div>
             <hr>
@@ -242,7 +263,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/leetcode/">leetcode</a>
+                      <a class="hover-with-bg" href="/tags/C/">C++</a>
                     
                   </div>
                 
@@ -255,9 +276,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/03/15/%E5%A6%82%E4%BD%95%E8%AE%A9-h%E6%96%87%E4%BB%B6%E4%B8%8D%E8%A2%AB%E9%87%8D%E5%A4%8D%E5%BC%95%E7%94%A8/">
+                      <a href="/2021/03/15/include%E5%8F%8C%E5%BC%95%E5%8F%B7%E5%92%8C%E5%B0%96%E6%8B%AC%E5%8F%B7%E7%9A%84%E5%8C%BA%E5%88%AB/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">如何让.h文件不被重复引用</span>
+                        <span class="hidden-mobile">include双引号和尖括号的区别</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -265,8 +286,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/03/08/%E4%BF%84%E7%BD%97%E6%96%AF%E5%A5%97%E5%A8%83/">
-                        <span class="hidden-mobile">俄罗斯套娃</span>
+                      <a href="/2021/03/09/%E9%87%8D%E5%A4%8D%E9%A1%B9%E5%88%A0%E9%99%A4/">
+                        <span class="hidden-mobile">重复项删除</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -285,8 +306,8 @@
     <div id="disqus_thread"></div>
     <script type="text/javascript">
       var disqus_config = function() {
-        this.page.url = 'http://example.com/2021/03/09/%E9%87%8D%E5%A4%8D%E9%A1%B9%E5%88%A0%E9%99%A4/';
-        this.page.identifier = '/2021/03/09/%E9%87%8D%E5%A4%8D%E9%A1%B9%E5%88%A0%E9%99%A4/';
+        this.page.url = 'http://example.com/2021/03/15/%E5%A6%82%E4%BD%95%E8%AE%A9-h%E6%96%87%E4%BB%B6%E4%B8%8D%E8%A2%AB%E9%87%8D%E5%A4%8D%E5%BC%95%E7%94%A8/';
+        this.page.identifier = '/2021/03/15/%E5%A6%82%E4%BD%95%E8%AE%A9-h%E6%96%87%E4%BB%B6%E4%B8%8D%E8%A2%AB%E9%87%8D%E5%A4%8D%E5%BC%95%E7%94%A8/';
       };
       Fluid.utils.waitElementVisible('disqus_thread', function () {
         var d = document, s = d.createElement('script');
