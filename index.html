@@ -181,6 +181,52 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
+        <a href="/2021/03/16/%E5%9C%A8-h%E6%96%87%E4%BB%B6%E5%AE%9A%E4%B9%89%E5%87%BD%E6%95%B0%E5%87%BA%E7%8E%B0%E7%9A%84%E9%94%99%E8%AF%AF/">在.h文件定义函数出现的错误</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/03/16/%E5%9C%A8-h%E6%96%87%E4%BB%B6%E5%AE%9A%E4%B9%89%E5%87%BD%E6%95%B0%E5%87%BA%E7%8E%B0%E7%9A%84%E9%94%99%E8%AF%AF/">
+          
+          
+            
+          
+          在.h定义函数，会在什么阶段发生错误
+如果把函数定义放在头文件，在复杂的工程文件中会出现重定义等错误。为了说明，使用以下例子进行说明。
+
+首先新创建一个工程文件项目，包含A.h , B.h , B.cpp , C.h , C.cpp , main.cpp。各文件内容如下代码所示：
+A.h
+12345678#ifndef _A_H#define _A_Hint fun_A() &#123;
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-03-16 15:20" pubdate>
+              2021-03-16
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/C/">C++</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
         <a href="/2021/03/15/include%E5%8F%8C%E5%BC%95%E5%8F%B7%E5%92%8C%E5%B0%96%E6%8B%AC%E5%8F%B7%E7%9A%84%E5%8C%BA%E5%88%AB/">include双引号和尖括号的区别</a>
       </h1>
 
@@ -549,55 +595,6 @@
             <i class="iconfont icon-tags"></i>
             
               <a href="/tags/golang/">golang</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2020/12/21/%E9%87%8D%E5%BB%BA%E4%BA%8C%E5%8F%89%E6%A0%91/">重建二叉树</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2020/12/21/%E9%87%8D%E5%BB%BA%E4%BA%8C%E5%8F%89%E6%A0%91/">
-          
-          
-            
-          
-          重建二叉树输入某二叉树的前序遍历和中序遍历的结果，请重建该二叉树。假设输入的前序遍
-历和中序遍历的结果中都不含重复的数字。
-
-二叉树前序遍历：[根结点 左孩子 右孩子]
-二叉树中序遍历：[左孩子 根节点 右孩子]
-
-思路：因此首先需要从二叉树的前序遍历中找到根结点，然后通过中序遍历找到左
-子树和右子树。
-12345678graph TD    id1((根节点))    id2((左子树))   
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2020-12-21 16:57" pubdate>
-              2020-12-21
-            </time>
-          </div>
-        
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/leetcode/">leetcode</a>
             
           </div>
         
