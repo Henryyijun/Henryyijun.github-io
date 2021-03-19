@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="Henry">
   <meta name="keywords" content="">
-  <title>在.h文件定义函数出现的错误 - HAHA</title>
+  <title>vector介绍 - HAHA</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -162,7 +162,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="在.h文件定义函数出现的错误">
+            <span class="h2" id="subtitle" title="vector介绍">
               
             </span>
 
@@ -172,8 +172,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-03-16 15:20" pubdate>
-        2021年3月16日 下午
+      <time datetime="2021-03-19 19:49" pubdate>
+        2021年3月19日 晚上
       </time>
     </span>
   
@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      497 字
+      350 字
     </span>
   
 
@@ -194,7 +194,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      7
+      5
        分钟
     </span>
   
@@ -224,31 +224,33 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">在.h文件定义函数出现的错误</h1>
+            <h1 style="display: none">vector介绍</h1>
             
             <div class="markdown-body">
-              <h1 id="在.h定义函数会在什么阶段发生错误">在.h定义函数，会在什么阶段发生错误</h1>
-<p>如果把函数定义放在头文件，在复杂的工程文件中会出现重定义等错误。为了说明，使用以下例子进行说明。</p>
+              <h1 id="vector">vector</h1>
 <ul>
-<li><p>首先新创建一个工程文件项目，包含<code>A.h</code> , <code>B.h</code> , <code>B.cpp</code> , <code>C.h</code> , <code>C.cpp</code> , <code>main.cpp</code>。各文件内容如下代码所示：</p></li>
-<li><p><code>A.h</code></p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">ifndef</span> _A_H</span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> _A_H</span><br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">fun_A</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br><br><span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span><br></code></pre></td></tr></table></figure></li>
-<li><p><code>B.h</code>和<code>B.cpp</code></p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-comment">//B.h</span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">ifndef</span> _B_H</span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> _B_H</span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&quot;A.h&quot;</span></span><br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">fun_B</span><span class="hljs-params">()</span></span>;<br><br><span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span><br><br><span class="hljs-comment">//B.cpp</span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&quot;B.h&quot;</span></span><br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">fun_B</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-keyword">return</span> fun_A() +  <span class="hljs-number">10</span>;<br>&#125;<br></code></pre></td></tr></table></figure></li>
-<li><p><code>C.h</code>和<code>C.cpp</code></p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-comment">//C.h</span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">ifndef</span> _C_H</span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> _C_H</span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&quot;A.h&quot;</span></span><br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">fun_C</span><span class="hljs-params">()</span></span>;<br><br><span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span><br><br><span class="hljs-comment">//C.cpp</span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&quot;C.h&quot;</span></span><br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">fun_C</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-keyword">return</span> fun_A() +  <span class="hljs-number">20</span>;<br>&#125;<br></code></pre></td></tr></table></figure></li>
-<li><p><code>main.cpp</code></p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&quot;B.h&quot;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&quot;C.h&quot;</span></span><br><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;<br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-built_in">cout</span> &lt;&lt; fun_B() &lt;&lt; <span class="hljs-string">&quot; &quot;</span> &lt;&lt; fun_C() &lt;&lt; <span class="hljs-built_in">endl</span>;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure></li>
-<li><p>然后分别对<code>B.cpp</code>，<code>C.cpp</code>, <code>main.cpp</code>进行编译</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">g++ -c B.cpp -o B.obj<br>g++ -c C.cpp -o C.obj<br>g++ -c main.cpp -o main.obj<br></code></pre></td></tr></table></figure></li>
-<li><p>编译后进行连接</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">g++ -o test B.obj C.obj main.obj <br></code></pre></td></tr></table></figure></li>
-<li><p>但是此时报错，报错内容如下所示:</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs shell">/usr/bin/ld: C.obj: in function `fun_A()&#x27;:<br>C.cpp:(.text+0x0): multiple definition of `fun_A()&#x27;; B.obj:B.cpp:(.text+0x0): first defined here<br>/usr/bin/ld: main.obj: in function `fun_A()&#x27;:<br>main.cpp:(.text+0x0): multiple definition of `fun_A()&#x27;; B.obj:B.cpp:(.text+0x0): first defined here<br>collect2: error: ld returned 1 exit status<br></code></pre></td></tr></table></figure>
-<p>错误原因分析：因为<code>B.h</code>和 <code>C.h</code>中分别都包含了 <code>A.h</code>这个头文件，最后在 <code>main.cpp</code>中分别又 <code>include</code> 了<code>B.h</code>和<code>C.h</code>两个头文件，这样就会导致在<strong>链接</strong>（link）的时候出现重定义的错误。</p></li>
-<li><p>解决办法：</p>
-<p>在 <code>.h</code> 文件中不进行函数的定义，只声明函数，函数的定义写在<code>.cpp</code>文件中，对于以上的项目文件中，另创建一个<code>A.cpp</code>的文件，将函数<code>fun_A</code>的定义写在<code>A.cpp</code>中，这样就可以避免在链接阶段出现函数重定义的问题了。</p></li>
+<li><p>vector定义摘要 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-keyword">template</span>&lt;<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">T</span>, <span class="hljs-keyword">class</span> <span class="hljs-title">Alloc</span> =</span> alloc&gt;<br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">vector</span> &#123;</span><br> <span class="hljs-comment">/// 省略一万字</span><br>&#125;<br><br></code></pre></td></tr></table></figure></p></li>
+<li>vector的构造函数</li>
 </ul>
+<ol type="1">
+<li>默认构造函数 <code>vector()</code>;</li>
+<li><code>vector(size_type n, const T&amp; value)</code>;</li>
+<li>拷贝构造函数<code>vector (const vector&amp; x)</code>, <code>vector (const vector&amp; x, const allocator_type&amp; alloc)</code>;</li>
+<li>范围构造函数<code>vector (InputIterator first, InputIterator last,        const allocator_type&amp; alloc = allocator_type());</code></li>
+<li>移动构造函数<code>vector (vector&amp;&amp; x); vector (vector&amp;&amp; x, const allocator_type&amp; alloc);</code></li>
+<li>列表构造函数<code>vector (initializer_list&lt;value_type&gt; il,     const allocator_type&amp; alloc = allocator_type());</code></li>
+</ol>
+<ul>
+<li>vector的元素操作</li>
+</ul>
+<ol type="1">
+<li><code>push_back(const T&amp; x)</code>:向尾部插入元素</li>
+<li><code>pop_back()</code>:删除尾端元素</li>
+<li><code>iterator erase(iterator first, iterator last)</code>:清除[first, last)的所有元素</li>
+<li><code>iterator erase(iterator positin)</code>:清除某个位置上的元素，返回值为一个迭代器，指向函数调用删除的最后一个元素后面的元素的新位置。</li>
+<li>例子 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-comment">// erasing from vector</span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;vector&gt;</span></span><br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span> <span class="hljs-params">()</span> </span>&#123;<br><span class="hljs-built_in">std</span>::<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; myvector;<br><br><span class="hljs-comment">// set some values (from 1 to 10)</span><br><span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i=<span class="hljs-number">1</span>; i&lt;=<span class="hljs-number">10</span>; i++) myvector.push_back(i);<br><br><span class="hljs-comment">// erase the 6th element</span><br>myvector.erase (myvector.begin()+<span class="hljs-number">5</span>);<br><br><span class="hljs-comment">// erase the first 3 elements:</span><br><span class="hljs-keyword">auto</span> i=myvector.erase (myvector.begin(),myvector.begin()+<span class="hljs-number">3</span>);<br><span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; *i &lt;&lt;<span class="hljs-built_in">endl</span>; <span class="hljs-comment">//此时的i指向值为4 的元素</span><br><span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;myvector contains:&quot;</span>;<br><span class="hljs-keyword">for</span> (<span class="hljs-keyword">unsigned</span> i=<span class="hljs-number">0</span>; i&lt;myvector.size(); ++i)<br>    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&#x27; &#x27;</span> &lt;&lt; myvector[i];<br><span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&#x27;\n&#x27;</span>;<br><br><span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br><br>output：<br><span class="hljs-number">4</span><br>myvector contains: <span class="hljs-number">4</span> <span class="hljs-number">5</span> <span class="hljs-number">7</span> <span class="hljs-number">8</span> <span class="hljs-number">9</span> <span class="hljs-number">10</span><br></code></pre></td></tr></table></figure></li>
+<li><code>void insert(positon, n x)</code>:从positin开始，插入n个元素，初值为x</li>
+</ol>
 
             </div>
             <hr>
@@ -259,7 +261,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/C/">C++</a>
+                      <a class="hover-with-bg" href="/tags/C-STL/">C++, STL</a>
                     
                   </div>
                 
@@ -272,18 +274,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/03/19/vector%E4%BB%8B%E7%BB%8D/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">vector介绍</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/03/15/include%E5%8F%8C%E5%BC%95%E5%8F%B7%E5%92%8C%E5%B0%96%E6%8B%AC%E5%8F%B7%E7%9A%84%E5%8C%BA%E5%88%AB/">
-                        <span class="hidden-mobile">include双引号和尖括号的区别</span>
+                      <a href="/2021/03/16/%E5%9C%A8-h%E6%96%87%E4%BB%B6%E5%AE%9A%E4%B9%89%E5%87%BD%E6%95%B0%E5%87%BA%E7%8E%B0%E7%9A%84%E9%94%99%E8%AF%AF/">
+                        <span class="hidden-mobile">在.h文件定义函数出现的错误</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -302,8 +298,8 @@
     <div id="disqus_thread"></div>
     <script type="text/javascript">
       var disqus_config = function() {
-        this.page.url = 'http://example.com/2021/03/16/%E5%9C%A8-h%E6%96%87%E4%BB%B6%E5%AE%9A%E4%B9%89%E5%87%BD%E6%95%B0%E5%87%BA%E7%8E%B0%E7%9A%84%E9%94%99%E8%AF%AF/';
-        this.page.identifier = '/2021/03/16/%E5%9C%A8-h%E6%96%87%E4%BB%B6%E5%AE%9A%E4%B9%89%E5%87%BD%E6%95%B0%E5%87%BA%E7%8E%B0%E7%9A%84%E9%94%99%E8%AF%AF/';
+        this.page.url = 'http://example.com/2021/03/19/vector%E4%BB%8B%E7%BB%8D/';
+        this.page.identifier = '/2021/03/19/vector%E4%BB%8B%E7%BB%8D/';
       };
       Fluid.utils.waitElementVisible('disqus_thread', function () {
         var d = document, s = d.createElement('script');
