@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      0 字
+      266 字
     </span>
   
 
@@ -194,7 +194,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1
+      2
        分钟
     </span>
   
@@ -227,13 +227,27 @@
             <h1 style="display: none">include双引号和尖括号的区别</h1>
             
             <div class="markdown-body">
-              
+              <h1 id="include-和-的区别">include &quot; &quot; 和 &lt;&gt; 的区别</h1>
+<p>头文件由创建库的程序员提供。为了声明在库中已有的函数和变量，用户只需包含头文件即可。包含头文件，用使用<code>#include</code> 预处理命令。<code>#include</code>有两种方式来指定文件：尖括号 <code>&lt;&gt;</code> 或双引号 <code>&quot;&quot;</code> 。</p>
+<ul>
+<li><p>以尖括号来指定文件时，预处理器是以特定的方式来指定文件，一般是环境中或编译器命令行指定的某种寻找路径。这种设置寻找路径的机制随机器，操作系统，<code>C++</code> 实现的不同而不同，要视具体情况而定。以尖括号指定文件，如下所示：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;header&gt;</span></span><br></code></pre></td></tr></table></figure></li>
+<li><p>用双引号时，预处理器以 “定义实现的途径” 来寻找文件。它通常是从当前目录开始寻找，如果文件没有找到，那么<code>include</code>命令就按与尖括号同样的方式重新开始寻找。以双引号指定文件，如下所示：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&quot;header&quot;</span></span><br></code></pre></td></tr></table></figure></li>
+</ul>
 
             </div>
             <hr>
             <div>
               <div class="post-metas mb-3">
                 
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/C/">C++</a>
+                    
+                  </div>
                 
               </div>
               
