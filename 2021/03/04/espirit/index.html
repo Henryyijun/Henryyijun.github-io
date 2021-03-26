@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.8k 字
+      2k 字
     </span>
   
 
@@ -194,7 +194,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      22
+      25
        分钟
     </span>
   
@@ -321,6 +321,20 @@ y_i=\mathcal{P} \mathcal{F}\sum_{j=1}^{M}S_i^jm^j \quad (16)
 <p><span class="math display">\[
 J(m^1,...,m^M)=\sum_{i=1}^{N}\Vert y_i-\mathcal{P} \mathcal{F}\sum_{j=1}^{M}S_i^jm^j \Vert^2_2 + \alpha\sum_{j=1}^{M}\mathcal{Qm^j}  \quad (17)
 \]</span></p>
+<h2 id="code-implementationdemo_espirit_l1_recon">2 code Implementation(demo_ESPIRIT_l1_recon)</h2>
+<h3 id="construct-calibration-matrix-a-and-v_vert">2.1 construct Calibration matrix A and <span class="math inline">\(V_{\Vert}\)</span></h3>
+<p>  构造校准矩阵A之前，首先必须找到ACS，通过使用函数crop寻找校准区域<code>calib</code>，然后通过<code>calib</code>构造校准矩阵。</p>
+<p>  各类函数解释说明</p>
+<ul>
+<li><code>im2row(im, winSize)</code>:该函数将滑动窗口的数据拉成行向量，然后不用滑动窗口，得到一个Hankel矩阵。如<code>Figure 5</code>所示</li>
+</ul>
+<figure>
+<img src="https://i.loli.net/2021/03/22/3RKe5hN1rdlpZSo.png" srcset="/img/loading.gif" alt="Figure 5" /><figcaption>Figure 5</figcaption>
+</figure>
+<ul>
+<li><p>函数<code>dat2Kernel</code>:该函数接受两个参数，分别是<code>data</code>和<code>kSize</code>，表示校准数据和<code>kernel</code>的大小。该函数首先通过调用im2row函数得到临时变量<code>tmp</code>，然后将<code>tmp reshape</code>成二维矩阵，对A矩阵进行<code>SVD</code>分解，对应公式(5)。进行分解之后，将A的右奇异向量取出，<code>reshape</code>成一个一个的kernel。变换过程如下图所示： <img src="https://i.loli.net/2021/03/22/D3fVXc8QwIlYRHs.png" srcset="/img/loading.gif" alt="Figure 6" /> <img src="https://i.loli.net/2021/03/22/vnyrdfjXYiVCsa9.png" srcset="/img/loading.gif" alt="Figure 7" /></p></li>
+<li><p><code>[EigenVecs, EigenVals] = kernelEig(kernel, imSize)</code>:还函数用于计算特征向量和特征值。<code>kernel</code>是上一个函数<code>dat2Kernel</code>得到的结果并且去掉一些奇异值特别小的右奇异向量。</p></li>
+</ul>
 
             </div>
             <hr>
