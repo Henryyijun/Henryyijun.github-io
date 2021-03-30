@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="Henry">
   <meta name="keywords" content="">
-  <title>vector介绍 - HAHA</title>
+  <title>旋转链表 - HAHA</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -162,7 +162,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="vector介绍">
+            <span class="h2" id="subtitle" title="旋转链表">
               
             </span>
 
@@ -172,8 +172,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-03-19 19:49" pubdate>
-        2021年3月19日 晚上
+      <time datetime="2021-03-30 18:43" pubdate>
+        2021年3月30日 晚上
       </time>
     </span>
   
@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      350 字
+      395 字
     </span>
   
 
@@ -224,33 +224,32 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">vector介绍</h1>
+            <h1 style="display: none">旋转链表</h1>
             
             <div class="markdown-body">
-              <h1 id="vector">vector</h1>
-<ul>
-<li><p>vector定义摘要 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-keyword">template</span>&lt;<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">T</span>, <span class="hljs-keyword">class</span> <span class="hljs-title">Alloc</span> =</span> alloc&gt;<br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">vector</span> &#123;</span><br> <span class="hljs-comment">/// 省略一万字</span><br>&#125;<br><br></code></pre></td></tr></table></figure></p></li>
-<li>vector的构造函数</li>
+              <p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/rotate-list/">旋转链表</a></p>
+<p>给你一个链表的头节点 head ，旋转链表，将链表每个节点向右移动 k 个位置。</p>
+<pre><code class=" mermaid">graph LR
+    id1((1))
+    id2((2))
+    id3((3))
+    id4((4))
+    id5((5))
+    id1 --&gt; id2
+    id2 --&gt; id3
+    id3 --&gt; id4
+    id4 --&gt; id5
+    id5 --&gt; id1
+
+</code></pre></li>
+<li>形成循环链表之后，在合适的位置断开。</li>
+<li>通过观察发现， 当 <code>k = 2</code>, <code>n = 5</code>时，此时的链表应该以数字 <code>3</code> 结尾，此时对应的是链表的第 <code>3</code> 个元素。</li>
+<li>当 <code>k = 3</code> 时，此时的链表应该以数字 <code>2</code> 结尾，此时对应的是链表的第 <code>2</code> 个元素。</li>
+<li>因此，我们可以发现通过移动链表 <code>k</code> 个元素之后， 移动后的链表的尾部是原来链表的第 <code>n - k</code> 个元素。</li>
+<li>不失一般性， 当 <code>k &gt;= n</code> 时， 此时的计算公式为 <code>n - k %  n</code>。</li>
+<li><p>通过以上分析，便可以写出如下的代码啦。</p></li>
 </ul>
-<ol type="1">
-<li>默认构造函数 <code>vector()</code>;</li>
-<li><code>vector(size_type n, const T&amp; value)</code>;</li>
-<li>拷贝构造函数<code>vector (const vector&amp; x)</code>, <code>vector (const vector&amp; x, const allocator_type&amp; alloc)</code>;</li>
-<li>范围构造函数<code>vector (InputIterator first, InputIterator last,        const allocator_type&amp; alloc = allocator_type());</code></li>
-<li>移动构造函数<code>vector (vector&amp;&amp; x); vector (vector&amp;&amp; x, const allocator_type&amp; alloc);</code></li>
-<li>列表构造函数<code>vector (initializer_list&lt;value_type&gt; il,     const allocator_type&amp; alloc = allocator_type());</code></li>
-</ol>
-<ul>
-<li>vector的元素操作</li>
-</ul>
-<ol type="1">
-<li><code>push_back(const T&amp; x)</code>:向尾部插入元素</li>
-<li><code>pop_back()</code>:删除尾端元素</li>
-<li><code>iterator erase(iterator first, iterator last)</code>:清除[first, last)的所有元素</li>
-<li><code>iterator erase(iterator positin)</code>:清除某个位置上的元素，返回值为一个迭代器，指向函数调用删除的最后一个元素后面的元素的新位置。</li>
-<li>例子 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-comment">// erasing from vector</span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;vector&gt;</span></span><br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span> <span class="hljs-params">()</span> </span>&#123;<br><span class="hljs-built_in">std</span>::<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; myvector;<br><br><span class="hljs-comment">// set some values (from 1 to 10)</span><br><span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i=<span class="hljs-number">1</span>; i&lt;=<span class="hljs-number">10</span>; i++) myvector.push_back(i);<br><br><span class="hljs-comment">// erase the 6th element</span><br>myvector.erase (myvector.begin()+<span class="hljs-number">5</span>);<br><br><span class="hljs-comment">// erase the first 3 elements:</span><br><span class="hljs-keyword">auto</span> i=myvector.erase (myvector.begin(),myvector.begin()+<span class="hljs-number">3</span>);<br><span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; *i &lt;&lt;<span class="hljs-built_in">endl</span>; <span class="hljs-comment">//此时的i指向值为4 的元素</span><br><span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;myvector contains:&quot;</span>;<br><span class="hljs-keyword">for</span> (<span class="hljs-keyword">unsigned</span> i=<span class="hljs-number">0</span>; i&lt;myvector.size(); ++i)<br>    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&#x27; &#x27;</span> &lt;&lt; myvector[i];<br><span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&#x27;\n&#x27;</span>;<br><br><span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br><br>output：<br><span class="hljs-number">4</span><br>myvector contains: <span class="hljs-number">4</span> <span class="hljs-number">5</span> <span class="hljs-number">7</span> <span class="hljs-number">8</span> <span class="hljs-number">9</span> <span class="hljs-number">10</span><br></code></pre></td></tr></table></figure></li>
-<li><code>void insert(positon, n x)</code>:从positin开始，插入n个元素，初值为x</li>
-</ol>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span><br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function">ListNode* <span class="hljs-title">rotateRight</span><span class="hljs-params">(ListNode* head, <span class="hljs-keyword">int</span> k)</span> </span>&#123;<br>        <span class="hljs-keyword">if</span> (k == <span class="hljs-number">0</span> || head == <span class="hljs-literal">nullptr</span> || head-&gt;next == <span class="hljs-literal">nullptr</span>) &#123;<br>            <span class="hljs-keyword">return</span> head;<br>        &#125;<br>        <br>        ListNode* p = head;<br>        <span class="hljs-keyword">int</span> n = <span class="hljs-number">1</span>;<br>        <span class="hljs-comment">//计算链表长度</span><br>        <span class="hljs-keyword">while</span> (p-&gt;next != <span class="hljs-literal">nullptr</span>) &#123;<br>            p = p-&gt;next;<br>            n++;  <br>        &#125;<br>        <span class="hljs-keyword">int</span> add = n - k % n;<br>        <span class="hljs-keyword">if</span> (add == n) &#123;<br>            <span class="hljs-keyword">return</span> head;<br>        &#125;<br>        p-&gt;next = head; <span class="hljs-comment">// 形成循环链表</span><br>        <span class="hljs-keyword">while</span> (add--) &#123;<br>            p = p-&gt;next;<br>        &#125;<br>        ListNode* r = p-&gt;next;<br>        p-&gt;next = <span class="hljs-literal">nullptr</span>;<br>        <span class="hljs-keyword">return</span> r;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
 
             </div>
             <hr>
@@ -261,7 +260,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/C-STL/">C++, STL</a>
+                      <a class="hover-with-bg" href="/tags/leetcode/">leetcode</a>
                     
                   </div>
                 
@@ -274,18 +273,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/03/30/%E6%97%8B%E8%BD%AC%E9%93%BE%E8%A1%A8/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">旋转链表</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/03/16/%E5%9C%A8-h%E6%96%87%E4%BB%B6%E5%AE%9A%E4%B9%89%E5%87%BD%E6%95%B0%E5%87%BA%E7%8E%B0%E7%9A%84%E9%94%99%E8%AF%AF/">
-                        <span class="hidden-mobile">在.h文件定义函数出现的错误</span>
+                      <a href="/2021/03/19/vector%E4%BB%8B%E7%BB%8D/">
+                        <span class="hidden-mobile">vector介绍</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -304,8 +297,8 @@
     <div id="disqus_thread"></div>
     <script type="text/javascript">
       var disqus_config = function() {
-        this.page.url = 'http://example.com/2021/03/19/vector%E4%BB%8B%E7%BB%8D/';
-        this.page.identifier = '/2021/03/19/vector%E4%BB%8B%E7%BB%8D/';
+        this.page.url = 'http://example.com/2021/03/30/%E6%97%8B%E8%BD%AC%E9%93%BE%E8%A1%A8/';
+        this.page.identifier = '/2021/03/30/%E6%97%8B%E8%BD%AC%E9%93%BE%E8%A1%A8/';
       };
       Fluid.utils.waitElementVisible('disqus_thread', function () {
         var d = document, s = d.createElement('script');

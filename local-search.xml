@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>旋转链表</title>
+    <link href="/2021/03/30/%E6%97%8B%E8%BD%AC%E9%93%BE%E8%A1%A8/"/>
+    <url>/2021/03/30/%E6%97%8B%E8%BD%AC%E9%93%BE%E8%A1%A8/</url>
+    
+    <content type="html"><![CDATA[<p><a href="https://leetcode-cn.com/problems/rotate-list/">旋转链表</a></p><p>给你一个链表的头节点 head ，旋转链表，将链表每个节点向右移动 k 个位置。</p><figure><img src="https://i.loli.net/2021/03/30/7aTelS1Mmpv5XB9.png" alt="image.png" /><figcaption>image.png</figcaption></figure><ul><li>当k是n的整数倍时，即 <code>k % n = 0</code>, 此时可以直接返回链表头节点 <code>head</code> .</li><li>当 <code>head</code> 为空时，或者链表长度为1时，此时直接返回链表头节点 <code>head</code> 。</li><li><p>否则，将链表构建成一个循环链表，即将链表尾巴 <code>tail-&gt;next = head</code></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs mermaid">graph LR<br>    id1((1))<br>    id2((2))<br>    id3((3))<br>    id4((4))<br>    id5((5))<br>    id1 --&gt; id2<br>    id2 --&gt; id3<br>    id3 --&gt; id4<br>    id4 --&gt; id5<br>    id5 --&gt; id1<br><br></code></pre></td></tr></table></figure></li><li>形成循环链表之后，在合适的位置断开。</li><li>通过观察发现， 当 <code>k = 2</code>, <code>n = 5</code>时，此时的链表应该以数字 <code>3</code> 结尾，此时对应的是链表的第 <code>3</code> 个元素。</li><li>当 <code>k = 3</code> 时，此时的链表应该以数字 <code>2</code> 结尾，此时对应的是链表的第 <code>2</code> 个元素。</li><li>因此，我们可以发现通过移动链表 <code>k</code> 个元素之后， 移动后的链表的尾部是原来链表的第 <code>n - k</code> 个元素。</li><li>不失一般性， 当 <code>k &gt;= n</code> 时， 此时的计算公式为 <code>n - k %  n</code>。</li><li><p>通过以上分析，便可以写出如下的代码啦。</p></li></ul><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span><br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function">ListNode* <span class="hljs-title">rotateRight</span><span class="hljs-params">(ListNode* head, <span class="hljs-keyword">int</span> k)</span> </span>&#123;<br>        <span class="hljs-keyword">if</span> (k == <span class="hljs-number">0</span> || head == <span class="hljs-literal">nullptr</span> || head-&gt;next == <span class="hljs-literal">nullptr</span>) &#123;<br>            <span class="hljs-keyword">return</span> head;<br>        &#125;<br>        <br>        ListNode* p = head;<br>        <span class="hljs-keyword">int</span> n = <span class="hljs-number">1</span>;<br>        <span class="hljs-comment">//计算链表长度</span><br>        <span class="hljs-keyword">while</span> (p-&gt;next != <span class="hljs-literal">nullptr</span>) &#123;<br>            p = p-&gt;next;<br>            n++;  <br>        &#125;<br>        <span class="hljs-keyword">int</span> add = n - k % n;<br>        <span class="hljs-keyword">if</span> (add == n) &#123;<br>            <span class="hljs-keyword">return</span> head;<br>        &#125;<br>        p-&gt;next = head; <span class="hljs-comment">// 形成循环链表</span><br>        <span class="hljs-keyword">while</span> (add--) &#123;<br>            p = p-&gt;next;<br>        &#125;<br>        ListNode* r = p-&gt;next;<br>        p-&gt;next = <span class="hljs-literal">nullptr</span>;<br>        <span class="hljs-keyword">return</span> r;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>leetcode</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>vector介绍</title>
     <link href="/2021/03/19/vector%E4%BB%8B%E7%BB%8D/"/>
     <url>/2021/03/19/vector%E4%BB%8B%E7%BB%8D/</url>
