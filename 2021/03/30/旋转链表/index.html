@@ -241,13 +241,14 @@
     id4 --&gt; id5
     id5 --&gt; id1
 
-</code></pre></li>
+</code></pre>
+<ul>
 <li>形成循环链表之后，在合适的位置断开。</li>
 <li>通过观察发现， 当 <code>k = 2</code>, <code>n = 5</code>时，此时的链表应该以数字 <code>3</code> 结尾，此时对应的是链表的第 <code>3</code> 个元素。</li>
 <li>当 <code>k = 3</code> 时，此时的链表应该以数字 <code>2</code> 结尾，此时对应的是链表的第 <code>2</code> 个元素。</li>
 <li>因此，我们可以发现通过移动链表 <code>k</code> 个元素之后， 移动后的链表的尾部是原来链表的第 <code>n - k</code> 个元素。</li>
 <li>不失一般性， 当 <code>k &gt;= n</code> 时， 此时的计算公式为 <code>n - k %  n</code>。</li>
-<li><p>通过以上分析，便可以写出如下的代码啦。</p></li>
+<li>通过以上分析，便可以写出如下的代码啦。</li>
 </ul>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span><br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function">ListNode* <span class="hljs-title">rotateRight</span><span class="hljs-params">(ListNode* head, <span class="hljs-keyword">int</span> k)</span> </span>&#123;<br>        <span class="hljs-keyword">if</span> (k == <span class="hljs-number">0</span> || head == <span class="hljs-literal">nullptr</span> || head-&gt;next == <span class="hljs-literal">nullptr</span>) &#123;<br>            <span class="hljs-keyword">return</span> head;<br>        &#125;<br>        <br>        ListNode* p = head;<br>        <span class="hljs-keyword">int</span> n = <span class="hljs-number">1</span>;<br>        <span class="hljs-comment">//计算链表长度</span><br>        <span class="hljs-keyword">while</span> (p-&gt;next != <span class="hljs-literal">nullptr</span>) &#123;<br>            p = p-&gt;next;<br>            n++;  <br>        &#125;<br>        <span class="hljs-keyword">int</span> add = n - k % n;<br>        <span class="hljs-keyword">if</span> (add == n) &#123;<br>            <span class="hljs-keyword">return</span> head;<br>        &#125;<br>        p-&gt;next = head; <span class="hljs-comment">// 形成循环链表</span><br>        <span class="hljs-keyword">while</span> (add--) &#123;<br>            p = p-&gt;next;<br>        &#125;<br>        ListNode* r = p-&gt;next;<br>        p-&gt;next = <span class="hljs-literal">nullptr</span>;<br>        <span class="hljs-keyword">return</span> r;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
 
