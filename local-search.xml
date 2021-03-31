@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>soft-threshold</title>
+    <link href="/2021/03/31/soft-threshold/"/>
+    <url>/2021/03/31/soft-threshold/</url>
+    
+    <content type="html"><![CDATA[<h1 id="软阈值">软阈值</h1><ul><li>根据 <code>proximal operator</code> 的定义，一个函数 <code>f(x)</code> 的 <code>proximal operator</code> 如下公式所示：</li></ul><p><span class="math display">\[prox_{\lambda f} = argmin(f(x) + \frac{1}{2 \rho}\Vert x- v\Vert^2_2)\]</span></p><ul><li>当函数 <code>f(x) = |x|</code> 时，<code>f(x)</code> 的 <code>proximal operator</code> 此时为软阈值，为：</li></ul><p><span class="math display">\[prox_{\lambda f} =  \begin{cases}v-\lambda \quad v &gt; \lambda  \\0 \quad \quad \quad |v| \le \lambda \\v + \lambda \quad v &lt; -\lambda\end{cases}\]</span> - 证明： 1. 当 <span class="math inline">\(v \in [-\lambda, \lambda]\)</span>, 通过 <span class="math inline">\(0 \in \partial(\lambda|x|) + x -v\)</span>,可以得到： <span class="math display">\[\begin{aligned}&amp;x = 0, \quad \partial(\lambda|x|) + x -v = 0 , \quad \\&amp;x &gt; 0, \quad \partial(\lambda|x|) + x -v = \lambda + x -v &gt; 0 \\&amp;x &gt; 0, \quad \partial(\lambda|x|) + x -v = -\lambda + x -v &lt; 0 \\&amp;so \quad prox_{\lambda f}(v) = 0\end{aligned}\]</span></p><ol start="2" type="1"><li><p>当 <span class="math inline">\(v &gt; \lambda\)</span>, 通过 <span class="math inline">\(0 \in \partial(\lambda|x|) + x -v\)</span>,可以得到： <span class="math display">\[\begin{aligned}&amp;x = 0, \quad \partial(\lambda|x|) + x -v &lt; 0 , \quad \\&amp;x &gt; 0, \quad \partial(\lambda|x|) + x -v = \lambda + x -v = 0 \\&amp;x &gt; 0, \quad \partial(\lambda|x|) + x -v = -\lambda + x -v &lt; 0 \\&amp;so \quad prox_{\lambda f}(v) =  v- \lambda\end{aligned}\]</span></p></li><li><p>当 <span class="math inline">\(v &lt; -\lambda\)</span>, 通过 <span class="math inline">\(0 \in \partial(\lambda|x|) + x -v\)</span>,可以得到： <span class="math display">\[\begin{aligned}&amp;x = 0, \quad \partial(\lambda|x|) + x -v &gt; 0 , \quad \\&amp;x &gt; 0, \quad \partial(\lambda|x|) + x -v = \lambda + x -v &gt; 0 \\&amp;x &gt; 0, \quad \partial(\lambda|x|) + x -v = -\lambda + x -v = 0 \\&amp;so \quad prox_{\lambda f}(v) =  v+ \lambda\end{aligned}\]</span></p></li><li><p>软阈值另一种等价形式 <span class="math display">\[prox_{\lambda f}(v) = sign(v) max\{|v| - \lambda, 0\}\]</span></p></li></ol>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>math</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>旋转链表</title>
     <link href="/2021/03/30/%E6%97%8B%E8%BD%AC%E9%93%BE%E8%A1%A8/"/>
     <url>/2021/03/30/%E6%97%8B%E8%BD%AC%E9%93%BE%E8%A1%A8/</url>

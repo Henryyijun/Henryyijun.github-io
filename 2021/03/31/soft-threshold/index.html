@@ -17,9 +17,25 @@
   <meta name="description" content="">
   <meta name="author" content="Henry">
   <meta name="keywords" content="">
-  <title>归档 - HAHA</title>
+  <title>soft-threshold - HAHA</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
 
 
 
@@ -47,7 +63,7 @@
 
 
 <body>
-  <header style="height: 60vh;">
+  <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -146,9 +162,46 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="归档">
+            <span class="h2" id="subtitle" title="soft-threshold">
               
             </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-03-31 14:26" pubdate>
+        2021年3月31日 下午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      321 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      5
+       分钟
+    </span>
+  
+
+  
+  
+</div>
 
             
           </div>
@@ -161,106 +214,149 @@
 
   <main>
     
-      <div class="container nopadding-md">
-        <div class="py-5" id="board"
-          >
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
-
-<div class="list-group">
-  <p class="h4">共计 32 篇文章</p>
-  <hr>
-  
-  
-    
       
-      <p class="h5">2020</p>
-    
-    <a href="/2020/12/06/subArraySum/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">subArraySum</span>
-      <time style="float: right;">12-06</time>
-    </a>
-  
-    
-    <a href="/2020/12/06/printTree/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">printTree</span>
-      <time style="float: right;">12-06</time>
-    </a>
-  
-    
-    <a href="/2020/12/06/countOne/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">countOne</span>
-      <time style="float: right;">12-06</time>
-    </a>
-  
-    
-    <a href="/2020/12/04/linklist/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">linklist</span>
-      <time style="float: right;">12-04</time>
-    </a>
-  
-    
-    <a href="/2020/12/02/reverseLinkList/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">reverseLinkList</span>
-      <time style="float: right;">12-02</time>
-    </a>
-  
-    
-    <a href="/2020/12/01/centos/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">centos</span>
-      <time style="float: right;">12-01</time>
-    </a>
-  
-    
-    <a href="/2020/12/01/binarySearch/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">binarySearch</span>
-      <time style="float: right;">12-01</time>
-    </a>
-  
-    
-    <a href="/2020/11/29/fourSumCount/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">fourSumCount</span>
-      <time style="float: right;">11-29</time>
-    </a>
-  
-    
-    <a href="/2020/11/27/convex-opt/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">convex-optimization</span>
-      <time style="float: right;">11-27</time>
-    </a>
-  
-    
-    <a href="/2020/11/26/first/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">最长字串</span>
-      <time style="float: right;">11-26</time>
-    </a>
-  
-</div>
 
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">soft-threshold</h1>
+            
+            <div class="markdown-body">
+              <h1 id="软阈值">软阈值</h1>
+<ul>
+<li>根据 <code>proximal operator</code> 的定义，一个函数 <code>f(x)</code> 的 <code>proximal operator</code> 如下公式所示：</li>
+</ul>
+<p><span class="math display">\[
+prox_{\lambda f} = argmin(f(x) + \frac{1}{2 \rho}\Vert x- v\Vert^2_2)
+\]</span></p>
+<ul>
+<li>当函数 <code>f(x) = |x|</code> 时，<code>f(x)</code> 的 <code>proximal operator</code> 此时为软阈值，为：</li>
+</ul>
+<p><span class="math display">\[
+prox_{\lambda f} =  
+\begin{cases}
+v-\lambda \quad v &gt; \lambda  \\
+0 \quad \quad \quad |v| \le \lambda \\
+v + \lambda \quad v &lt; -\lambda
+\end{cases}
+\]</span> - 证明： 1. 当 <span class="math inline">\(v \in [-\lambda, \lambda]\)</span>, 通过 <span class="math inline">\(0 \in \partial(\lambda|x|) + x -v\)</span>,可以得到： <span class="math display">\[
+\begin{aligned}
+&amp;x = 0, \quad \partial(\lambda|x|) + x -v = 0 , \quad \\
+&amp;x &gt; 0, \quad \partial(\lambda|x|) + x -v = \lambda + x -v &gt; 0 \\
+&amp;x &gt; 0, \quad \partial(\lambda|x|) + x -v = -\lambda + x -v &lt; 0 \\
+&amp;so \quad prox_{\lambda f}(v) = 0
+\end{aligned}
+\]</span></p>
+<ol start="2" type="1">
+<li><p>当 <span class="math inline">\(v &gt; \lambda\)</span>, 通过 <span class="math inline">\(0 \in \partial(\lambda|x|) + x -v\)</span>,可以得到： <span class="math display">\[
+\begin{aligned}
+&amp;x = 0, \quad \partial(\lambda|x|) + x -v &lt; 0 , \quad \\
+&amp;x &gt; 0, \quad \partial(\lambda|x|) + x -v = \lambda + x -v = 0 \\
+&amp;x &gt; 0, \quad \partial(\lambda|x|) + x -v = -\lambda + x -v &lt; 0 \\
+&amp;so \quad prox_{\lambda f}(v) =  v- \lambda
+\end{aligned}
+\]</span></p></li>
+<li><p>当 <span class="math inline">\(v &lt; -\lambda\)</span>, 通过 <span class="math inline">\(0 \in \partial(\lambda|x|) + x -v\)</span>,可以得到： <span class="math display">\[
+\begin{aligned}
+&amp;x = 0, \quad \partial(\lambda|x|) + x -v &gt; 0 , \quad \\
+&amp;x &gt; 0, \quad \partial(\lambda|x|) + x -v = \lambda + x -v &gt; 0 \\
+&amp;x &gt; 0, \quad \partial(\lambda|x|) + x -v = -\lambda + x -v = 0 \\
+&amp;so \quad prox_{\lambda f}(v) =  v+ \lambda
+\end{aligned}
+\]</span></p></li>
+<li><p>软阈值另一种等价形式 <span class="math display">\[
+prox_{\lambda f}(v) = sign(v) max\{|v| - \lambda, 0\}
+\]</span></p></li>
+</ol>
 
-  <nav aria-label="navigation">
-    <span class="pagination" id="pagination">
-      <a class="extend prev" rel="prev" href="/archives/2020/"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/archives/2020/">1</a><span class="page-number current">2</span>
-    </span>
-  </nav>
-  
-  <script>
-    for (ele of document.getElementById("pagination").getElementsByTagName("a")) {
-      ele.href += '#board';
-    }
-  </script>
-
-
-
-
-              </div>
             </div>
-          </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/math/">math</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/03/30/%E6%97%8B%E8%BD%AC%E9%93%BE%E8%A1%A8/">
+                        <span class="hidden-mobile">旋转链表</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments">
+                
+                
+  <div class="disqus" style="width:100%">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+      var disqus_config = function() {
+        this.page.url = 'http://example.com/2021/03/31/soft-threshold/';
+        this.page.identifier = '/2021/03/31/soft-threshold/';
+      };
+      Fluid.utils.waitElementVisible('disqus_thread', function () {
+        var d = document, s = d.createElement('script');
+        s.src = '//' + 'fluid' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', new Date());
+        (d.head || d.body).appendChild(s);
+      });
+    </script>
+    <noscript>Please enable JavaScript to view the
+      <a target="_blank" href="https://disqus.com/?ref_noscript" rel="nofollow noopener noopener">comments powered by Disqus.</a>
+    </noscript>
+  </div>
+
+
+              </article>
+            
+          </article>
         </div>
       </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
     
 
     
@@ -367,9 +463,15 @@
 
 
 
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
 
 
 
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
 
 
 
@@ -411,9 +513,55 @@
 
 
 
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-svg.js" ></script>
+
+  
 
 
 
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/mermaid@8.8.3/dist/mermaid.min.js" ></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize({"theme":"default"});
+    }
+  </script>
 
 
 
