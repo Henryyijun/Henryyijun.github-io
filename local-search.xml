@@ -4,11 +4,30 @@
   
   
   <entry>
+    <title>linux</title>
+    <link href="/2021/04/01/linux/"/>
+    <url>/2021/04/01/linux/</url>
+    
+    <content type="html"><![CDATA[<h1 id="记录-ubuntu-常见错误等"><a href="#记录-ubuntu-常见错误等" class="headerlink" title="记录 ubuntu 常见错误等"></a>记录 <code>ubuntu</code> 常见错误等</h1><h3 id="1-ubuntu-输入-python-报不存在"><a href="#1-ubuntu-输入-python-报不存在" class="headerlink" title="1. ubuntu 输入 python 报不存在"></a>1. <code>ubuntu</code> 输入 <code>python</code> 报不存在</h3><p>错误截图如下所示：</p><div align=center><img src="https://i.loli.net/2021/04/01/JjC2B3q6pdvnWtV.png" width="80%" alt=""/></div><p>但是输入 <code>python3</code> 却能正常工作，主要原因是系统自动将软链接命名为  <code>python3</code>。<br>在 <code>/bin</code> 文件目录下输入以下语句：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">ls -l | grep python3  <br></code></pre></td></tr></table></figure><p>结果为：</p><div align=center><img src="https://i.loli.net/2021/04/01/SeGJVHz6CZ8UEvB.png" width="80%" alt=""/></div><p>此时我们可以将 <code>python3.8</code> 重新进行软连接，新的名字为 <code>python</code>, 具体操作为：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">ln -s python3.8 python<br></code></pre></td></tr></table></figure><p>此时重新输入 <code>python</code> 就能正常工作了。</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>linux</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>soft-threshold</title>
     <link href="/2021/03/31/soft-threshold/"/>
     <url>/2021/03/31/soft-threshold/</url>
     
-    <content type="html"><![CDATA[<h1 id="软阈值">软阈值</h1><ul><li>根据 <code>proximal operator</code> 的定义，一个函数 <code>f(x)</code> 的 <code>proximal operator</code> 如下公式所示：</li></ul><p><span class="math display">\[prox_{\lambda f} = argmin(f(x) + \frac{1}{2 \rho}\Vert x- v\Vert^2_2)\]</span></p><ul><li>当函数 <code>f(x) = |x|</code> 时，<code>f(x)</code> 的 <code>proximal operator</code> 此时为软阈值，为：</li></ul><p><span class="math display">\[prox_{\lambda f} =  \begin{cases}v-\lambda \quad v &gt; \lambda  \\0 \quad \quad \quad |v| \le \lambda \\v + \lambda \quad v &lt; -\lambda\end{cases}\]</span> - 证明： 1. 当 <span class="math inline">\(v \in [-\lambda, \lambda]\)</span>, 通过 <span class="math inline">\(0 \in \partial(\lambda|x|) + x -v\)</span>,可以得到： <span class="math display">\[\begin{aligned}&amp;x = 0, \quad \partial(\lambda|x|) + x -v = 0 , \quad \\&amp;x &gt; 0, \quad \partial(\lambda|x|) + x -v = \lambda + x -v &gt; 0 \\&amp;x &gt; 0, \quad \partial(\lambda|x|) + x -v = -\lambda + x -v &lt; 0 \\&amp;so \quad prox_{\lambda f}(v) = 0\end{aligned}\]</span></p><ol start="2" type="1"><li><p>当 <span class="math inline">\(v &gt; \lambda\)</span>, 通过 <span class="math inline">\(0 \in \partial(\lambda|x|) + x -v\)</span>,可以得到： <span class="math display">\[\begin{aligned}&amp;x = 0, \quad \partial(\lambda|x|) + x -v &lt; 0 , \quad \\&amp;x &gt; 0, \quad \partial(\lambda|x|) + x -v = \lambda + x -v = 0 \\&amp;x &gt; 0, \quad \partial(\lambda|x|) + x -v = -\lambda + x -v &lt; 0 \\&amp;so \quad prox_{\lambda f}(v) =  v- \lambda\end{aligned}\]</span></p></li><li><p>当 <span class="math inline">\(v &lt; -\lambda\)</span>, 通过 <span class="math inline">\(0 \in \partial(\lambda|x|) + x -v\)</span>,可以得到： <span class="math display">\[\begin{aligned}&amp;x = 0, \quad \partial(\lambda|x|) + x -v &gt; 0 , \quad \\&amp;x &gt; 0, \quad \partial(\lambda|x|) + x -v = \lambda + x -v &gt; 0 \\&amp;x &gt; 0, \quad \partial(\lambda|x|) + x -v = -\lambda + x -v = 0 \\&amp;so \quad prox_{\lambda f}(v) =  v+ \lambda\end{aligned}\]</span></p></li><li><p>软阈值另一种等价形式 <span class="math display">\[prox_{\lambda f}(v) = sign(v) max\{|v| - \lambda, 0\}\]</span></p></li></ol>]]></content>
+    <content type="html"><![CDATA[<h1 id="软阈值"><a href="#软阈值" class="headerlink" title="软阈值"></a>软阈值</h1><p>[TOC]</p><h2 id="1-2-das"><a href="#1-2-das" class="headerlink" title="1.2 das"></a>1.2 das</h2><ul><li>根据 <code>proximal operator</code> 的定义，一个函数 <code>f(x)</code> 的 <code>proximal operator</code> 如下公式所示：</li></ul><p>$$<br>prox_{\lambda f} = argmin(f(x) + \frac{1}{2 \rho}\Vert x- v\Vert^2_2)<br>$$</p><ul><li>当函数 <code>f(x) = |x|</code> 时，<code>f(x)</code> 的 <code>proximal operator</code> 此时为软阈值，为：</li></ul><p>$$<br>prox_{\lambda f} =<br>\begin{cases}<br>v-\lambda \quad v &gt; \lambda  \<br>0 \quad \quad \quad |v| \le \lambda \<br>v + \lambda \quad v &lt; -\lambda<br>\end{cases}<br>$$</p><ul><li>证明：</li></ul><ol><li><p>当 $v \in [-\lambda, \lambda]$, 通过 $0 \in \partial(\lambda|x|) + x -v$,可以得到：<br>$$<br>\begin{aligned}<br>&amp;x = 0, \quad \partial(\lambda|x|) + x -v = 0 , \quad \<br>&amp;x &gt; 0, \quad \partial(\lambda|x|) + x -v = \lambda + x -v &gt; 0 \<br>&amp;x &gt; 0, \quad \partial(\lambda|x|) + x -v = -\lambda + x -v &lt; 0 \<br>&amp;so \quad prox_{\lambda f}(v) = 0<br>\end{aligned}<br>$$</p></li><li><p> 当 $v &gt; \lambda$, 通过 $0 \in \partial(\lambda|x|) + x -v$,可以得到：<br>$$<br>\begin{aligned}<br>&amp;x = 0, \quad \partial(\lambda|x|) + x -v &lt; 0 , \quad \<br>&amp;x &gt; 0, \quad \partial(\lambda|x|) + x -v = \lambda + x -v = 0 \<br>&amp;x &gt; 0, \quad \partial(\lambda|x|) + x -v = -\lambda + x -v &lt; 0 \<br>&amp;so \quad prox_{\lambda f}(v) =  v- \lambda<br>\end{aligned}<br>$$</p></li><li><p> 当 $v  &lt; -\lambda$, 通过 $0 \in \partial(\lambda|x|) + x -v$,可以得到：<br>$$<br>\begin{aligned}<br>&amp;x = 0, \quad \partial(\lambda|x|) + x -v &gt; 0 , \quad \<br>&amp;x &gt; 0, \quad \partial(\lambda|x|) + x -v = \lambda + x -v &gt; 0 \<br>&amp;x &gt; 0, \quad \partial(\lambda|x|) + x -v = -\lambda + x -v = 0 \<br>&amp;so \quad prox_{\lambda f}(v) =  v+ \lambda<br>\end{aligned}<br>$$</p></li><li><p>软阈值另一种等价形式<br>$$<br>prox_{\lambda f}(v) = sign(v) max{|v| - \lambda, 0}<br>$$</p></li></ol>]]></content>
     
     
     

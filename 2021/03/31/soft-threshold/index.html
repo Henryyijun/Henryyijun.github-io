@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      321 字
+      324 字
     </span>
   
 
@@ -227,51 +227,27 @@
             <h1 style="display: none">soft-threshold</h1>
             
             <div class="markdown-body">
-              <h1 id="软阈值">软阈值</h1>
-<ul>
+              <h1 id="软阈值"><a href="#软阈值" class="headerlink" title="软阈值"></a>软阈值</h1><p>[TOC]</p>
+<h2 id="1-2-das"><a href="#1-2-das" class="headerlink" title="1.2 das"></a>1.2 das</h2><ul>
 <li>根据 <code>proximal operator</code> 的定义，一个函数 <code>f(x)</code> 的 <code>proximal operator</code> 如下公式所示：</li>
 </ul>
-<p><span class="math display">\[
-prox_{\lambda f} = argmin(f(x) + \frac{1}{2 \rho}\Vert x- v\Vert^2_2)
-\]</span></p>
+<p>$$<br>prox_{\lambda f} = argmin(f(x) + \frac{1}{2 \rho}\Vert x- v\Vert^2_2)<br>$$</p>
 <ul>
 <li>当函数 <code>f(x) = |x|</code> 时，<code>f(x)</code> 的 <code>proximal operator</code> 此时为软阈值，为：</li>
 </ul>
-<p><span class="math display">\[
-prox_{\lambda f} =  
-\begin{cases}
-v-\lambda \quad v &gt; \lambda  \\
-0 \quad \quad \quad |v| \le \lambda \\
-v + \lambda \quad v &lt; -\lambda
-\end{cases}
-\]</span> - 证明： 1. 当 <span class="math inline">\(v \in [-\lambda, \lambda]\)</span>, 通过 <span class="math inline">\(0 \in \partial(\lambda|x|) + x -v\)</span>,可以得到： <span class="math display">\[
-\begin{aligned}
-&amp;x = 0, \quad \partial(\lambda|x|) + x -v = 0 , \quad \\
-&amp;x &gt; 0, \quad \partial(\lambda|x|) + x -v = \lambda + x -v &gt; 0 \\
-&amp;x &gt; 0, \quad \partial(\lambda|x|) + x -v = -\lambda + x -v &lt; 0 \\
-&amp;so \quad prox_{\lambda f}(v) = 0
-\end{aligned}
-\]</span></p>
-<ol start="2" type="1">
-<li><p>当 <span class="math inline">\(v &gt; \lambda\)</span>, 通过 <span class="math inline">\(0 \in \partial(\lambda|x|) + x -v\)</span>,可以得到： <span class="math display">\[
-\begin{aligned}
-&amp;x = 0, \quad \partial(\lambda|x|) + x -v &lt; 0 , \quad \\
-&amp;x &gt; 0, \quad \partial(\lambda|x|) + x -v = \lambda + x -v = 0 \\
-&amp;x &gt; 0, \quad \partial(\lambda|x|) + x -v = -\lambda + x -v &lt; 0 \\
-&amp;so \quad prox_{\lambda f}(v) =  v- \lambda
-\end{aligned}
-\]</span></p></li>
-<li><p>当 <span class="math inline">\(v &lt; -\lambda\)</span>, 通过 <span class="math inline">\(0 \in \partial(\lambda|x|) + x -v\)</span>,可以得到： <span class="math display">\[
-\begin{aligned}
-&amp;x = 0, \quad \partial(\lambda|x|) + x -v &gt; 0 , \quad \\
-&amp;x &gt; 0, \quad \partial(\lambda|x|) + x -v = \lambda + x -v &gt; 0 \\
-&amp;x &gt; 0, \quad \partial(\lambda|x|) + x -v = -\lambda + x -v = 0 \\
-&amp;so \quad prox_{\lambda f}(v) =  v+ \lambda
-\end{aligned}
-\]</span></p></li>
-<li><p>软阈值另一种等价形式 <span class="math display">\[
-prox_{\lambda f}(v) = sign(v) max\{|v| - \lambda, 0\}
-\]</span></p></li>
+<p>$$<br>prox_{\lambda f} =<br>\begin{cases}<br>v-\lambda \quad v &gt; \lambda  \<br>0 \quad \quad \quad |v| \le \lambda \<br>v + \lambda \quad v &lt; -\lambda<br>\end{cases}<br>$$</p>
+<ul>
+<li>证明：</li>
+</ul>
+<ol>
+<li><p>当 $v \in [-\lambda, \lambda]$, 通过 $0 \in \partial(\lambda|x|) + x -v$,可以得到：<br>$$<br>\begin{aligned}<br>&amp;x = 0, \quad \partial(\lambda|x|) + x -v = 0 , \quad \<br>&amp;x &gt; 0, \quad \partial(\lambda|x|) + x -v = \lambda + x -v &gt; 0 \<br>&amp;x &gt; 0, \quad \partial(\lambda|x|) + x -v = -\lambda + x -v &lt; 0 \<br>&amp;so \quad prox_{\lambda f}(v) = 0<br>\end{aligned}<br>$$</p>
+</li>
+<li><p> 当 $v &gt; \lambda$, 通过 $0 \in \partial(\lambda|x|) + x -v$,可以得到：<br>$$<br>\begin{aligned}<br>&amp;x = 0, \quad \partial(\lambda|x|) + x -v &lt; 0 , \quad \<br>&amp;x &gt; 0, \quad \partial(\lambda|x|) + x -v = \lambda + x -v = 0 \<br>&amp;x &gt; 0, \quad \partial(\lambda|x|) + x -v = -\lambda + x -v &lt; 0 \<br>&amp;so \quad prox_{\lambda f}(v) =  v- \lambda<br>\end{aligned}<br>$$</p>
+</li>
+<li><p> 当 $v  &lt; -\lambda$, 通过 $0 \in \partial(\lambda|x|) + x -v$,可以得到：<br>$$<br>\begin{aligned}<br>&amp;x = 0, \quad \partial(\lambda|x|) + x -v &gt; 0 , \quad \<br>&amp;x &gt; 0, \quad \partial(\lambda|x|) + x -v = \lambda + x -v &gt; 0 \<br>&amp;x &gt; 0, \quad \partial(\lambda|x|) + x -v = -\lambda + x -v = 0 \<br>&amp;so \quad prox_{\lambda f}(v) =  v+ \lambda<br>\end{aligned}<br>$$</p>
+</li>
+<li><p>软阈值另一种等价形式<br>$$<br>prox_{\lambda f}(v) = sign(v) max{|v| - \lambda, 0}<br>$$</p>
+</li>
 </ol>
 
             </div>
@@ -295,6 +271,12 @@ prox_{\lambda f}(v) = sign(v) max\{|v| - \lambda, 0\}
                 <div class="post-prevnext row">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/2021/04/01/linux/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">linux</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">
