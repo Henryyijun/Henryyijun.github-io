@@ -227,21 +227,18 @@
             <h1 style="display: none">linux</h1>
             
             <div class="markdown-body">
-              <h1 id="记录-ubuntu-常见错误等"><a href="#记录-ubuntu-常见错误等" class="headerlink" title="记录 ubuntu 常见错误等"></a>记录 <code>ubuntu</code> 常见错误等</h1><h3 id="1-ubuntu-输入-python-报不存在"><a href="#1-ubuntu-输入-python-报不存在" class="headerlink" title="1. ubuntu 输入 python 报不存在"></a>1. <code>ubuntu</code> 输入 <code>python</code> 报不存在</h3><p>错误截图如下所示：</p>
-<div align=center>
-<img src="https://i.loli.net/2021/04/01/JjC2B3q6pdvnWtV.png" srcset="/img/loading.gif" width="80%" alt=""/>
+              <h1 id="记录-ubuntu-常见错误等">记录 <code>ubuntu</code> 常见错误等</h1>
+<h3 id="ubuntu-输入-python-报不存在">1. <code>ubuntu</code> 输入 <code>python</code> 报不存在</h3>
+<p>错误截图如下所示：</p>
+<div data-align="center">
+<p><img src="https://i.loli.net/2021/04/01/JjC2B3q6pdvnWtV.png" srcset="/img/loading.gif" width="50%" alt=""/></p>
 </div>
-
-<p>但是输入 <code>python3</code> 却能正常工作，主要原因是系统自动将软链接命名为  <code>python3</code>。<br>在 <code>/bin</code> 文件目录下输入以下语句：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">ls -l | grep python3  <br></code></pre></td></tr></table></figure>
-<p>结果为：</p>
-<div align=center>
-<img src="https://i.loli.net/2021/04/01/SeGJVHz6CZ8UEvB.png" srcset="/img/loading.gif" width="80%" alt=""/>
+<p>但是输入 <code>python3</code> 却能正常工作，主要原因是系统自动将软链接命名为 <code>python3</code>。 在 <code>/bin</code> 文件目录下输入以下语句： <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">ls -l | grep python3  <br></code></pre></td></tr></table></figure> 结果为：</p>
+<div data-align="center">
+<p><img src="https://i.loli.net/2021/04/01/SeGJVHz6CZ8UEvB.png" srcset="/img/loading.gif" width="80%" alt=""/></p>
 </div>
-
 <p>此时我们可以将 <code>python3.8</code> 重新进行软连接，新的名字为 <code>python</code>, 具体操作为：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">ln -s python3.8 python<br></code></pre></td></tr></table></figure>
-
 <p>此时重新输入 <code>python</code> 就能正常工作了。</p>
 
             </div>
