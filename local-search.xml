@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>admm</title>
+    <link href="/2021/04/20/admm/"/>
+    <url>/2021/04/20/admm/</url>
+    
+    <content type="html"><![CDATA[<h1 id="admm">Admm</h1><ol type="1"><li>增广拉格朗日 <code>Augmented Lagrangians</code>. 例如，我们可以将最小化问题 <span class="math inline">\(f(x) + g(x)\)</span> 写成： <span class="math display">\[\begin{aligned} minimize&amp; \quad f(x) + g(z) \\ s.t . &amp; \quad x - z = 0\end{aligned}\]</span> 该约束优化问题的增广拉格朗日写为：</li></ol><p><span class="math display">\[L_\rho (x, z, y) = f(x) + g(z) + y^T(x-z)+\frac{\rho}{2}\Vert x-z\Vert_2^2\]</span> 其中 <span class="math inline">\(\rho &gt; 0\)</span>, <span class="math inline">\(y\)</span> 是对偶变量。此时的 <code>ADMM</code> 求解形式为：</p><p><span class="math display">\[\begin{aligned}    &amp;x_{k+1} = argmin_x  L_\rho(x, z^k, y^k) \\    &amp;z_{k+1} = argmin_z  L_\rho(x^{k+1}, z, y^k) \\    &amp;y_{k+1} = y^k+\rho(x^{k+1}-z^{k+1})\end{aligned}\]</span></p><ol start="2" type="1"><li><code>ADMM</code> 的 <code>proximal version</code> <span class="math display">\[\begin{aligned} x^{k+1} &amp;= argmin_x  L_\rho(x, z^k, y^k) \\         &amp;= argmin_x f(x) +g(z^k)+(y^k)^T(x-z^k)+\frac{\rho}{2}\Vert x-z^k\Vert_2^2 \\         &amp;= argmin_x f(x) +(y^k)^Tx+\frac{\rho}{2}\Vert x-z^k\Vert_2^2 \\         &amp;= argmin_x f(x) + \frac{\rho}{2}\Vert x-z^k+(1/ \rho)y^k\Vert_2^2 + (y^k)^Tz^k - \frac{1}{2\rho}\Vert y^k \Vert_2^2 \\         &amp;= argmin_x f(x) + \frac{\rho}{2}\Vert x-z^k+(1/ \rho)y^k\Vert_2^2\\         &amp;= prox_{\lambda f}(z^k - u^k)\end{aligned}\]</span> $$ \begin{aligned} z^{k+1} &amp;= argmin_x L_(x^k, z, y^k) \ &amp;= argmin_x f(x^k) +g(z)+(y<sup>k)</sup>T(x<sup>k-z)+x</sup>k-z_2^2 \ &amp;= argmin_x g(z) +(y<sup>k)</sup>Tz+x^k-z_2^2 \ &amp;= argmin_x g(z) + x^{k+1}-z+(1/ )y^k_2^2 + (y<sup>k)</sup>Tx^{k+1} - y^k _2^2 \ &amp;= argmin_x g(z) + x^{k+1}-z+(1/ )y<sup>k<em>2^2\ &amp;= prox</em>{g}(x</sup>{k+1} + u^k) \end{aligned}</li></ol><p>$$</p><p>其中 <span class="math inline">\(u^k = (1/ \rho)y^k, \lambda=1/ \rho\)</span>,因此： <span class="math display">\[\begin{aligned}    &amp;x^{k+1} = prox_{\lambda f}(z^k - u^k)\\    &amp;z^{k+1} = prox_{\lambda g}(x^{k+1} + u^k)\\    &amp;u^{k+1} = u^k+x^{k+1}-z^{k+1}\end{aligned}\]</span></p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>math</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>linux</title>
     <link href="/2021/04/01/linux/"/>
     <url>/2021/04/01/linux/</url>
