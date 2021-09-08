@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      119 字
+      353 字
     </span>
   
 
@@ -194,7 +194,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1
+      4
        分钟
     </span>
   
@@ -227,19 +227,27 @@
             <h1 style="display: none">linux</h1>
             
             <div class="markdown-body">
-              <h1 id="记录-ubuntu-常见错误等">记录 <code>ubuntu</code> 常见错误等</h1>
+              <h1 id="记录-ubuntu-常见错误和操作等">记录 <code>ubuntu</code> 常见错误和操作等</h1>
 <h3 id="ubuntu-输入-python-报不存在">1. <code>ubuntu</code> 输入 <code>python</code> 报不存在</h3>
 <p>错误截图如下所示：</p>
 <div data-align="center">
-<p><img src="https://i.loli.net/2021/04/01/JjC2B3q6pdvnWtV.png" srcset="/img/loading.gif" width="50%" alt=""/></p>
+<p><img src="https://i.loli.net/2021/04/01/JjC2B3q6pdvnWtV.png" srcset="/img/loading.gif" width="50%" alt></p>
 </div>
 <p>但是输入 <code>python3</code> 却能正常工作，主要原因是系统自动将软链接命名为 <code>python3</code>。 在 <code>/bin</code> 文件目录下输入以下语句： <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">ls -l | grep python3  <br></code></pre></td></tr></table></figure> 结果为：</p>
 <div data-align="center">
-<p><img src="https://i.loli.net/2021/04/01/SeGJVHz6CZ8UEvB.png" srcset="/img/loading.gif" width="80%" alt=""/></p>
+<p><img src="https://i.loli.net/2021/04/01/SeGJVHz6CZ8UEvB.png" srcset="/img/loading.gif" width="80%" alt></p>
 </div>
 <p>此时我们可以将 <code>python3.8</code> 重新进行软连接，新的名字为 <code>python</code>, 具体操作为：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">ln -s python3.8 python<br></code></pre></td></tr></table></figure>
 <p>此时重新输入 <code>python</code> 就能正常工作了。</p>
+<h3 id="chmod-的用法">2. <code>chmod</code> 的用法</h3>
+<ul>
+<li>字母法:<code>chmod (u g o a) (+ - =) (r w x) [文件名]</code>, <code>u</code>表示文件的所有者，<code>g</code>表示与文件的所有者属于同一组，即用户组，<code>o</code>表示其他组，<code>a</code>表示所有，即三者皆是。</li>
+<li><code>+</code>表示增加权限，<code>-</code>表示撤销权限，<code>=</code>表示设定权限，<code>r, w, x</code>分别表示可读，可写，可执行。</li>
+<li>例如对一个文件添加可执行权限，可以为<code>sudo chmod u+x filename</code>.</li>
+<li>数字法，用法为<code>chmod 数字组合 filename</code>，数字组合由三个数字组成，第一个数字代表<code>u</code>，第二个数字代表<code>g</code>，第三个数字代表<code>o</code>。<code>rwx</code>权限使用三位二进制数字进行表示，例如<code>100,010,001</code>分别<code>r,w,x</code>，换算成十进制分别是4，2，1。</li>
+<li>例如使用数字法：<code>chmod 777 filename</code>，表示<code>u，g,o</code>三种用户对该文件可读可写可执行。</li>
+</ul>
 
             </div>
             <hr>

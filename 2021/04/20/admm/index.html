@@ -256,8 +256,9 @@ L_\rho (x, z, y) = f(x) + g(z) + y^T(x-z)+\frac{\rho}{2}\Vert x-z\Vert_2^2
          &amp;= argmin_x f(x) + \frac{\rho}{2}\Vert x-z^k+(1/ \rho)y^k\Vert_2^2\\
          &amp;= prox_{\lambda f}(z^k - u^k)
 \end{aligned}
-\]</span> $$ \begin{aligned} z^{k+1} &amp;= argmin_x L_(x^k, z, y^k) \ &amp;= argmin_x f(x^k) +g(z)+(y<sup>k)</sup>T(x<sup>k-z)+x</sup>k-z_2^2 \ &amp;= argmin_x g(z) +(y<sup>k)</sup>Tz+x^k-z_2^2 \ &amp;= argmin_x g(z) + x^{k+1}-z+(1/ )y^k_2^2 + (y<sup>k)</sup>Tx^{k+1} - y^k _2^2 \ &amp;= argmin_x g(z) + x^{k+1}-z+(1/ )y<sup>k<em>2^2\ &amp;= prox</em>{g}(x</sup>{k+1} + u^k) \end{aligned}</li>
+\]</span></li>
 </ol>
+<p>$$ \begin{aligned} z^{k+1} &amp;= argmin_x L_(x^k, z, y^k) \ &amp;= argmin_x f(x^k) +g(z)+(y<sup>k)</sup>T(x<sup>k-z)+x</sup>k-z_2^2 \ &amp;= argmin_x g(z) +(y<sup>k)</sup>Tz+x^k-z_2^2 \ &amp;= argmin_x g(z) + x^{k+1}-z+(1/ )y^k_2^2 + (y<sup>k)</sup>Tx^{k+1} - y^k _2^2 \ &amp;= argmin_x g(z) + x^{k+1}-z+(1/ )y<sup>k<em>2^2\ &amp;= prox</em>{g}(x</sup>{k+1} + u^k) \end{aligned}</p>
 <p>$$</p>
 <p>其中 <span class="math inline">\(u^k = (1/ \rho)y^k, \lambda=1/ \rho\)</span>,因此： <span class="math display">\[
 \begin{aligned}
@@ -288,6 +289,12 @@ L_\rho (x, z, y) = f(x) + g(z) + y^T(x-z)+\frac{\rho}{2}\Vert x-z\Vert_2^2
                 <div class="post-prevnext row">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/2021/04/22/tightFrameRes/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">tightFrameRes</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">

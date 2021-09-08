@@ -17,9 +17,25 @@
   <meta name="description" content="">
   <meta name="author" content="Henry">
   <meta name="keywords" content="">
-  <title>HAHA</title>
+  <title>tightFrameRes - HAHA</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
 
 
 
@@ -47,7 +63,7 @@
 
 
 <body>
-  <header style="height: 100vh;">
+  <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -141,22 +157,55 @@
 </nav>
 
     <div class="banner intro-2" id="background" parallax=true
-         style="background: url('/img/banner.jpg') no-repeat center center;
+         style="background: url('/img/default.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="HA HA HA HA HA HA HA">
+            <span class="h2" id="subtitle" title="tightFrameRes">
               
             </span>
 
             
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-04-22 09:44" pubdate>
+        2021年4月22日 上午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      334 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      3
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
           </div>
 
-          
-            <div class="scroll-down-bar">
-              <i class="iconfont icon-arrowdown"></i>
-            </div>
           
         </div>
       </div>
@@ -165,266 +214,107 @@
 
   <main>
     
-      <div class="container nopadding-md">
-        <div class="py-5" id="board"
-          style=margin-top:0>
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
+      
 
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2020/12/01/centos/">centos</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2020/12/01/centos/">
-          
-          
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">tightFrameRes</h1>
             
-          
-          记录一下linux常用操作centos 8 上的换源 1 使用命令cd /etc/yum.repos.d, 进入源文件所在目录.
- 2 然后将之前的源文件备份一下，cp CentOS-Base.repo CentOS-Base.repo.back
- 3 再使用wget下载源文件，wget -O CentOS-Base.repo https://mirrors.aliyun.com/repo/Cen
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2020-12-01 16:46" pubdate>
-              2020-12-01
-            </time>
-          </div>
-        
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/linux/">linux</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2020/12/01/binarySearch/">binarySearch</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2020/12/01/binarySearch/">
-          
-          
-            
-          
-          二分查找1. 在有序数组nums中查找值为target的下标，查找失败返回-1
-12345678910111213141516int binarySearch(vector&lt;int&gt;&amp; nums, int target) &#123;    int left = 0;    int right = nums.size() - 1;    while (left &lt; rig
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2020-12-01 15:36" pubdate>
-              2020-12-01
-            </time>
-          </div>
-        
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/leetcode/">leetcode</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2020/11/29/fourSumCount/">fourSumCount</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2020/11/29/fourSumCount/">
-          
-          
-            
-          
-          四数之和给定四个包含整数的数组列表 A , B , C , D ,计算有多少个元组 (i, j, k, l) ，使得 A[i] + B[j] + C[k] + D[l] = 0。
-输入:
-A = [ 1, 2]
-B = [-2,-1]
-C = [-1, 2]
-D = [ 0, 2]
-
-输出:
-2
-
-解释:
-两个元组如下:
-1. (0, 0, 0, 1) -&gt; A[0] + B[0] + C[
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2020-11-29 16:34" pubdate>
-              2020-11-29
-            </time>
-          </div>
-        
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/leetcode/">leetcode</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2020/11/27/convex-opt/">convex-optimization</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2020/11/27/convex-opt/">
-          
-          
-            
-          
-          Chapter 2convex set2.1 Affine and convex set2.1.1 Lines and line segment2.1.2 Affine sets​    A set $C \in R^n$ is affine if the line through any two distinct points in C lies in C. We refer to a poin
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2020-11-27 16:19" pubdate>
-              2020-11-27
-            </time>
-          </div>
-        
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/math/">math</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2020/11/26/first/">最长字串</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2020/11/26/first/">
-          
-          
-            
-          
-          字符串
-给定一个字符串，请你找出其中不含有重复字符的 最长子串 的长度
-输入实例
-123输入: s = &quot;abcabcbb&quot;输出: 3 解释: 因为无重复字符的最长子串是 &quot;abc&quot;，所以其长度 3
-
-
-
-思路
-​    采用滑动窗口的思想，设置两个指针，一个指针i指向左边，一个指针rk 指向右边，此时最长的字符字串为s[i]s[i+1]…s[rk]
-，此时
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2020-11-26 16:44" pubdate>
-              2020-11-26
-            </time>
-          </div>
-        
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/leetcode/">leetcode</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-
-
-  <nav aria-label="navigation">
-    <span class="pagination" id="pagination">
-      <a class="extend prev" rel="prev" href="/page/3/"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
-    </span>
-  </nav>
-  
-  <script>
-    for (ele of document.getElementById("pagination").getElementsByTagName("a")) {
-      ele.href += '#board';
-    }
-  </script>
-
-
-
-              </div>
+            <div class="markdown-body">
+              <h1 id="基于三维紧框架的MRI图像重建-师兄毕设"><a href="#基于三维紧框架的MRI图像重建-师兄毕设" class="headerlink" title="基于三维紧框架的MRI图像重建(师兄毕设)"></a>基于三维紧框架的MRI图像重建(师兄毕设)</h1><h2 id="1-构造用于三维正则化的三维图像数据"><a href="#1-构造用于三维正则化的三维图像数据" class="headerlink" title="1.构造用于三维正则化的三维图像数据"></a>1.构造用于三维正则化的三维图像数据</h2><p>使用目标图像和线圈灵敏度估计出每个线圈缺失的k-空间数据，再结合已获得的准确k-空间数据，通过傅里叶逆变换得到线圈图像。计算出多幅二维图像数据后按照线圈顺序进行叠放，构造出三维图像数据，构造过程如下图1所示.</p>
+<p><img src="/2021/04/22/tightFrameRes/1.png" srcset="/img/loading.gif" alt="图1"><br>其中橙色和蓝色实线分别表示估计数据与采集到的数据，虚线表示缺失行，先通过目标图像u与灵敏度信息估计出缺失的k-空间数据，结合已获取的k-空间数据g，得到填充后的完整的k-空间数据，再通过傅里叶逆变换得到三维图像数据。$u$ 为目标图像，$g$ 为获取的下采样 $k$-空间数据, $Q_p$ 为采样矩阵，$Q_0=I-Q_p$ 表示非采样位置, $M$ 为傅里叶变换 $𝐹$ 和线圈灵敏度信息 $𝑆$ 的合并.</p>
+<h2 id="2-三维正则化-SENSE-重建模型"><a href="#2-三维正则化-SENSE-重建模型" class="headerlink" title="2. 三维正则化 SENSE 重建模型"></a>2. 三维正则化 <code>SENSE</code> 重建模型</h2><p>本文基于SENSE模型，提出三维正则化 <code>SENSE</code> 重建模型 <code>SENSE-3D</code>:</p>
+<script type="math/tex; mode=display">
+\hat{u}=argmin_u \{ \frac{1}{2} \Vert Q_pMu-g\Vert_2^2+\Vert \Gamma W_{3D}F^{-1}_P(Q_0Mu+g) \Vert_1 \}</script>
             </div>
-          </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/MRI%E9%87%8D%E5%BB%BA/">MRI重建</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/04/20/admm/">
+                        <span class="hidden-mobile">admm</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments">
+                
+                
+  <div class="disqus" style="width:100%">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+      var disqus_config = function() {
+        this.page.url = 'http://example.com/2021/04/22/tightFrameRes/';
+        this.page.identifier = '/2021/04/22/tightFrameRes/';
+      };
+      Fluid.utils.waitElementVisible('disqus_thread', function () {
+        var d = document, s = d.createElement('script');
+        s.src = '//' + 'fluid' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', new Date());
+        (d.head || d.body).appendChild(s);
+      });
+    </script>
+    <noscript>Please enable JavaScript to view the
+      <a target="_blank" href="https://disqus.com/?ref_noscript" rel="nofollow noopener noopener">comments powered by Disqus.</a>
+    </noscript>
+  </div>
+
+
+              </article>
+            
+          </article>
         </div>
       </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
     
 
     
@@ -531,9 +421,15 @@ D = [ 0, 2]
 
 
 
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
 
 
 
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
 
 
 
@@ -575,9 +471,55 @@ D = [ 0, 2]
 
 
 
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-svg.js" ></script>
+
+  
 
 
 
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/mermaid@8.8.3/dist/mermaid.min.js" ></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize({"theme":"default"});
+    }
+  </script>
 
 
 
