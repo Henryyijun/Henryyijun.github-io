@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      353 字
+      396 字
     </span>
   
 
@@ -247,6 +247,11 @@
 <li>例如对一个文件添加可执行权限，可以为<code>sudo chmod u+x filename</code>.</li>
 <li>数字法，用法为<code>chmod 数字组合 filename</code>，数字组合由三个数字组成，第一个数字代表<code>u</code>，第二个数字代表<code>g</code>，第三个数字代表<code>o</code>。<code>rwx</code>权限使用三位二进制数字进行表示，例如<code>100,010,001</code>分别<code>r,w,x</code>，换算成十进制分别是4，2，1。</li>
 <li>例如使用数字法：<code>chmod 777 filename</code>，表示<code>u，g,o</code>三种用户对该文件可读可写可执行。</li>
+</ul>
+<h3 id="linux压缩文件解压文件">3 Linux压缩文件，解压文件</h3>
+<ul>
+<li><p>zip文件 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">unzip filename.zip<br>unzip filename.zip -d diretory (把文件解压到指定的目录下)<br></code></pre></td></tr></table></figure></p></li>
+<li><p>tar解压 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">tar -xzvf filename.tar.gz<br>tar -xvf filename.tar<br></code></pre></td></tr></table></figure></p></li>
 </ul>
 
             </div>
